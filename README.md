@@ -1,6 +1,10 @@
 # VaporGrid
 
-Charcoal and crimson interface concepts for dense, compartmentalized software.
+Charcoal and crimson interfaces with subtle tactile controls for dense, compartmentalized software.
+
+![VaporGrid subtle skeuomorphic refinement: matte graphite compartments, shallow recessed fields, and restrained button relief. Illustrative ImageGen mockup.](assets/vaporgrid-skeuomorphic-refinement.png)
+
+Revision 3 adds opaque matte panels, fine bevels, inset fields, and slight button relief. The main table stays flat and readable. See [materials and states](docs/materials.md) and the [interactive reference](demo/README.md). Generated glyphs are illustrative; the runtime retains its eleven original SVG icons.
 
 [CC BY 4.0](LICENSE) · By [Sean Shaffer](https://github.com/SeanShaffer88)
 
@@ -36,7 +40,7 @@ These three ImageGen sheets establish direction; their invented text, marks, geo
 
 ## Concept gallery
 
-The six concepts below are historical fictional visual explorations. Where their density, contrast, symmetry, or effects differ from revision 2, follow the current guidelines and runtime reference.
+The six concepts below are historical fictional visual explorations. Where their density, contrast, symmetry, or effects differ from revision 3, follow the current guidelines and runtime reference.
 
 ### File utility
 
