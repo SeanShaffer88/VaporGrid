@@ -6,6 +6,14 @@ Charcoal and crimson interfaces with subtle tactile controls for dense, compartm
 
 Revision 3 adds opaque matte panels, fine bevels, inset fields, and slight button relief. The main table stays flat and readable. See [materials and states](docs/materials.md) and the [interactive reference](demo/README.md). Generated glyphs are illustrative; the runtime retains its eleven original SVG icons.
 
+## Responsive controls and Settings · revision 4
+
+![VaporGrid responsive settings and action layout. Illustrative ImageGen mockup showing a wide pinned drawer and a narrow modal.](assets/vaporgrid-responsive-settings.png)
+
+Revision 4 adds an adaptive action grid and right-side Settings with remembered sections. Separate controls use 8 CSS pixel gaps, with a 6px minimum, 12–16px between related groups, and 24px between sections. Wide Settings can be pinned beside the workspace. Below the safe width it becomes a modal while retaining the pin preference. Appearance applies immediately. Layout offers a staged Details width with Apply and Cancel, retaining the draft when closed.
+
+The image was shown before implementation. Its Display label, tile proportions, invented glyphs, and geometry are illustrative. The demo uses Appearance, Layout, and Shortcuts sections and only working actions. Start fills the first row, with Pause and Cancel sharing the next row when space permits and stacking otherwise. See [settings and spacing rules](docs/design-guidelines.md#responsive-controls-and-settings--revision-4), [demo behavior](demo/README.md), and [verification status](docs/verification.md#revision-4-verification).
+
 [CC BY 4.0](LICENSE) · By [Sean Shaffer](https://github.com/SeanShaffer88)
 
 ## Overview

@@ -42,3 +42,7 @@ These sheets are illustrative direction. Generated marks, text, icon-like geomet
 ## Revision 3 material refinement
 
 The coordinator generated, visually inspected, and showed [the subtle skeuomorphic mockup](../assets/vaporgrid-skeuomorphic-refinement.png) before CSS implementation. The [public prompt](image-prompt-v3.txt) requests opaque matte graphite panels, fine rims, shallow input wells, restrained control relief, and a flat content table. No glass, clay, same-color dual-shadow neumorphism, texture behind text, or heavy gloss is adopted. Raster glyphs are not replacement icons or exact runtime specifications. Implementation endpoints and state rules are recorded in [materials](materials.md).
+
+## Revision 4 responsive Settings
+
+The coordinator supplied [the responsive Settings sheet](../assets/vaporgrid-responsive-settings.png) as shown before code changes. Its [public prompt](image-prompt-v4.txt) requests a wide pinned drawer, narrow modal, responsive real action tiles, and at least six logical pixels between separate controls. The implementation uses Appearance, Layout, and Shortcuts, a staged width editor, full-width Start, and flexible Pause/Cancel tracks where they fit. Generated Display labels, tile sizes, glyphs, and geometry remain illustrative. Use [revision 4 guidance](design-guidelines.md#responsive-controls-and-settings--revision-4) for the behavior contract.

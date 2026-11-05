@@ -108,3 +108,38 @@ The in-app browser (engine version not exposed) rendered the local reference in 
 Static CSS review confirms explicit System-light values, independent edge preference, forced-colors flattening/system colors, and retained reduced-motion suppression; this does not establish their runtime behavior. Full geometry checks across every control/state and repeated pointer/keyboard divider testing remain extended regression work; divider logic and dimensions were unchanged.
 
 No forced-colors OS/emulation, live System preference change, reduced-motion emulation, 200% zoom, assistive-technology session, physical device, cross-browser, or performance measurement was performed by this implementer. Earlier revision-2 browser observations above remain historical evidence, not revision-3 certification. Parent runtime evidence and independent audit must complete before the change is reported as fully verified.
+
+## Revision 4 verification
+
+The coordinator supplied the pre-code Settings mockup as already shown. Implementation uses native HTML/CSS/JavaScript and Node v26.13.0, with no added dependencies. XERJ indexing was reported by the coordinator as blocked at its 95% disk guard with exit 1. Scoped source reads provided the fallback. Earlier runtime observations above remain historical.
+
+| Implementer command | Actual result |
+| --- | --- |
+| `node --test demo/state.test.mjs` before preference implementation | Exit 1. Existing two tests passed, both new migration/field tests failed as expected. |
+| `node --test demo/state.test.mjs` after implementation | Exit 0. All four tests passed. |
+| `node --check demo/app.js` | Exit 0. |
+| `git diff --check` | Exit 0. |
+| Inline Python static checker | Exit 0. Unique HTML IDs, valid ID references, HTML asset paths, local Markdown file links, and revision-4 tokens JSON. |
+
+The unit tests cover version-1 preference migration, section and pin validation, hostile input handling, and simulation transitions. Independent review passed the four Node tests, JavaScript syntax, diff whitespace, and static checks of HTML references, links, tokens, and PNG structure. These commands exited 0.
+
+### Coordinator browser observations
+
+- The simulation actions filled every occupied row with 8px gaps and the document fit at 320, 400, 768, 900, 901, 1024, 1440, 1639, 1640, and 1920 CSS pixels. The Settings section buttons filled both rows at 320px, including the row with a single button. In all three densities, the sampled action and section gaps were 8px and field groups were 16px apart.
+- At 1640px, pinning left 577px of primary workspace with Details at 420px. Unpinning opened a right-edge native modal. At 320px the drawer met the available right edge and suspended pinning. Widening restored the pinned column. Reload kept the last section and pin preference.
+- Escape returned focus to the Settings trigger and reopening preserved the width draft. Apply committed the width. Entering 421 showed the range error and focused the field. Cancel restored the committed value. Escape from the reset confirmation returned focus to Reset layout in Settings.
+- The simulation ran through Start, Pause, Resume, and Cancel. Focus returned to Start with Cancelled status. The browser reported zero console errors in the final pass.
+
+Browser observations provide no shell exit code. The extended checks below include 200% zoom, physical touch, assistive technology, and cross-browser scenarios that were not run in this pass.
+
+### Extended runtime checklist
+
+- At 320, 768, 900, 901, 1024, 1440, 1639, 1640, and 1920 CSS pixels, inspect document overflow and actual control edges. Repeat all densities, long labels, and 200% zoom. Check Start fills its row and Pause/Cancel fill the next row together or separately with 8px gaps. Confirm row heights grow without clipping.
+- Measure distinct grouped controls, including navigation, table selection, settings sections, Apply/Cancel, and reset confirmation. Require at least 6px, normally 8px. Check 16px related-group and 24px section spacing. Check 32/40/48px minimum heights and 44px narrow/coarse-pointer floor. Composite control internals use their native geometry.
+- At 1640px and above, open the right-edge modal Settings drawer, verify that Tab stays inside, then pin and check that workspace controls become reachable in the reserved-column layout. Unpin to return to the modal. Below 1640px, verify temporary pin suspension. Grow again and verify saved pin preference resumes. Close and Escape return focus to Settings.
+- Resize across 1640px with focus on Theme, a section button, the width field, and Pin. Verify the corresponding control retains focus or Close receives it when Pin becomes disabled. Confirm unique IDs, selected section, and values. Settings reopens on its last section and starts closed after reload.
+- Edit width without Apply. Close/reopen and change sections, verifying the dirty draft remains while workspace width stays committed. Resize via divider and reset with a dirty draft, verifying it survives and status reports the new committed width. Apply updates width and storage. Cancel restores the latest committed width. Clean drafts track divider/reset. Test empty, fractional, and out-of-range drafts, inline error association, and focus on the invalid field.
+- Test Settings → reset → Keep layout, Escape, and confirm. Reset must be the sole modal, return focus to Reset layout, preserve Appearance/section/pin, and retain any dirty width draft. Test narrow Details → Settings and Settings dismissal → Details, and resize an open Details dialog across 900px. Verify visible reachable focus and one modal at a time.
+- Repeat existing task selection, keyboard/pointer divider limits and cancellation, collapse/restore, simulation Pause/Resume/Cancel/completion/restart, form validation, and local recovery examples. Verify Shortcuts describes only working keys in their actual focus context.
+- Reload old and new preferences, corrupt new field types, deny storage, and inspect session-only feedback. Verify only allowlisted preferences persist and width drafts do not. Inspect console and requests for exceptions or external traffic.
+- Recheck Light/Dark/System, forced colors, reduced motion, and visible focus. Screen readers, physical devices, cross-browser behavior, Lighthouse/Core Web Vitals, and real touch targets require separate evidence.

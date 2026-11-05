@@ -25,7 +25,7 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 
 ## Persistence and boundaries
 
-The `vaporgrid.display.v1` localStorage entry contains only versioned theme, density, effects, inspector width, and collapse preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Malformed, denied, or unavailable storage falls back to defaults: System, Comfortable, effects off, 300 pixels, expanded. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
+The `vaporgrid.display.v1` localStorage entry contains versioned theme, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain Appearance and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
 
 The same inspector DOM moves into a native modal dialog below 901 CSS pixels. Native modal behavior provides focus containment and Escape; the script restores focus to the opening control. No service worker, PWA registration, automatic synchronization, or startup job exists.
 
@@ -41,3 +41,13 @@ Node's standard test runner covers hostile preference data and lifecycle invaria
 ## Revision 3 materials
 
 Opaque matte compartments use fine rim highlights; fields are shallowly inset, and buttons have slight default relief, solid hover, and inset pressed states without movement. Disabled buttons are flat with dashed boundaries. The task table and its selection controls stay flat. Light and System-light define their own material values. The Decorative edge checkbox still controls only the masthead accent. See [materials](../docs/materials.md) and [verification](../docs/verification.md); styling is not accessibility certification.
+
+## Revision 4 Settings and action layout
+
+Open Settings from navigation. The right-edge drawer contains focus while it is modal. At 1640 CSS pixels and above, Pin reserves a nonmodal column and Unpin returns to the modal drawer. A saved pin preference resumes when enough space returns. Close and Escape retain the selected section and width draft. Opening focuses Close. Dismissal returns focus to Settings. Breakpoint relocation preserves focus, with Close as fallback for a newly disabled Pin control.
+
+Appearance changes immediately. In Layout, edit Details width and choose Apply to commit or Cancel changes to restore the current workspace width. The draft survives section changes and closing for this visit. Reload discards it. Clean drafts track divider changes and confirmed resets. Dirty drafts survive both, and the status identifies the current committed width. Reset confirms width/collapse restoration and returns focus to its Settings control. Only one modal is active at a time. Shortcuts lists the actual native controls and focused divider bindings.
+
+Start simulation, Pause/Resume, and Cancel use an auto-fit Grid, stretching to fill every occupied row in source order. No filler actions are added. Distinct grouped controls retain 8px spacing with a 6px minimum. Related groups use 16px and sections use 24px. Checkbox labels and button icons are parts of composite controls. Target heights remain 32/40/48px, with at least 44px on narrow or coarse-pointer layouts. The [revision 4 rules](../docs/design-guidelines.md#responsive-controls-and-settings--revision-4) explain the same-window extensive-settings pattern and staged transactions.
+
+Preference migration and new field validation have standard-library unit tests. Browser geometry, modal transitions, draft interactions, storage denial, and focus behavior await the coordinator's runtime pass. See [revision 4 verification](../docs/verification.md#revision-4-verification).
