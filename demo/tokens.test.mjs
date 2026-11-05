@@ -125,6 +125,6 @@ test('state fills and indicators that mean different things stay distinguishable
     requireRatio('selected', 'raised', distinctFillMinimum);
     // Content and focus remain legible on the selected fill.
     for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) requireRatio(text, 'selected', 4.5);
-    for (const indicator of ['focus', 'border']) requireRatio(indicator, 'selected', 3);
+    for (const indicator of ['accent', 'focus', 'border']) requireRatio(indicator, 'selected', 3);
   }
 });

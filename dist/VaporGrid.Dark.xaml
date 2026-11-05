@@ -18,8 +18,8 @@
   <SolidColorBrush x:Key="VgMutedBrush" Color="#B7B7C1" />
   <Color x:Key="VgBorderColor">#92929C</Color>
   <SolidColorBrush x:Key="VgBorderBrush" Color="#92929C" />
-  <Color x:Key="VgAccentColor">#D61F45</Color>
-  <SolidColorBrush x:Key="VgAccentBrush" Color="#D61F45" />
+  <Color x:Key="VgAccentColor">#DC2749</Color>
+  <SolidColorBrush x:Key="VgAccentBrush" Color="#DC2749" />
   <Color x:Key="VgFocusColor">#FF4D73</Color>
   <SolidColorBrush x:Key="VgFocusBrush" Color="#FF4D73" />
   <Color x:Key="VgActionColor">#383840</Color>

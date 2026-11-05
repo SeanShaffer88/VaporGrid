@@ -13,7 +13,7 @@
         <Color x:Key="VgForegroundColor">#F1F1F3</Color>
         <Color x:Key="VgMutedColor">#B7B7C1</Color>
         <Color x:Key="VgBorderColor">#92929C</Color>
-        <Color x:Key="VgAccentColor">#D61F45</Color>
+        <Color x:Key="VgAccentColor">#DC2749</Color>
         <Color x:Key="VgFocusColor">#FF4D73</Color>
         <Color x:Key="VgActionColor">#383840</Color>
         <Color x:Key="VgActionHoverColor">#41414A</Color>
