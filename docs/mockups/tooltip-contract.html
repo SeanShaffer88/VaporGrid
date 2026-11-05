@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaporGrid Tooltip Contract</title>
+<style>
+:root{--bg:#1F1F21;--surface:#202123;--raised:#222225;--selected:#28292B;--fg:#F1F1F3;--muted:#B7B7C1;--border:#92929C;--accent:#DC2749;--focus:#FF4D73;--action:#383840;--rim:#404047;--danger:#FFB1A8;--success:#8FD4AD;--warning:#F2CD82;--info:#9FC9FF;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 "Segoe UI",system-ui,sans-serif;padding:24px}
+h1{font-size:24px;margin:0 0 4px;font-weight:600}h2{font-size:18px;margin:0 0 12px;font-weight:600}.sub{color:var(--muted);margin:0 0 24px;max-width:72ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:6px;box-shadow:inset 0 1px var(--rim),0 2px 3px #0003;padding:16px;position:relative}
+.label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.verdict{font-size:13px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid}
+.ok{color:var(--success);border-color:var(--success)}.no{color:var(--danger);border-color:var(--danger)}
+.stage{position:relative;background:var(--bg);border:1px solid var(--rim);border-radius:4px;padding:12px;min-height:150px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{min-height:40px;padding:0 14px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px}
+.btn.primary{background:var(--action);font-weight:600}.btn.icon{width:40px;justify-content:center;padding:0}
+.btn.anchor{outline:3px solid var(--focus);outline-offset:3px}
+.field{height:40px;border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:0 10px;display:flex;align-items:center;color:var(--muted);font-size:14px;margin-top:12px}
+.tip{position:absolute;max-width:320px;background:var(--raised);color:var(--fg);border:1px solid var(--border);border-radius:4px;box-shadow:inset 0 1px var(--rim),0 2px 3px #0003;padding:6px 10px;font-size:13px;line-height:1.4;z-index:2}
+.tip kbd{font:12px "Cascadia Mono",Consolas,monospace;border:1px solid var(--rim);border-radius:3px;padding:0 4px;color:var(--muted)}
+.tip.bad{border-color:var(--danger)}
+.leader{position:absolute;width:2px;background:var(--border)}
+.covered{position:absolute;border:2px dashed var(--danger);border-radius:4px;pointer-events:none}
+.status{margin-top:12px;border-top:1px solid var(--border);padding-top:8px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px}
+.status .k{color:var(--muted)}
+.lane{border:1px solid var(--focus);border-radius:4px;padding:4px 8px;background:var(--raised)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th{color:var(--muted);text-align:left;font-weight:500;font-size:13px}
+.tbl th,.tbl td{border-bottom:1px solid var(--rim);padding:6px}.tbl tr.sel{background:var(--selected)}.tbl tr.sel td:first-child{box-shadow:inset 3px 0 var(--accent)}
+.chip{font-size:12px;border:1px solid var(--border);border-radius:999px;padding:0 8px}
+ol,ul{margin:0;padding-left:20px}li{margin:4px 0}.muted{color:var(--muted)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:16px}
+.rules h3{font-size:14px;font-weight:600;margin:0 0 6px}.rules p,.rules li{font-size:14px}
+code{font:13px "Cascadia Mono",Consolas,monospace;color:var(--info)}
+</style>
+</head>
+<body>
+<h1>Tooltip contract · proposal for VaporGrid 5.1.0</h1>
+<p class="sub">Mockup for review before implementation. Every element that can be acted on or needs explaining gets a tooltip. A tooltip never covers text, controls, fields or focus rings. When there is no free space next to the anchor, the tooltip docks into the status bar's hint lane instead of floating over content.</p>
+
+<div class="grid">
+  <!-- A: allowed placement in free space -->
+  <section class="panel">
+    <div class="label">A · Placement in free space <span class="verdict ok">Allowed</span></div>
+    <div class="stage" style="min-height:170px">
+      <div class="row">
+        <button class="btn primary">Start simulation</button>
+        <button class="btn anchor" aria-label="Pause">⏸ Pause</button>
+        <button class="btn">Cancel</button>
+      </div>
+      <div class="leader" style="left:205px;top:58px;height:10px"></div>
+      <div class="tip" style="left:150px;top:68px">Pause the running job. Progress is kept. <kbd>Ctrl</kbd>+<kbd>P</kbd></div>
+      <div class="field" style="margin-top:56px">Workspace name</div>
+    </div>
+    <p class="muted" style="font-size:14px;margin:8px 0 0">It sits in the 8px+ gutter below the anchor, with a short leader. It touches no other control, label or field.</p>
+  </section>
+
+  <!-- B: forbidden overlap -->
+  <section class="panel">
+    <div class="label">B · Covering neighbors <span class="verdict no">Forbidden</span></div>
+    <div class="stage" style="min-height:170px">
+      <div class="row">
+        <button class="btn primary">Start simulation</button>
+        <button class="btn anchor">⏸ Pause</button>
+        <button class="btn">Cancel</button>
+      </div>
+      <div class="tip bad" style="left:95px;top:34px">Pause the running job. Progress is kept.</div>
+      <div class="covered" style="left:10px;top:10px;width:160px;height:44px"></div>
+      <div class="covered" style="left:268px;top:10px;width:80px;height:44px"></div>
+      <div class="field">Workspace name</div>
+    </div>
+    <p class="muted" style="font-size:14px;margin:8px 0 0">Covers "Start simulation" and "Cancel" text (dashed). The native <code>title</code> attribute does this too and cannot be controlled, so it is banned.</p>
+  </section>
+
+  <!-- C: dense area fallback to hint lane -->
+  <section class="panel">
+    <div class="label">C · No free space → status hint lane <span class="verdict ok">Allowed</span></div>
+    <div class="stage" style="padding:8px">
+      <table class="tbl">
+        <thead><tr><th>Task</th><th>Owner</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr class="sel"><td><span style="outline:3px solid var(--focus);outline-offset:3px">Review prototype</span></td><td>Avery</td><td><span class="chip">In review</span></td></tr>
+          <tr><td>Validate assets</td><td>Morgan</td><td><span class="chip">Needs check</span></td></tr>
+          <tr><td>Prepare handoff</td><td>Jules</td><td><span class="chip">Ready</span></td></tr>
+        </tbody>
+      </table>
+      <div class="status">
+        <span class="k">Hint</span><span class="lane">Review prototype: open details in the inspector. <kbd>Enter</kbd> selects, <kbd>Ctrl</kbd>+<kbd>K</kbd> commands</span>
+        <span class="k">Status</span><span>Ready · 3 tasks</span>
+      </div>
+    </div>
+    <p class="muted" style="font-size:14px;margin:8px 0 0">Dense rows leave no gap that avoids text. The tooltip text appears in the reserved hint lane, which takes no space from content. The anchor keeps its focus ring.</p>
+  </section>
+
+  <!-- D: icon-only + disabled -->
+  <section class="panel">
+    <div class="label">D · Icon-only and disabled controls <span class="verdict ok">Allowed</span></div>
+    <div class="stage" style="min-height:150px">
+      <div class="row" style="justify-content:flex-end">
+        <button class="btn icon" aria-label="Collapse details">⇥</button>
+        <button class="btn" style="border-style:dashed;color:var(--muted)">Apply</button>
+        <button class="btn icon anchor" aria-label="Settings">⚙</button>
+      </div>
+      <div class="leader" style="right:31px;top:58px;height:10px"></div>
+      <div class="tip" style="right:12px;top:68px">Settings · Appearance, Layout, Shortcuts</div>
+      <div class="tip" style="right:120px;top:104px">Apply is unavailable: the layout draft has no changes.</div>
+    </div>
+    <p class="muted" style="font-size:14px;margin:8px 0 0">Icon-only buttons name themselves. Disabled controls explain why they are disabled, and keep a tooltip while disabled. Near a window edge, the tooltip flips inward instead of clipping.</p>
+  </section>
+</div>
+
+<div class="rules">
+  <section class="panel">
+    <h3>Coverage: tooltips are required on</h3>
+    <ul>
+      <li>Every interactive control: buttons, links, fields, selects, checkboxes, tabs, menu items, dividers and resize handles</li>
+      <li>Icon-only controls, status chips and badges, column headers, and progress bars (current value and phase)</li>
+      <li>Truncated text, showing the full value</li>
+      <li>Disabled controls, explaining why they are disabled</li>
+      <li>Not required on plain body text and headings that are fully visible</li>
+    </ul>
+  </section>
+  <section class="panel">
+    <h3>Placement: never covers content</h3>
+    <ol>
+      <li>Try below, above, end, then start of the anchor, with an 8px gap</li>
+      <li>Reject any spot that intersects text, a control, a field, a focus ring, or the anchor itself, or that leaves the window</li>
+      <li>If no spot fits, show the text in the status bar hint lane</li>
+      <li>Max 320px wide, wrapping text; never clipped or scrolled</li>
+    </ol>
+  </section>
+  <section class="panel">
+    <h3>Behavior</h3>
+    <ul>
+      <li>Shows on hover after 500 ms; on keyboard focus right away; on touch, long-press 500 ms</li>
+      <li>Hoverable, so the pointer can move onto it; stays while the anchor is hovered or focused; <kbd>Esc</kbd> dismisses</li>
+      <li>Linked with <code>aria-describedby</code>; native <code>title</code> banned</li>
+      <li>Content: one sentence, plus the shortcut if one exists; no essential info that exists only in the tooltip</li>
+      <li>Style: Raised fill, border, rim; 13px text; no arrow tip overlapping content; reduced motion → no fade</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
