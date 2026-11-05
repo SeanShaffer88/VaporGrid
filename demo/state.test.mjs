@@ -29,3 +29,23 @@ test('pause freezes progress; resume, completion, cancellation and restart are b
   assert.deepEqual(transition(state, 'tick'), state);
   assert.deepEqual(transition(state, 'pause'), state);
 });
+
+test('legacy preferences retain display choices and gain settings defaults', () => {
+  const legacy = {version:1, theme:'dark', density:'compact', effects:true, width:360, collapsed:true};
+  assert.deepEqual(readPreferences(JSON.stringify(legacy)), {
+    ...legacy, settingsSection:'appearance', settingsPinned:false
+  });
+});
+
+test('settings navigation fields accept only known sections and boolean pinning', () => {
+  for (const settingsSection of ['appearance', 'layout', 'shortcuts']) {
+    const prefs = readPreferences(JSON.stringify({version:1, settingsSection, settingsPinned:true}));
+    assert.equal(prefs.settingsSection, settingsSection);
+    assert.equal(prefs.settingsPinned, true);
+  }
+  for (const value of [null, [], {}, 1, 'unknown']) {
+    const prefs = readPreferences(JSON.stringify({version:1, settingsSection:value, settingsPinned:value}));
+    assert.equal(prefs.settingsSection, 'appearance');
+    assert.equal(prefs.settingsPinned, false);
+  }
+});

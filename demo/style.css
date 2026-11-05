@@ -17,3 +17,69 @@ dialog { box-shadow:inset 0 1px var(--material-rim),var(--material-shadow); colo
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; animation:none !important; } button:active:not(:disabled) { transform:none; } }
 @media(max-width:540px) { table { table-layout:fixed; } td:first-child,th:first-child { width:62%; } .task-select { width:100%; overflow-wrap:anywhere; } .status { overflow-wrap:anywhere; } }
 @media(forced-colors:active) { .panel,button,input,select,dialog,.status { border-color:CanvasText; background-image:none; box-shadow:none; } .panel,dialog { background:Canvas; color:CanvasText; } button,button:hover:not(:disabled),button:active:not(:disabled),.primary:hover:not(:disabled),.primary:active:not(:disabled) { background:ButtonFace; color:ButtonText; box-shadow:none; border-color:ButtonText; } button:disabled,.primary:disabled { background:ButtonFace; color:GrayText; border-color:GrayText; box-shadow:none; } input,select { background:Canvas; color:CanvasText; } .task-select,.task-select:hover:not(:disabled),.task-select:active:not(:disabled) { background:transparent; border-color:transparent; } :focus-visible { outline-color:Highlight; } .primary { background:ButtonFace; color:ButtonText; border:2px solid ButtonText; } tr.selected td:first-child { border-left:3px solid Highlight; box-shadow:none; } .task-select[aria-pressed=true] { text-decoration-color:Highlight; } #resize::after { background:CanvasText; } .masthead { box-shadow:none !important; } }
+
+/* Revision 4. Distinct controls retain spacing independently of density. */
+:root { --control-gap:8px; --group-gap:16px; --section-gap:24px; }
+button { white-space:normal; overflow-wrap:anywhere; min-width:0; }
+.navigation>button { display:flex; width:100%; justify-content:flex-start; gap:.75rem; padding:.75rem; margin-bottom:8px; min-height:max(var(--control),44px); text-align:left; }
+.navigation>a { margin-bottom:8px; }
+.page-heading { margin-bottom:var(--section-gap); }
+.primary-work { gap:var(--section-gap); }
+.control-row,.button-row { gap:var(--control-gap); }
+.action-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,max(9rem,calc((100% - 8px)/2))),1fr)); gap:var(--control-gap); align-items:stretch; }
+/* At most two tracks keep the Pause/Cancel row full. Start owns its whole row. */
+.action-grid>#start { grid-column:1/-1; }
+.action-grid>button { width:100%; }
+.action-grid>button>span { min-width:0; overflow-wrap:anywhere; }
+.work-area { grid-template-columns:minmax(0,1fr) 28px var(--inspector-width); }
+#resize::after { left:13px; }
+.work-area.collapsed { grid-template-columns:minmax(0,1fr); }
+#name-form { display:grid; gap:8px; }
+#name-form p { margin:0; }
+#name-form button { justify-self:start; }
+footer { column-gap:16px; row-gap:8px; }
+
+#settings-slot { max-height:calc(100dvh - 32px); overflow:auto; }
+.settings { margin:0; }
+.settings .section-heading { gap:16px; }
+.settings .section-heading h2 { flex:1; }
+.settings .button-row { align-items:stretch; }
+.settings-sections { display:flex; flex-wrap:wrap; gap:var(--control-gap); margin-block:16px 24px; }
+.settings-sections>button { flex:1 1 7rem; }
+.settings-sections [aria-current=page] { border-bottom:3px solid var(--accent); font-weight:600; }
+.settings-fields { display:grid; gap:16px; }
+.settings .check-label { gap:8px; padding-block:4px; }
+.settings input[type=checkbox] { flex:none; margin:0; }
+#width-form { display:grid; gap:8px; }
+#width-form p { margin:0; }
+#width-form .button-row { margin-top:8px; }
+.settings-reset { margin-top:24px; padding-top:24px; border-top:1px solid var(--border); }
+.settings #storage-status { margin:24px 0 0; overflow-wrap:anywhere; }
+.shortcuts { grid-template-columns:1fr; gap:8px; }
+.shortcuts dd { margin-bottom:8px; }
+#settings-dialog { position:fixed; inset-block:0; inset-inline:auto 0; margin:0; padding:0; width:min(30rem,100%); height:100dvh; max-width:100%; max-height:100dvh; border-radius:0; }
+#settings-modal-slot { display:grid; min-height:100%; }
+#settings-dialog .settings { border:0; }
+@media(prefers-reduced-motion:no-preference) {
+  #settings-dialog[open] { animation:settings-enter 150ms ease-out; }
+}
+@keyframes settings-enter {
+  from { transform:translateX(12px); }
+  to { transform:translateX(0); }
+}
+@media(min-width:1640px) {
+  .app-shell.settings-pinned { grid-template-columns:12rem minmax(0,1fr) 360px; }
+  .settings-pinned #settings-slot { position:sticky; top:16px; width:auto; align-self:start; margin-block:24px; margin-right:16px; }
+}
+@media(max-width:1100px) {
+  .navigation { gap:8px; }
+  .navigation>a,.navigation>button { width:auto; margin:0; }
+}
+@media(max-width:900px) { .work-area { display:block; } }
+@media(max-width:900px), (pointer:coarse) {
+  button,select,input:not([type=checkbox]),.task-select { min-height:max(var(--control),44px); }
+}
+@media(max-width:540px) {
+  .navigation { gap:8px; }
+  .navigation>button { padding:.6rem; font-size:.875rem; }
+}

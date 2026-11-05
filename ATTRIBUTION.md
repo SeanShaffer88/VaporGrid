@@ -44,3 +44,7 @@ The original vectors take broad aesthetic inspiration from the clean hardware mi
 ## Revision 3 addition
 
 [vaporgrid-skeuomorphic-refinement.png](assets/vaporgrid-skeuomorphic-refinement.png) is an ImageGen fictional material-refinement mockup directed by Sean Shaffer. The coordinator visually inspected and showed it before implementation. Its text, glyphs, and geometry are illustrative; the canonical SVGs are unchanged. The [public prompt](docs/image-prompt-v3.txt) records the requested direction.
+
+## Revision 4 addition
+
+[vaporgrid-responsive-settings.png](assets/vaporgrid-responsive-settings.png) is an ImageGen fictional responsive-settings and action-layout sheet directed by Sean Shaffer. The coordinator supplied it as shown before implementation. The [public prompt](docs/image-prompt-v4.txt) preserves the direction. Display labels, proportions, generated glyphs, and layout details are illustrative. The demo's actual Settings sections, full-width Start, and flexible secondary action tracks are documented in the [README](README.md#responsive-controls-and-settings--revision-4).
