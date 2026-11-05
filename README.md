@@ -14,8 +14,6 @@ VaporGrid is a collection of static interface concepts and practical design guid
 
 This repository contains documentation and images, not working applications or a component library. The six showcase images are AI-generated fictional mockups. Their controls, charts, text, and status messages illustrate design direction; they do not demonstrate software functionality, accessibility certification, or third-party affiliation.
 
-The hero uses a user-provided Synapse reference authorized for this repository. AI processing isolates the interface and removes the surrounding desktop and taskbar; the result is not a pixel-identical crop. See [image provenance](ATTRIBUTION.md).
-
 ## Design principles
 
 - **Keep work visible.** Use dense, balanced layouts with narrow gutters and clear alignment. Use symmetry where the task supports it.
