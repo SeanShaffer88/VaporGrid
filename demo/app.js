@@ -1,4 +1,5 @@
 import { defaults, readPreferences, constrainWidth, transition } from './state.mjs';
+import { installCommandPalette } from './palette.mjs';
 const $ = id => document.getElementById(id);
 const storageKey = 'vaporgrid.display.v1';
 let prefs;
@@ -158,7 +159,10 @@ function placeSettings() {
     closeDetails(false);
     $('settings-modal-slot').append(settings);
     // Reset confirmation temporarily owns the modal layer.
-    if (!$('reset-dialog').open) settingsDialog.showModal();
+    if (!$('reset-dialog').open) {
+      if ($('command-palette').open) $('command-palette').close();
+      settingsDialog.showModal();
+    }
   }
   if (focused && settingsOpen && !$('reset-dialog').open) {
     (focused.disabled ? $('close-settings') : focused).focus();
@@ -238,6 +242,7 @@ function renderJob() {
   $('pause').querySelector('use').setAttribute('href', `icons.svg#${job.status === 'paused' ? 'play' : 'pause'}`);
   $('cancel').disabled = !active;
   if (focusedOperation?.disabled) $('start').focus();
+  refreshCommands();
 }
 function dispatch(action) {
   job = transition(job, action);
@@ -290,4 +295,5 @@ $('name-form').addEventListener('submit', event => {
   $('feedback').textContent = invalid ? '' : 'Name is valid for this example. It is not saved.';
   if (invalid) $('workspace-name').focus();
 });
+const refreshCommands = installCommandPalette();
 applyDisplay(); placeInspector(); selectSettingsSection(prefs.settingsSection); placeSettings(); renderJob();

@@ -46,3 +46,7 @@ The coordinator generated, visually inspected, and showed [the subtle skeuomorph
 ## Revision 4 responsive Settings
 
 The coordinator supplied [the responsive Settings sheet](../assets/vaporgrid-responsive-settings.png) as shown before code changes. Its [public prompt](image-prompt-v4.txt) requests a wide pinned drawer, narrow modal, responsive real action tiles, and at least six logical pixels between separate controls. The implementation uses Appearance, Layout, and Shortcuts, a staged width editor, full-width Start, and flexible Pause/Cancel tracks where they fit. Generated Display labels, tile sizes, glyphs, and geometry remain illustrative. Use [revision 4 guidance](design-guidelines.md#responsive-controls-and-settings--revision-4) for the behavior contract.
+
+## Revision 5 keyboard and elevation study
+
+The coordinator showed the keyboard and elevation concept before implementation. The prompt requests matte graphite layers, a neutral primary action, restrained functional crimson, and a command search for existing workspace actions. Fictional rows, shortcut badges, shapes, and color values in the raster serve as illustration. Check the running workspace for the actual shortcut and component contract. [Mockup](../assets/vaporgrid-keyboard-and-elevation.png) · [Public prompt](image-prompt-v5.txt) · [Demo](https://seanshaffer88.github.io/VaporGrid/demo/)

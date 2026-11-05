@@ -1,6 +1,6 @@
 # Contributing to VaporGrid
 
-You can propose focused improvements to these static concepts and design guidelines. Start by reading the [README](README.md) and [design guidelines](docs/design-guidelines.md).
+Propose focused improvements to the standard or interactive workspace. Describe the primary judgment or action the change supports and show how it fits the view. [Design guidelines](docs/design-guidelines.md) · [Component usage](docs/components.md)
 
 ## Propose a design change
 
@@ -22,6 +22,10 @@ Verify relative links and asset names, parse edited JSON, and keep descriptions 
 
 ## Interaction reference changes
 
-Keep the demo dependency-free, local, and explicitly simulated. Do not add external requests, telemetry, startup jobs, or content persistence. Preserve keyboard and pointer resizing, modal focus restoration, validated preferences, reset cancellation, and terminal timer cleanup. Run `node --test demo/state.test.mjs` and `node --check demo/app.js`; record actual browser checks and limitations in [verification](docs/verification.md).
+Keep the demo dependency-free and explicitly simulated. Keep its runtime requests limited to site assets and persist only display preferences. Preserve keyboard and pointer resizing, command and modal focus restoration, validated preferences, reset cancellation, and terminal timer cleanup.
+
+Run `node --test` from the repository root and use `node --check` on changed scripts. Keep the published CSS and JSON token values aligned and include contrast checks for changed pairs. Test actual keyboard behavior, touch targets, and contrast in the affected themes. Document what ran and what still needs coverage. Add an Unreleased note for changes to the token or interaction contract. [Verification](docs/verification.md) · [Changelog](CHANGELOG.md)
+
+The Validate and publish workflow runs Node checks on pull requests. A validated commit on `main` can deploy the static reference through GitHub Pages. Keep deployment paths relative to the project site and review the curated artifact when adding runtime files. [Workflow](.github/workflows/validate.yml)
 
 Edit the canonical [icon sprite](demo/icons.svg) first; update the standalone [sheet](assets/vaporgrid-icon-sheet.svg) from its definitions. Use original paths, retain visible labels/currentColor, and document inspiration without copying proprietary marks. New design changes still require a photo/image mockup shown before implementation. Educational code and vectors are included in the same CC BY 4.0 scope.

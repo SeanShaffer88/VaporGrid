@@ -143,3 +143,18 @@ Browser observations provide no shell exit code. The extended checks below inclu
 - Repeat existing task selection, keyboard/pointer divider limits and cancellation, collapse/restore, simulation Pause/Resume/Cancel/completion/restart, form validation, and local recovery examples. Verify Shortcuts describes only working keys in their actual focus context.
 - Reload old and new preferences, corrupt new field types, deny storage, and inspect session-only feedback. Verify only allowlisted preferences persist and width drafts do not. Inspect console and requests for exceptions or external traffic.
 - Recheck Light/Dark/System, forced colors, reduced motion, and visible focus. Screen readers, physical devices, cross-browser behavior, Lighthouse/Core Web Vitals, and real touch targets require separate evidence.
+
+## Revision 5 verification
+
+Revision 5 targets WCAG 2.2 AA. Evaluate normal-text contrast against a 4.5:1 threshold and required non-text indicators against 3:1. Evaluate keyboard operation, focus obscuration, and target size as separate criteria. The project uses a separate 44 × 44 CSS px touch policy. The below-5% crimson budget is a design review target without measured screen coverage here. [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
+
+The Validate and publish workflow runs `node --test` and JavaScript syntax checks. Its test suite includes preference, interaction, token consistency, and contrast coverage. Packaging requires successful validation and a `main` run. The deployment job publishes the curated static artifact through GitHub Pages. Deployment status is recorded by the workflow. [Workflow](../.github/workflows/validate.yml) · [GitHub Pages workflow guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+
+### Local results
+
+- Seven Node tests passed. JavaScript syntax, diff whitespace, local links, and the curated 11-file Pages artifact reference check exited 0. Independent review inspected the palette's action guards, token thresholds, deployment permissions, and published file list.
+- In the in-app browser, the command palette handled no matches, Ctrl+K, Arrow Down, Enter, and Escape. Start transferred focus to Pause, Cancel returned it to Start, and the Settings command closed the palette before focusing the drawer. Escape restored focus to the opener. Reset opened on Keep layout and returned focus to Reset layout on dismissal. Its confirmation control rendered a 3px crimson border.
+- At 320, 768, and 1440 CSS px, the dark workspace and palette fit the document. Sampled standalone demo controls met a 44px minimum height at 320 and 768px and exceeded 44px in width. Comfortable desktop controls retained their 40px minimum height. At 320px in Light, palette buttons measured at least 64 × 44px, and the component landing page links and disclosure measured at least 65 × 44px. The narrow settings checkbox label measured 271 × 44px.
+- Rendered dark surfaces used OKLCH with 9.01% and 8.75% relative luminance increases. Token calculations set the minimum primary label contrast at 8.95:1 in Dark and 10.50:1 in Light. Focus pairs measured at least 4.94:1 and 6.35:1 respectively. [Measured pairs](materials.md)
+
+Browser observations supply no shell exit code. The browser engine version was not exposed. Screen readers, physical touch, 200% zoom, live System theme changes, forced-colors and reduced-motion emulation, and cross-browser testing remain separate verification work.
