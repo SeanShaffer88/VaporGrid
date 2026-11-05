@@ -10,6 +10,8 @@
   <SolidColorBrush x:Key="VgSurfaceBrush" Color="#FFFFFF" />
   <Color x:Key="VgRaisedColor">#E4E4E9</Color>
   <SolidColorBrush x:Key="VgRaisedBrush" Color="#E4E4E9" />
+  <Color x:Key="VgSelectedColor">#DDDDE4</Color>
+  <SolidColorBrush x:Key="VgSelectedBrush" Color="#DDDDE4" />
   <Color x:Key="VgForegroundColor">#202023</Color>
   <SolidColorBrush x:Key="VgForegroundBrush" Color="#202023" />
   <Color x:Key="VgMutedColor">#50505B</Color>
@@ -18,14 +20,14 @@
   <SolidColorBrush x:Key="VgBorderBrush" Color="#676772" />
   <Color x:Key="VgAccentColor">#9E1534</Color>
   <SolidColorBrush x:Key="VgAccentBrush" Color="#9E1534" />
-  <Color x:Key="VgFocusColor">#9E1534</Color>
-  <SolidColorBrush x:Key="VgFocusBrush" Color="#9E1534" />
-  <Color x:Key="VgActionColor">#E4E4E9</Color>
-  <SolidColorBrush x:Key="VgActionBrush" Color="#E4E4E9" />
-  <Color x:Key="VgActionHoverColor">#D8D8DF</Color>
-  <SolidColorBrush x:Key="VgActionHoverBrush" Color="#D8D8DF" />
-  <Color x:Key="VgActionPressedColor">#CFCFD8</Color>
-  <SolidColorBrush x:Key="VgActionPressedBrush" Color="#CFCFD8" />
+  <Color x:Key="VgFocusColor">#D61F45</Color>
+  <SolidColorBrush x:Key="VgFocusBrush" Color="#D61F45" />
+  <Color x:Key="VgActionColor">#D0D0D7</Color>
+  <SolidColorBrush x:Key="VgActionBrush" Color="#D0D0D7" />
+  <Color x:Key="VgActionHoverColor">#CACAD1</Color>
+  <SolidColorBrush x:Key="VgActionHoverBrush" Color="#CACAD1" />
+  <Color x:Key="VgActionPressedColor">#C3C3CA</Color>
+  <SolidColorBrush x:Key="VgActionPressedBrush" Color="#C3C3CA" />
   <Color x:Key="VgProgressColor">#50505B</Color>
   <SolidColorBrush x:Key="VgProgressBrush" Color="#50505B" />
   <Color x:Key="VgInfoColor">#174E85</Color>

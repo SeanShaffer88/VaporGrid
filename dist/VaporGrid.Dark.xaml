@@ -10,6 +10,8 @@
   <SolidColorBrush x:Key="VgSurfaceBrush" Color="#202123" />
   <Color x:Key="VgRaisedColor">#222225</Color>
   <SolidColorBrush x:Key="VgRaisedBrush" Color="#222225" />
+  <Color x:Key="VgSelectedColor">#28292B</Color>
+  <SolidColorBrush x:Key="VgSelectedBrush" Color="#28292B" />
   <Color x:Key="VgForegroundColor">#F1F1F3</Color>
   <SolidColorBrush x:Key="VgForegroundBrush" Color="#F1F1F3" />
   <Color x:Key="VgMutedColor">#B7B7C1</Color>

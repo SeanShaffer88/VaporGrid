@@ -41,6 +41,19 @@
           "hex": "#222225"
         }
       },
+      "selected": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.156863,
+            0.160784,
+            0.168627
+          ],
+          "alpha": 1,
+          "hex": "#28292b"
+        }
+      },
       "foreground": {
         "$type": "color",
         "$value": {
@@ -277,6 +290,19 @@
           "hex": "#e4e4e9"
         }
       },
+      "selected": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.866667,
+            0.866667,
+            0.894118
+          ],
+          "alpha": 1,
+          "hex": "#dddde4"
+        }
+      },
       "foreground": {
         "$type": "color",
         "$value": {
@@ -334,12 +360,12 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.619608,
-            0.082353,
-            0.203922
+            0.839216,
+            0.121569,
+            0.270588
           ],
           "alpha": 1,
-          "hex": "#9e1534"
+          "hex": "#d61f45"
         }
       },
       "action": {
@@ -347,12 +373,12 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.894118,
-            0.894118,
-            0.913725
+            0.815686,
+            0.815686,
+            0.843137
           ],
           "alpha": 1,
-          "hex": "#e4e4e9"
+          "hex": "#d0d0d7"
         }
       },
       "actionHover": {
@@ -360,12 +386,12 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.847059,
-            0.847059,
-            0.87451
+            0.792157,
+            0.792157,
+            0.819608
           ],
           "alpha": 1,
-          "hex": "#d8d8df"
+          "hex": "#cacad1"
         }
       },
       "actionPressed": {
@@ -373,12 +399,12 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.811765,
-            0.811765,
-            0.847059
+            0.764706,
+            0.764706,
+            0.792157
           ],
           "alpha": 1,
-          "hex": "#cfcfd8"
+          "hex": "#c3c3ca"
         }
       },
       "progress": {

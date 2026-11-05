@@ -9,6 +9,7 @@
         <Color x:Key="VgBackgroundColor">#1F1F21</Color>
         <Color x:Key="VgSurfaceColor">#202123</Color>
         <Color x:Key="VgRaisedColor">#222225</Color>
+        <Color x:Key="VgSelectedColor">#28292B</Color>
         <Color x:Key="VgForegroundColor">#F1F1F3</Color>
         <Color x:Key="VgMutedColor">#B7B7C1</Color>
         <Color x:Key="VgBorderColor">#92929C</Color>
@@ -29,14 +30,15 @@
         <Color x:Key="VgBackgroundColor">#EDEDF0</Color>
         <Color x:Key="VgSurfaceColor">#FFFFFF</Color>
         <Color x:Key="VgRaisedColor">#E4E4E9</Color>
+        <Color x:Key="VgSelectedColor">#DDDDE4</Color>
         <Color x:Key="VgForegroundColor">#202023</Color>
         <Color x:Key="VgMutedColor">#50505B</Color>
         <Color x:Key="VgBorderColor">#676772</Color>
         <Color x:Key="VgAccentColor">#9E1534</Color>
-        <Color x:Key="VgFocusColor">#9E1534</Color>
-        <Color x:Key="VgActionColor">#E4E4E9</Color>
-        <Color x:Key="VgActionHoverColor">#D8D8DF</Color>
-        <Color x:Key="VgActionPressedColor">#CFCFD8</Color>
+        <Color x:Key="VgFocusColor">#D61F45</Color>
+        <Color x:Key="VgActionColor">#D0D0D7</Color>
+        <Color x:Key="VgActionHoverColor">#CACAD1</Color>
+        <Color x:Key="VgActionPressedColor">#C3C3CA</Color>
         <Color x:Key="VgProgressColor">#50505B</Color>
         <Color x:Key="VgInfoColor">#174E85</Color>
         <Color x:Key="VgWarningColor">#735100</Color>
@@ -49,6 +51,7 @@
         <StaticResource x:Key="VgBackgroundColor" ResourceKey="SystemColorWindowColor" />
         <StaticResource x:Key="VgSurfaceColor" ResourceKey="SystemColorWindowColor" />
         <StaticResource x:Key="VgRaisedColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgSelectedColor" ResourceKey="SystemColorHighlightColor" />
         <StaticResource x:Key="VgForegroundColor" ResourceKey="SystemColorWindowTextColor" />
         <StaticResource x:Key="VgMutedColor" ResourceKey="SystemColorWindowTextColor" />
         <StaticResource x:Key="VgBorderColor" ResourceKey="SystemColorWindowTextColor" />
@@ -69,6 +72,7 @@
   <SolidColorBrush x:Key="VgBackgroundBrush" Color="{ThemeResource VgBackgroundColor}" />
   <SolidColorBrush x:Key="VgSurfaceBrush" Color="{ThemeResource VgSurfaceColor}" />
   <SolidColorBrush x:Key="VgRaisedBrush" Color="{ThemeResource VgRaisedColor}" />
+  <SolidColorBrush x:Key="VgSelectedBrush" Color="{ThemeResource VgSelectedColor}" />
   <SolidColorBrush x:Key="VgForegroundBrush" Color="{ThemeResource VgForegroundColor}" />
   <SolidColorBrush x:Key="VgMutedBrush" Color="{ThemeResource VgMutedColor}" />
   <SolidColorBrush x:Key="VgBorderBrush" Color="{ThemeResource VgBorderColor}" />

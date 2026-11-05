@@ -105,3 +105,26 @@ test('both themes preserve unrounded text, primary, semantic, focus, and boundar
     }
   }
 });
+
+test('state fills and indicators that mean different things stay distinguishable', () => {
+  const { distinctFillMinimum, selectedFillMinimum, focusAccentMinimum } = tokens.contrast;
+  for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
+    const requireRatio = (a, b, minimum) => {
+      const measured = ratio(palette[a], palette[b]);
+      assert.ok(measured >= minimum, `${a} vs ${b}: ${measured} < ${minimum}`);
+    };
+    // The primary action must not blend into secondary hover/raised fills or the panel.
+    for (const surface of ['raised', 'surface']) requireRatio('action', surface, distinctFillMinimum);
+    requireRatio('actionHover', 'action', distinctFillMinimum);
+    requireRatio('actionPressed', 'action', distinctFillMinimum);
+    requireRatio('actionPressed', 'actionHover', distinctFillMinimum);
+    // A focused selected item shows two cues, not one.
+    requireRatio('focus', 'accent', focusAccentMinimum);
+    // Selection reads as a fill change, not only through its marker.
+    requireRatio('selected', 'surface', selectedFillMinimum);
+    requireRatio('selected', 'raised', distinctFillMinimum);
+    // Content and focus remain legible on the selected fill.
+    for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) requireRatio(text, 'selected', 4.5);
+    for (const indicator of ['focus', 'border']) requireRatio(indicator, 'selected', 3);
+  }
+});
