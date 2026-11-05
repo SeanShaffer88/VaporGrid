@@ -50,7 +50,7 @@ interaction, and a keyboard path through each task.
 | Density has rhythm | 6 CSS px minimum between distinct grouped controls, 8 px by default, 12–16 px between related groups, 24 px between sections | Makes groups scannable as layouts resize |
 | Compartments support a judgment | Give each view a dominant metric or action and give each region a clear task | Establishes a reading order in dense views |
 | Crimson carries meaning | Use it for a focus indicator, current state, or clearly labeled destructive action. Aim below 5% accent coverage as a design review budget | Preserves the accent as a signal |
-| Elevation follows luminance | Use three charcoal levels for the workspace base, compartments, and raised surfaces. Specify colors in OKLCH | Keeps physical structure legible at low luminance |
+| Elevation follows luminance | Use three charcoal levels for the workspace base, compartments, and raised surfaces, plus a visible selected fill. Specify colors in OKLCH | Keeps physical structure legible at low luminance |
 | Typography supports long sessions | Use a 16 px body scale in the web reference, with weight and placement to distinguish headings and actions | Maintains legibility while preserving density |
 | Keyboard access starts at the surface | Preserve logical Tab order and visible focus. Offer Commands or Ctrl/⌘+K for searchable actions | Gives keyboard users a direct path through the workspace |
 
@@ -77,6 +77,7 @@ See the [responsive mockup](assets/vaporgrid-responsive-settings.png) and
 
 - Start with the [design guidelines](docs/design-guidelines.md) and [component usage](docs/components.md).
 - Use the [CSS custom properties](demo/tokens.css) or [JSON tokens](docs/tokens.json). Choose component states using the [materials guide](docs/materials.md).
+- Native apps: take a generated export from [`dist/`](dist/). It contains [DTCG JSON](dist/vaporgrid.tokens.json), [WinUI 3](dist/VaporGrid.xaml), WPF [dark](dist/VaporGrid.Dark.xaml)/[light](dist/VaporGrid.Light.xaml), [Rust](dist/vaporgrid.rs), [Slint](dist/VaporGrid.slint) and [Godot](dist/vaporgrid_tokens.gd) files. All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`.
 - Open the [live workspace](https://seanshaffer88.github.io/VaporGrid/demo/) or follow the [local setup](demo/README.md).
 - Review the [changelog](CHANGELOG.md) and [contribution guide](CONTRIBUTING.md) when proposing a change. See [attribution](ATTRIBUTION.md) for reuse and provenance.
 
