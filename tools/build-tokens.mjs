@@ -39,6 +39,9 @@ function css() {
     `--touch-target: ${tokens.density.touchControlMinWidth}px;`,
     `--motion-short: ${tokens.motion.shortTransition}ms;`,
     `--motion-panel: ${tokens.motion.panelTransition}ms;`,
+    `--tooltip-gap: ${tokens.tooltip.gap}px;`,
+    `--tooltip-max-width: ${tokens.tooltip.maxWidth}px;`,
+    `--tooltip-font-size: ${tokens.tooltip.fontSize}px;`,
     ...Object.entries(tokens.surfaceAliases).map(([alias, role]) => `--${alias}: var(--${kebab(role)});`),
   ];
   const scopes = (dark, light, indent) => [
@@ -95,6 +98,10 @@ function dtcg() {
     },
     motion: { short: ms(tokens.motion.shortTransition), panel: ms(tokens.motion.panelTransition), maximum: ms(tokens.motion.maximumTransition) },
     inspector: { width: dim(tokens.compartments.inspectorWidth), min: dim(tokens.compartments.inspectorMin), max: dim(tokens.compartments.inspectorMax) },
+    tooltip: {
+      showDelay: ms(tokens.tooltip.showDelay), touchHoldDelay: ms(tokens.tooltip.touchHoldDelay), hideGrace: ms(tokens.tooltip.hideGrace),
+      gap: dim(tokens.tooltip.gap), anchorClearance: dim(tokens.tooltip.anchorClearance), maxWidth: dim(tokens.tooltip.maxWidth), fontSize: dim(tokens.tooltip.fontSize),
+    },
   }, null, 2) + '\n';
 }
 
@@ -131,6 +138,8 @@ ${brushes}
 ${Object.entries(tokens.type.size).map(([k, v]) => `  <x:Double x:Key="VgFontSize${pascal(k)}">${v}</x:Double>`).join('\n')}
   <Thickness x:Key="VgFocusVisualThickness">3</Thickness>
   <Thickness x:Key="VgFocusVisualMargin">-3</Thickness>
+  <x:Double x:Key="VgTooltipMaxWidth">${tokens.tooltip.maxWidth}</x:Double>
+  <x:Double x:Key="VgTooltipFontSize">${tokens.tooltip.fontSize}</x:Double>
 </ResourceDictionary>
 `;
 }
@@ -198,6 +207,14 @@ pub const MOTION_MAX_MS: u32 = ${tokens.motion.maximumTransition};
 pub const INSPECTOR_WIDTH: f32 = ${tokens.compartments.inspectorWidth}.0;
 pub const INSPECTOR_MIN: f32 = ${tokens.compartments.inspectorMin}.0;
 pub const INSPECTOR_MAX: f32 = ${tokens.compartments.inspectorMax}.0;
+
+pub const TOOLTIP_SHOW_DELAY_MS: u32 = ${tokens.tooltip.showDelay};
+pub const TOOLTIP_TOUCH_HOLD_MS: u32 = ${tokens.tooltip.touchHoldDelay};
+pub const TOOLTIP_HIDE_GRACE_MS: u32 = ${tokens.tooltip.hideGrace};
+pub const TOOLTIP_GAP: f32 = ${tokens.tooltip.gap}.0;
+pub const TOOLTIP_ANCHOR_CLEARANCE: f32 = ${tokens.tooltip.anchorClearance}.0;
+pub const TOOLTIP_MAX_WIDTH: f32 = ${tokens.tooltip.maxWidth}.0;
+pub const TOOLTIP_FONT_SIZE: f32 = ${tokens.tooltip.fontSize}.0;
 `;
 }
 
@@ -218,6 +235,9 @@ ${Object.entries(tokens.type.size).map(([k, v]) => `    out property <length> fo
     out property <string> font-mono: "${tokens.type.mono[0]}";
     out property <duration> motion-short: ${tokens.motion.shortTransition}ms;
     out property <duration> motion-panel: ${tokens.motion.panelTransition}ms;
+    out property <length> tooltip-gap: ${tokens.tooltip.gap}px;
+    out property <length> tooltip-max-width: ${tokens.tooltip.maxWidth}px;
+    out property <duration> tooltip-show-delay: ${tokens.tooltip.showDelay}ms;
 }
 `;
 }
@@ -236,6 +256,9 @@ const LIGHT := ${dictionary(tokens.lightColor)}
 const CONTROL_GAP := ${tokens.space.controlGap}
 const SECTION_GAP := ${tokens.space.sectionGap}
 const TOUCH_TARGET := ${tokens.density.touchControlMinWidth}
+const TOOLTIP_SHOW_DELAY_MS := ${tokens.tooltip.showDelay}
+const TOOLTIP_GAP := ${tokens.tooltip.gap}
+const TOOLTIP_MAX_WIDTH := ${tokens.tooltip.maxWidth}
 ${Object.entries(tokens.type.size).map(([k, v]) => `const FONT_SIZE_${k.toUpperCase()} := ${v}`).join('\n')}
 `;
 }

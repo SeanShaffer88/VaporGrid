@@ -101,3 +101,11 @@ pub const MOTION_MAX_MS: u32 = 200;
 pub const INSPECTOR_WIDTH: f32 = 300.0;
 pub const INSPECTOR_MIN: f32 = 240.0;
 pub const INSPECTOR_MAX: f32 = 420.0;
+
+pub const TOOLTIP_SHOW_DELAY_MS: u32 = 500;
+pub const TOOLTIP_TOUCH_HOLD_MS: u32 = 500;
+pub const TOOLTIP_HIDE_GRACE_MS: u32 = 100;
+pub const TOOLTIP_GAP: f32 = 8.0;
+pub const TOOLTIP_ANCHOR_CLEARANCE: f32 = 6.0;
+pub const TOOLTIP_MAX_WIDTH: f32 = 320.0;
+pub const TOOLTIP_FONT_SIZE: f32 = 13.0;

@@ -743,5 +743,56 @@
         "unit": "px"
       }
     }
+  },
+  "tooltip": {
+    "showDelay": {
+      "$type": "duration",
+      "$value": {
+        "value": 500,
+        "unit": "ms"
+      }
+    },
+    "touchHoldDelay": {
+      "$type": "duration",
+      "$value": {
+        "value": 500,
+        "unit": "ms"
+      }
+    },
+    "hideGrace": {
+      "$type": "duration",
+      "$value": {
+        "value": 100,
+        "unit": "ms"
+      }
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "anchorClearance": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "px"
+      }
+    },
+    "maxWidth": {
+      "$type": "dimension",
+      "$value": {
+        "value": 320,
+        "unit": "px"
+      }
+    },
+    "fontSize": {
+      "$type": "dimension",
+      "$value": {
+        "value": 13,
+        "unit": "px"
+      }
+    }
   }
 }

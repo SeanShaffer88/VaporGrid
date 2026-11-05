@@ -1,5 +1,6 @@
 import { defaults, readPreferences, constrainWidth, transition } from './state.mjs';
 import { installCommandPalette } from './palette.mjs';
+import { installTooltips } from './tooltip.mjs';
 const $ = id => document.getElementById(id);
 const storageKey = 'vaporgrid.display.v1';
 let prefs;
@@ -297,3 +298,4 @@ $('name-form').addEventListener('submit', event => {
 });
 const refreshCommands = installCommandPalette();
 applyDisplay(); placeInspector(); selectSettingsSection(prefs.settingsSection); placeSettings(); renderJob();
+installTooltips();

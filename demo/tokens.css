@@ -7,6 +7,9 @@
   --touch-target: 44px;
   --motion-short: 120ms;
   --motion-panel: 180ms;
+  --tooltip-gap: 8px;
+  --tooltip-max-width: 320px;
+  --tooltip-font-size: 13px;
   --surface-1: var(--bg);
   --surface-2: var(--surface);
   --surface-3: var(--raised);

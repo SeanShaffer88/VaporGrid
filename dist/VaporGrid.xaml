@@ -96,4 +96,6 @@
   <x:Double x:Key="VgFontSizeTitle">24</x:Double>
   <Thickness x:Key="VgFocusVisualThickness">3</Thickness>
   <Thickness x:Key="VgFocusVisualMargin">-3</Thickness>
+  <x:Double x:Key="VgTooltipMaxWidth">320</x:Double>
+  <x:Double x:Key="VgTooltipFontSize">13</x:Double>
 </ResourceDictionary>
