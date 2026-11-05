@@ -38,3 +38,7 @@ Three new ImageGen sheets were created and visually inspected before implementin
 The full public prompts are preserved in [image-prompts-v2.json](image-prompts-v2.json), mapped to final asset filenames. They include the darker filled action, semantic labels, readable density, restrained decoration, and responsive behavior. Prompted color values do not prove the generated pixels match those values.
 
 These sheets are illustrative direction. Generated marks, text, icon-like geometry, and layouts are not canonical assets or evidence of working software. The original vector sprite and its presentation export were authored separately from these raster images; see [iconography](iconography.md). The original six concepts and reference processing provenance remain intact as historical context.
+
+## Revision 3 material refinement
+
+The coordinator generated, visually inspected, and showed [the subtle skeuomorphic mockup](../assets/vaporgrid-skeuomorphic-refinement.png) before CSS implementation. The [public prompt](image-prompt-v3.txt) requests opaque matte graphite panels, fine rims, shallow input wells, restrained control relief, and a flat content table. No glass, clay, same-color dual-shadow neumorphism, texture behind text, or heavy gloss is adopted. Raster glyphs are not replacement icons or exact runtime specifications. Implementation endpoints and state rules are recorded in [materials](materials.md).

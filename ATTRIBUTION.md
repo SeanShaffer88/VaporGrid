@@ -40,3 +40,7 @@ For an unchanged copy, state that you made no changes. Preserve source modificat
 The three new raster sheets were generated and visually reviewed as design direction before code implementation. Their AI-invented text, geometry, marks, and icon-like forms are illustrative and are not the canonical production icons. See [public prompts](docs/image-prompts-v2.json).
 
 The original vectors take broad aesthetic inspiration from the clean hardware minimalism and secondary dot language of Nothing OS. No affiliation or endorsement is implied; no proprietary glyphs, fonts, logos, or assets were copied. See [iconography provenance](docs/iconography.md). The retained reference image above remains separately documented historical provenance.
+
+## Revision 3 addition
+
+[vaporgrid-skeuomorphic-refinement.png](assets/vaporgrid-skeuomorphic-refinement.png) is an ImageGen fictional material-refinement mockup directed by Sean Shaffer. The coordinator visually inspected and showed it before implementation. Its text, glyphs, and geometry are illustrative; the canonical SVGs are unchanged. The [public prompt](docs/image-prompt-v3.txt) records the requested direction.

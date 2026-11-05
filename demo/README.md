@@ -1,6 +1,6 @@
 # Workspace interaction reference
 
-A small fictional task workspace demonstrates VaporGrid revision 2 with native HTML, CSS, JavaScript modules, and original local SVG icons. It has no framework, package installation, build step, external service, analytics, or file processing. The educational source uses the same [CC BY 4.0](../LICENSE) terms as the documentation and images.
+A small fictional task workspace demonstrates VaporGrid revision 3 with native HTML, CSS, JavaScript modules, and original local SVG icons. It has no framework, package installation, build step, external service, analytics, or file processing. The educational source uses the same [CC BY 4.0](../LICENSE) terms as the documentation and images.
 
 ## Run locally
 
@@ -37,3 +37,7 @@ node --check demo/app.js
 ```
 
 Node's standard test runner covers hostile preference data and lifecycle invariants. These tests do not establish browser layout, pointer capture, focus containment, assistive technology, or performance. Follow [the runtime checklist](../docs/verification.md) before claiming those behaviors are verified. This is an educational interaction reference, not a certified accessible component library.
+
+## Revision 3 materials
+
+Opaque matte compartments use fine rim highlights; fields are shallowly inset, and buttons have slight default relief, solid hover, and inset pressed states without movement. Disabled buttons are flat with dashed boundaries. The task table and its selection controls stay flat. Light and System-light define their own material values. The Decorative edge checkbox still controls only the masthead accent. See [materials](../docs/materials.md) and [verification](../docs/verification.md); styling is not accessibility certification.

@@ -66,3 +66,45 @@ These are a checklist, not claims that checks passed. Record browser/version, vi
 ## Limits
 
 No browser runtime tool was available to the implementer. Supplied coordinator observations are separate evidence; changed features await coordinator rerun. Node preference tests cover malformed/version/out-of-range negative cases, not actual in-browser storage denial. Live System theme, forced colors, reduced motion, 200% zoom, screen readers, and physical devices remain unperformed because CUA media emulation was unavailable and global Windows settings were not changed. CSS static review does not certify runtime behavior. No screen-reader session, physical touch-device check, cross-browser certification, Lighthouse/Core Web Vitals measurement, or deployment was performed by the implementer. Static contrast calculations and semantic markup do not certify WCAG compliance. The demo neither measures real work nor represents real network availability. See [local serving instructions](../demo/README.md).
+
+## Revision 3 static verification
+
+The coordinator supplied the pre-code ImageGen review/display gate. Implementer used Node v26.13.0. No dependency, build configuration, JavaScript, HTML, canonical SVG, or license changes were made.
+
+| Command/check | Actual result |
+| --- | --- |
+| `node --test demo/state.test.mjs` | Exit 0; both existing tests passed |
+| `node --check demo/app.js` | Exit 0 |
+| `git diff --check` | Exit 0 |
+| Inline Python static checker | Exit 0: tokens JSON, local Markdown file links, SVG XML, 11 canonical symbols, unchanged SVG/JS/HTML/LICENSE source, README reference exclusion |
+| Inline Python sRGB calculation | Exit 0: all following unrounded minima meet their targets |
+
+The first static checker exited 1 because it compared Git LF bytes with working-tree CRLF bytes. Rerun normalized line endings and passed; protected source content was unchanged. Gradients interpolate between conservative channel-monotonic endpoints, so text contrast is bounded by these endpoints. Hover and pressed use endpoint fills. Disabled text uses the measured Muted/Surface pair without opacity fading. Panel text remains on opaque Surface. Focus has a 3px offset, so its adjacent colors are the surrounding content surfaces rather than the primary button fill. Decorative rims and shadows do not carry required boundaries.
+
+| Pair/group | Tested backgrounds/endpoints | Minimum unrounded ratio |
+| --- | --- | --- |
+| Dark text `#f1f1f3` | `#171719`, `#202023`, `#29292d` | 12.844705688134075:1 |
+| Dark muted `#b7b7c1` | `#171719`, `#202023`, `#29292d` | 7.283882286007498:1 |
+| Light text `#202023` | `#ededf0`, `#ffffff`, `#e4e4e9` | 12.824364453636441:1 |
+| Light muted `#50505b` | `#ededf0`, `#ffffff`, `#e4e4e9` | 6.278465444186843:1 |
+| Primary `#f1f1f3` | `#b8183a`, `#a21533` | 5.763938013391299:1 |
+| Dark focus `#ff4d73` | `#171719`, `#202023`, `#29292d` | 4.526931119891296:1 |
+| Light focus `#9e1534` | `#ededf0`, `#ffffff`, `#e4e4e9` | 6.348093278343064:1 |
+| Dark border `#777780` | `#171719`, `#202023`, `#29292d` | 3.2668558456139287:1 |
+| Light border `#75757e` | `#ededf0`, `#ffffff`, `#e4e4e9` | 3.601083580013744:1 |
+| Dark semantic (info, warning, success, danger) | Surface and Raised | 8.35290240378593:1 |
+| Light semantic (info, warning, success, danger) | Surface and Raised | 5.655792251732237:1 |
+
+### Revision 3 coordinator browser observations
+
+The in-app browser (engine version not exposed) rendered the local reference in Light and Dark. These browser observations supply no shell exit code.
+
+- At 320/768/1440px in both themes, document widths were 305/753/1425px respectively, with no document overflow. Light-mode task buttons measured 32/40/48px for Compact at 1440px, Comfortable at 768px, and Touch at 320px.
+- Dark default controls computed a `#29292D` to `#202023` gradient with a fine inset rim and shallow shadow. Pointer hover computed a solid `#29292D` fill. The sampled control retained its 40px height, approximately 101.69px width, and `transform: none`.
+- Keyboard focus remained a distinct outline. Disabled Pause computed no gradient and no shadow; Tab from Start skipped disabled operation controls to Example state. Task selection controls computed transparent backgrounds, no gradient, and no shadow.
+- The name field computed an opaque `#202023` fill and shallow inset shadow. Light and Dark visual inspection retained readable flat table content. The 320px Light details modal opened with Close details focused; Escape returned to its trigger. Start/Cancel ended at Cancelled with Start focused, with no console errors.
+- A duration-based pointer click was exercised, but observation occurred after release (`:active` was false); this is not evidence of a captured held-pressed state. Pressed styling was reviewed in source, not visually certified while held.
+
+Static CSS review confirms explicit System-light values, independent edge preference, forced-colors flattening/system colors, and retained reduced-motion suppression; this does not establish their runtime behavior. Full geometry checks across every control/state and repeated pointer/keyboard divider testing remain extended regression work; divider logic and dimensions were unchanged.
+
+No forced-colors OS/emulation, live System preference change, reduced-motion emulation, 200% zoom, assistive-technology session, physical device, cross-browser, or performance measurement was performed by this implementer. Earlier revision-2 browser observations above remain historical evidence, not revision-3 certification. Parent runtime evidence and independent audit must complete before the change is reported as fully verified.
