@@ -5,6 +5,7 @@
   <meta name="color-scheme" content="dark light">
   <title>Workspace · VaporGrid interaction reference</title>
   <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="palette.css">
   <script type="module" src="app.js"></script>
 </head>
 <body>
@@ -20,7 +21,12 @@
     <p class="nav-note">Clarity in every compartment.</p>
   </nav>
   <main id="main" tabindex="-1">
-    <div class="page-heading"><div><p class="eyebrow">Interface foundations / Tasks</p><h1>Workspace</h1><p class="muted">Review the prototype, validate assets, prepare the handoff.</p></div><button id="show-details" aria-controls="inspector" aria-expanded="true"><svg aria-hidden="true"><use href="icons.svg#details"/></svg>Details</button></div>
+    <div class="page-heading"><div><p class="eyebrow">Interface foundations / Tasks</p><h1>Workspace</h1><p class="muted">Review the prototype, validate assets, prepare the handoff.</p></div>
+      <div class="workspace-actions">
+        <button id="show-commands" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-keyshortcuts="Control+K Meta+K">Commands <kbd aria-hidden="true">Ctrl/⌘+K</kbd></button>
+        <button id="show-details" aria-controls="inspector" aria-expanded="true"><svg aria-hidden="true"><use href="icons.svg#details"/></svg>Details</button>
+      </div>
+    </div>
     <div class="work-area" id="work-area">
       <div class="primary-work">
         <section class="panel" aria-labelledby="tasks-heading">
@@ -53,7 +59,7 @@
         <p class="small muted" id="resize-help">Resize with the divider: Left/Right, Home/End. Width is saved; Reset layout restores 300 pixels.</p>
       </aside></div>
     </div>
-    <footer><svg aria-hidden="true"><use href="icons.svg#check"/></svg>Local reference · No account, network service, or background job <a href="../docs/verification.md">Verification limits</a></footer>
+    <footer><svg aria-hidden="true"><use href="icons.svg#check"/></svg>Local reference · No account, network service, or background job <a href="https://github.com/SeanShaffer88/VaporGrid/blob/main/docs/verification.md">Verification limits</a></footer>
   </main>
   <div id="settings-slot" hidden><aside class="settings panel" id="settings" aria-labelledby="settings-heading">
     <div class="section-heading"><h2 id="settings-heading">Settings</h2><div class="button-row"><button id="pin-settings" aria-pressed="false">Pin</button><button id="close-settings">Close</button></div></div>
@@ -85,13 +91,30 @@
     </section>
     <section id="settings-shortcuts" aria-labelledby="shortcuts-title" hidden>
       <h3 id="shortcuts-title">Shortcuts</h3>
-      <dl class="shortcuts"><dt>Tab / Shift+Tab</dt><dd>Move between available controls.</dd><dt>Enter / Space</dt><dd>Activate a focused button.</dd><dt>Escape</dt><dd>Dismiss the active dialog, or close Settings while focus is inside its drawer.</dd><dt>Left / Right</dt><dd>With the desktop Details divider focused, expand / shrink by 10 pixels.</dd><dt>Home / End</dt><dd>With the divider focused, set 240 / 420 pixels.</dd></dl>
+      <dl class="shortcuts"><dt>Tab / Shift+Tab</dt><dd>Move between available controls.</dd><dt>Enter / Space</dt><dd>Activate a focused button.</dd><dt>Ctrl+K / ⌘+K</dt><dd>Open Commands from the workspace when no dialog or editable field has focus. The visible Commands button also works when the browser reserves the shortcut.</dd><dt>Up / Down</dt><dd>In Commands, move between available results. Home and End jump to the first and last result while a result has focus.</dd><dt>Enter in command search</dt><dd>Run the first available match.</dd><dt>Escape</dt><dd>Dismiss the active dialog, or close Settings while focus is inside its drawer.</dd><dt>Left / Right</dt><dd>With the desktop Details divider focused, expand / shrink by 10 pixels.</dd><dt>Home / End</dt><dd>With the divider focused, set 240 / 420 pixels.</dd></dl>
     </section>
     <p class="muted small" id="storage-status">Only display and settings navigation preferences are saved on this browser.</p>
   </aside></div>
 </div>
 <dialog id="settings-dialog" aria-labelledby="settings-heading"><div id="settings-modal-slot"></div></dialog>
 <dialog id="details-dialog" aria-labelledby="details-title"><div id="drawer-slot"></div></dialog>
-<dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-copy"><h2 id="reset-title">Reset workspace layout?</h2><p id="reset-copy">Restore the details width and show the inspector. Theme, density, and effects stay as selected.</p><form method="dialog" class="button-row"><button value="cancel" autofocus>Keep layout</button><button value="reset" class="primary">Reset layout</button></form></dialog>
+<dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-copy"><h2 id="reset-title">Reset workspace layout?</h2><p id="reset-copy">Restore the details width and show the inspector. Theme, density, and effects stay as selected.</p><form method="dialog" class="button-row"><button value="cancel" autofocus>Keep layout</button><button value="reset" class="destructive">Reset layout</button></form></dialog>
+<dialog id="command-palette" aria-labelledby="command-title">
+  <div class="section-heading">
+    <h2 id="command-title">Command palette</h2>
+    <button id="close-commands" type="button">Close</button>
+  </div>
+  <label for="command-search">Search commands</label>
+  <input id="command-search" type="search" aria-describedby="command-help" maxlength="100" autocomplete="off" autofocus>
+  <p id="command-help" class="small muted">Use Up or Down to choose a result, Enter to run it, or Escape to close.</p>
+  <p id="command-status" class="small muted" role="status"></p>
+  <ul id="command-results">
+    <li><button type="button" data-command="show-settings">Open settings</button></li>
+    <li><button type="button" data-command="show-details">Show task details</button></li>
+    <li><button type="button" data-command="start">Start simulation</button></li>
+    <li><button type="button" data-command="pause">Pause simulation</button></li>
+    <li><button type="button" data-command="cancel">Cancel simulation</button></li>
+  </ul>
+</dialog>
 <noscript><p class="panel">JavaScript is required for this interaction reference. No simulation starts without it.</p></noscript>
 </body></html>

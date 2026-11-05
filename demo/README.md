@@ -1,6 +1,6 @@
 # Workspace interaction reference
 
-A small fictional task workspace demonstrates VaporGrid revision 3 with native HTML, CSS, JavaScript modules, and original local SVG icons. It has no framework, package installation, build step, external service, analytics, or file processing. The educational source uses the same [CC BY 4.0](../LICENSE) terms as the documentation and images.
+A small fictional task workspace demonstrates VaporGrid revision 5 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files with the same CC BY 4.0 license as the documentation and images. [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [License](../LICENSE)
 
 ## Run locally
 
@@ -16,7 +16,8 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 
 - Theme: System, Light, Dark. System follows OS color preference through CSS.
 - Density: Compact, Comfortable, Touch. Narrow windows keep controls at least 44 CSS pixels high.
-- Decorative edge: optional static accent; off by default. No effects appear behind text.
+- Decorative edge: optional neutral masthead edge, off by default.
+- Commands: open with the visible button or Ctrl/⌘+K from the workspace. Filter implemented actions in Search commands. Use the palette's keyboard hints, Tab, or click to select an available action. Escape closes the dialog and returns focus to the invoker.
 - Details: restore the desktop inspector or open the narrow modal drawer. Select a task to update details; on narrow screens selection opens the drawer.
 - Desktop divider: drag with pointer capture; Left expands the right inspector, Right shrinks it, Home sets 240 pixels, End sets 420. Steps are 10 pixels. Collapse and restore are always reachable.
 - Reset layout: a native confirmation dialog restores 300-pixel width and expanded state. Keep layout and Escape preserve everything. Theme, density, and effects survive reset.
@@ -32,15 +33,16 @@ The same inspector DOM moves into a native modal dialog below 901 CSS pixels. Na
 ## Verify
 
 ```powershell
-node --test demo/state.test.mjs
+node --test
 node --check demo/app.js
+node --check demo/palette.mjs
 ```
 
 Node's standard test runner covers hostile preference data and lifecycle invariants. These tests do not establish browser layout, pointer capture, focus containment, assistive technology, or performance. Follow [the runtime checklist](../docs/verification.md) before claiming those behaviors are verified. This is an educational interaction reference, not a certified accessible component library.
 
 ## Revision 3 materials
 
-Opaque matte compartments use fine rim highlights; fields are shallowly inset, and buttons have slight default relief, solid hover, and inset pressed states without movement. Disabled buttons are flat with dashed boundaries. The task table and its selection controls stay flat. Light and System-light define their own material values. The Decorative edge checkbox still controls only the masthead accent. See [materials](../docs/materials.md) and [verification](../docs/verification.md); styling is not accessibility certification.
+Revision 3 explored opaque matte compartments, tactile rims, and inset fields. Revision 5 refines those ideas with three OKLCH elevation levels and a neutral primary action. The task table stays flat, and crimson marks focus, selection, or a labeled destructive cue. [Current materials](../docs/materials.md) · [CSS tokens](tokens.css) · [JSON tokens](../docs/tokens.json)
 
 ## Revision 4 Settings and action layout
 
@@ -50,4 +52,4 @@ Appearance changes immediately. In Layout, edit Details width and choose Apply t
 
 Start simulation, Pause/Resume, and Cancel use an auto-fit Grid, stretching to fill every occupied row in source order. No filler actions are added. Distinct grouped controls retain 8px spacing with a 6px minimum. Related groups use 16px and sections use 24px. Checkbox labels and button icons are parts of composite controls. Target heights remain 32/40/48px, with at least 44px on narrow or coarse-pointer layouts. The [revision 4 rules](../docs/design-guidelines.md#responsive-controls-and-settings--revision-4) explain the same-window extensive-settings pattern and staged transactions.
 
-Preference migration and new field validation have standard-library unit tests. Browser geometry, modal transitions, draft interactions, storage denial, and focus behavior await the coordinator's runtime pass. See [revision 4 verification](../docs/verification.md#revision-4-verification).
+Preference migration and field validation have standard-library unit tests. Refer to the verification record for actual runtime coverage and outstanding checks. [Revision 4 verification](../docs/verification.md#revision-4-verification) · [Revision 5 verification](../docs/verification.md#revision-5-verification)

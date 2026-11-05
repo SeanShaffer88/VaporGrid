@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>VaporGrid interface standard</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="demo/style.css">
+  <style>
+    main { max-width: 58rem; margin-inline: auto; }
+    main > * + * { margin-block-start: 24px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .links a, .examples a, footer a { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; padding: 6px 8px; }
+    .links .primary { border: 1px solid var(--border); border-radius: .35rem; }
+    .examples { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+    .examples h3 { margin-block-start: 0; }
+    .surface { padding: 12px; border: 1px solid var(--border); border-radius: .35rem; }
+    .surface + .surface { margin-block-start: 8px; }
+    .level-1 { background: var(--surface-1, var(--surface)); }
+    .level-2 { background: var(--surface-2, var(--raised)); }
+    .level-3 { background: var(--surface-3, var(--action)); }
+    summary { min-width: 44px; min-height: 44px; padding-block: 8px; cursor: pointer; }
+    kbd { font: inherit; font-weight: 600; }
+    footer { display: block; margin-top: 24px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Desktop-class design standard</p>
+    <h1>VaporGrid</h1>
+    <p>Dark, dense, tactile interfaces for dashboards, editors, monitoring tools, and workflow applications.</p>
+    <nav class="links" aria-label="VaporGrid resources">
+      <a class="primary" href="demo/">Open the live workspace</a>
+      <a href="docs/tokens.json">Design tokens JSON</a>
+      <a href="demo/tokens.css">CSS custom properties</a>
+      <a href="https://github.com/SeanShaffer88/VaporGrid">Repository</a>
+    </nav>
+  </header>
+
+  <section class="panel" aria-labelledby="usage-heading">
+    <h2 id="usage-heading">Component usage</h2>
+    <p>Give each view one main decision or action. Let its supporting controls share space and keep current state visible with text, shape, or a marker alongside color.</p>
+    <div class="examples">
+      <article class="panel">
+        <h3>Surface levels</h3>
+        <div class="surface level-1">Surface 1 · workspace base</div>
+        <div class="surface level-2">Surface 2 · compartment</div>
+        <div class="surface level-3">Surface 3 · raised surface</div>
+        <p>Use a higher level to show structure. Keep dense rows flat and use boundaries or labels where a surface difference alone would be hard to distinguish.</p>
+      </article>
+      <article class="panel">
+        <h3>Actions and state</h3>
+        <div class="action-grid">
+          <button type="button" disabled>Unavailable action</button>
+          <a href="demo/#simulation-heading">Try a primary action in the workspace</a>
+        </div>
+        <p>Lead with one neutral primary action and a clear verb. Reserve crimson for focus, selection, or a clearly labeled destructive confirmation. Pair color with visible text and programmatic state.</p>
+      </article>
+      <article class="panel">
+        <h3>Panels and preferences</h3>
+        <details>
+          <summary>When to use a drawer</summary>
+          <p>Open related settings or details in context. Reserve full workspaces for tasks that need their own navigation. Apply reversible appearance settings immediately and keep staged layout changes available until the user chooses Apply or Cancel.</p>
+        </details>
+        <a href="demo/#show-settings">Try the Settings drawer</a>
+      </article>
+      <article class="panel">
+        <h3>Keyboard commands</h3>
+        <p>Use the visible Commands control or <kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>K</kbd> in the workspace. Search for available commands, activate one, or press <kbd>Escape</kbd> to dismiss the palette.</p>
+        <p>Keep frequent commands available through their visible controls as well.</p>
+        <a href="demo/#show-commands">Try the command palette</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="evidence-heading">
+    <h2 id="evidence-heading">Accessibility target and evidence</h2>
+    <p>VaporGrid targets WCAG 2.2 AA and uses a separate project touch target of 44 × 44 CSS pixels. The verification record distinguishes measured checks from outstanding browser and assistive technology work.</p>
+    <nav class="links" aria-label="Accessibility references">
+      <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a>
+      <a href="https://github.com/SeanShaffer88/VaporGrid/blob/main/docs/verification.md">Verification record</a>
+    </nav>
+  </section>
+  <footer>VaporGrid by Sean Shaffer · <a href="LICENSE">CC BY 4.0</a></footer>
+</main>
+</body>
+</html>

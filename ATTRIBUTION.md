@@ -48,3 +48,7 @@ The original vectors take broad aesthetic inspiration from the clean hardware mi
 ## Revision 4 addition
 
 [vaporgrid-responsive-settings.png](assets/vaporgrid-responsive-settings.png) is an ImageGen fictional responsive-settings and action-layout sheet directed by Sean Shaffer. The coordinator supplied it as shown before implementation. The [public prompt](docs/image-prompt-v4.txt) preserves the direction. Display labels, proportions, generated glyphs, and layout details are illustrative. The demo's actual Settings sections, full-width Start, and flexible secondary action tracks are documented in the [README](README.md#responsive-controls-and-settings--revision-4).
+
+## Revision 5 addition
+
+The coordinator showed the ImageGen keyboard and elevation study before implementation. Its fictional data, glyphs, and depicted shortcut labels illustrate the concept. Use the published tokens and running demo for exact colors and implemented commands. [Mockup](assets/vaporgrid-keyboard-and-elevation.png) · [Public prompt](docs/image-prompt-v5.txt)

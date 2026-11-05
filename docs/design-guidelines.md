@@ -1,10 +1,10 @@
 # VaporGrid design guidelines
 
-Use these foundations to adapt VaporGrid to your application's tasks. Revision 2 adds a small [interactive reference](../demo/README.md) alongside the historical static concepts. It does not define a packaged toolkit. Use [tokens.json](tokens.json) as descriptive data and [the gallery](../README.md#concept-gallery) as visual direction.
+Use these foundations to adapt VaporGrid to your application's tasks. Revision 5 defines the current color, material, and keyboard contract. Earlier sections preserve the progression of the design and its historical measurements. [Live reference](https://seanshaffer88.github.io/VaporGrid/demo/) · [CSS tokens](../demo/tokens.css) · [JSON tokens](tokens.json) · [Component usage](components.md)
 
 ## Foundations
 
-Build with charcoal surfaces, crimson emphasis, and high-contrast text. Keep optional decoration outside content. The reference uses only a static edge accent, off by default; do not place grids or glow behind text. Avoid effects that obscure text, boundaries, or selection.
+Build with opaque charcoal surfaces, high-contrast text, and a restrained functional crimson accent. Keep the optional edge treatment neutral. Reserve crimson for keyboard focus, current selection, or a clearly named destructive cue. Pair color with text, shape, or a programmatic state. Use a below-5% accent coverage budget as a design review target.
 
 The direction starts with Windows workflows. Preserve task clarity when adapting it to another platform, rather than copying desktop density into every form factor. Follow the target platform's interaction conventions.
 
@@ -27,6 +27,8 @@ Use a Segoe UI-like sans-serif hierarchy on Windows with native system fallbacks
 Keep labels readable at the user's text size. Allow wrapping or provide a way to inspect truncated values. Use weight, placement, and labels to establish hierarchy before adding color or glow.
 
 ## Color and contrast
+
+These tables document earlier color studies. Revision 5 consumers should use the current tokens and measured pairings. [Current materials](materials.md) · [Verification](verification.md#revision-5-verification)
 
 The following ratios use the standard sRGB relative-luminance calculation for opaque, solid colors. Ratios round to two decimals; evaluate thresholds using unrounded values. They measure specified color pairs, not pixels sampled from generated images.
 
@@ -146,7 +148,7 @@ Official behavior references: [MDN separator role](https://developer.mozilla.org
 
 ## Revision 3 subtle skeuomorphic contract
 
-The current [material contract](materials.md) extends the revision 2 rules above with opaque matte structural compartments, fine rim highlights, shallow inset fields, and slight control relief. It does not change compartment geometry or interactions. Keep the main content table flat, use explicit enabled/disabled state styling, and remove pressed translation. Text contrast must exceed 4.5:1 across actual fills; primary labels must exceed 5:1 at both gradient endpoints and hover/pressed. See [descriptive material tokens](tokens.json) and [revision 3 verification](verification.md#revision-3-static-verification). Earlier contrast and interaction requirements remain applicable.
+Revision 3 used opaque matte structural compartments, fine rim highlights, shallow inset fields, and slight control relief. Its gradient and contrast measurements describe that historical implementation. Keep content tables flat, distinguish enabled and disabled states, and preserve layout when a control is pressed. [Revision 3 verification](verification.md#revision-3-static-verification) · [Current materials](materials.md)
 
 ## Responsive controls and Settings · revision 4
 
@@ -163,3 +165,12 @@ Appearance applies Theme, Density, and Decorative edge immediately. Layout stage
 For extensive settings, use a same-window full settings view with section navigation, searchable section names where warranted, headings, scoped validation, and an explicit return to work. Keep immediate preferences clearly separate from staged transactional sections. State what Apply commits, validate before committing, and retain or explicitly resolve drafts on close. For multi-field transactions, apply a validated snapshot atomically and report failures without losing the draft. Show shortcuts only for implemented bindings and describe their focus context. The reference lists native keyboard navigation, dialog Escape, and focused divider keys.
 
 Use the [mockup](../assets/vaporgrid-responsive-settings.png) as direction and the [runtime checklist](verification.md#revision-4-verification) as the verification gate. Geometry, focus, zoom, and assistive technology require actual browser evidence.
+
+## Revision 5 token and keyboard contract
+
+- Define workspace, compartment, and raised surfaces as three OKLCH levels. Keep hue and chroma controlled within the charcoal family. Evaluate relative luminance in the rendered color space. Use borders, shape, or labels where small luminance steps alone cannot communicate meaning. [Materials and state guidance](materials.md)
+- Keep neutral primary actions prominent through placement, weight, and a clear verb. Reserve crimson for focus, selection, or a labeled destructive cue. Budget below 5% accent coverage as a review goal and record any measured screen with its viewport and state. [Component usage](components.md)
+- Start body typography at 16 CSS px in the reference. Check weight, line length, and contrast on each dark surface. Give each view one dominant judgment or action. Organize its compartments around the information needed to make that judgment. [CSS properties](../demo/tokens.css) · [JSON tokens](tokens.json)
+- Provide logical Tab order and a visible command trigger. Ctrl/⌘+K opens the palette from the workspace. Let the search field accept ordinary editing keys and expose only implemented commands. Use native dialog containment and Escape. Restore focus to the invoker after dismissal and place focus where the executed action requires it. [W3C modal dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+- Keep user-triggered transitions within 200 ms and respect reduced motion. Give motion a purpose, such as locating the edge of an opened drawer. Keep page load immediate.
+- Target WCAG 2.2 AA. Check normal text at 4.5:1 and required non-text UI contrast at 3:1. Evaluate focus visibility, focus obscuration, keyboard paths, and target size separately. The project's 44 × 44 CSS px touch goal is distinct from AA's 24 × 24 CSS px criterion and its exceptions. [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/) · [Verification record](verification.md#revision-5-verification)
