@@ -4,6 +4,12 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ## Unreleased
 
+No changes yet.
+
+## 5.1.0 · 2026-11-05
+
+First tagged release of the revision 5 token and interaction contract. [Release](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.1.0)
+
 ### Added
 
 - Generated token exports in `dist/`: W3C DTCG JSON, WinUI 3 ThemeDictionaries with a HighContrast mapping, WPF dark and light dictionaries, Rust, Slint, and Godot. `tools/build-tokens.mjs` builds them, and `demo/tokens.css`, from `docs/tokens.json`. CI fails when they are stale.
