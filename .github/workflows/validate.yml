@@ -27,7 +27,13 @@ jobs:
         with:
           node-version: '26'
       - name: Check script syntax
-        run: find demo -type f \( -name '*.js' -o -name '*.mjs' \) -print0 | xargs -0 -n 1 node --check
+        run: find demo tools -type f \( -name '*.js' -o -name '*.mjs' \) -print0 | xargs -0 -n 1 node --check
+      - name: Check generated token outputs are current
+        run: node tools/build-tokens.mjs --check
+      - name: Compile Rust token export
+        run: rustc --edition 2021 --crate-type lib dist/vaporgrid.rs -o "$RUNNER_TEMP/libvaporgrid.rlib"
+      - name: Check XAML exports are well-formed
+        run: for f in dist/*.xaml; do python3 -c 'import sys, xml.dom.minidom as m; m.parse(sys.argv[1])' "$f"; done
       - name: Test interaction state and token contrast
         run: node --test
 
@@ -47,6 +53,7 @@ jobs:
           cp -- index.html LICENSE _site/
           cp -- demo/index.html demo/app.js demo/state.mjs demo/palette.mjs demo/style.css demo/tokens.css demo/palette.css demo/icons.svg _site/demo/
           cp -- docs/tokens.json _site/docs/
+          mkdir -p _site/dist && cp -- dist/* _site/dist/
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
           path: _site
