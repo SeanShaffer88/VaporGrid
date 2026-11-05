@@ -26,3 +26,15 @@ These are prompt requests, not a claim that each render reproduces every detail 
 The user supplied and authorized the [Synapse reference](../assets/reference/synapse-interface.png) for this repository. AI processing isolates the interface from the source screenshot and removes the surrounding desktop and taskbar. This modification can change interface detail; do not describe the result as pixel-identical to the input.
 
 See [ATTRIBUTION.md](../ATTRIBUTION.md) for the seven-file inventory and reuse credit. The mockups do not claim affiliation with third-party software or demonstrate real builds, transfers, analytics, editing, scheduling, or fitness tracking.
+
+## Revision 2 sheets
+
+Three new ImageGen sheets were created and visually inspected before implementing the interaction reference:
+
+- [Components and states](../assets/vaporgrid-component-states.png): controls, focus, validation, selection, and confirmation direction.
+- [Feedback and recovery](../assets/vaporgrid-recovery-states.png): fictional empty, error, offline, and simulated progress examples.
+- [One workspace, three sizes](../assets/vaporgrid-responsive-comparison.png): the same fictional task application adapted to wide, narrow, and mobile layouts.
+
+The full public prompts are preserved in [image-prompts-v2.json](image-prompts-v2.json), mapped to final asset filenames. They include the darker filled action, semantic labels, readable density, restrained decoration, and responsive behavior. Prompted color values do not prove the generated pixels match those values.
+
+These sheets are illustrative direction. Generated marks, text, icon-like geometry, and layouts are not canonical assets or evidence of working software. The original vector sprite and its presentation export were authored separately from these raster images; see [iconography](iconography.md). The original six concepts and reference processing provenance remain intact as historical context.

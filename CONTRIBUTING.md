@@ -19,3 +19,9 @@ Keep local machine paths, private email addresses, credentials, temporary files,
 ## Check your documentation
 
 Verify relative links and asset names, parse edited JSON, and keep descriptions consistent with the supplied images and actual project state. Document measured contrast pairings rather than assuming the palette works in every combination. Preserve prior version context when you supersede guidance, and explain the change for readers who used the earlier direction.
+
+## Interaction reference changes
+
+Keep the demo dependency-free, local, and explicitly simulated. Do not add external requests, telemetry, startup jobs, or content persistence. Preserve keyboard and pointer resizing, modal focus restoration, validated preferences, reset cancellation, and terminal timer cleanup. Run `node --test demo/state.test.mjs` and `node --check demo/app.js`; record actual browser checks and limitations in [verification](docs/verification.md).
+
+Edit the canonical [icon sprite](demo/icons.svg) first; update the standalone [sheet](assets/vaporgrid-icon-sheet.svg) from its definitions. Use original paths, retain visible labels/currentColor, and document inspiration without copying proprietary marks. New design changes still require a photo/image mockup shown before implementation. Educational code and vectors are included in the same CC BY 4.0 scope.

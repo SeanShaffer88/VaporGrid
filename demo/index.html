@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="system" data-density="comfortable">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Workspace · VaporGrid interaction reference</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to tasks</a>
+<header class="masthead"><div><span class="brand">VaporGrid <span aria-hidden="true">∷</span></span><span class="eyebrow">Interaction reference / 02</span></div><span class="badge">Local simulation</span></header>
+<div class="app-shell">
+  <nav class="navigation" aria-label="Workspace sections">
+    <p class="eyebrow">Workspace</p>
+    <a href="#main" aria-current="page"><svg aria-hidden="true"><use href="icons.svg#tasks"/></svg>Tasks <span class="count">03</span></a>
+    <a href="#projects"><svg aria-hidden="true"><use href="icons.svg#project"/></svg>Projects</a>
+    <a href="#settings"><svg aria-hidden="true"><use href="icons.svg#settings"/></svg>Display</a>
+    <section id="projects"><h2>Current project</h2><p>Interface foundations</p><p class="muted">Three review tasks. All names and activity are fictional.</p></section>
+    <p class="nav-note">Clarity in every compartment.</p>
+  </nav>
+  <main id="main" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow">Interface foundations / Tasks</p><h1>Workspace</h1><p class="muted">Review the prototype, validate assets, prepare the handoff.</p></div><button id="show-details" aria-controls="inspector" aria-expanded="true"><svg aria-hidden="true"><use href="icons.svg#details"/></svg>Details</button></div>
+    <section class="settings panel" id="settings" aria-labelledby="settings-heading">
+      <h2 id="settings-heading">Display</h2>
+      <div class="control-row">
+        <label>Theme<select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+        <label>Density<select id="density"><option value="compact">Compact</option><option value="comfortable" selected>Comfortable</option><option value="touch">Touch</option></select></label>
+        <label class="check-label"><input id="effects" type="checkbox"> Decorative edge</label>
+        <button id="reset-layout"><svg aria-hidden="true"><use href="icons.svg#reset"/></svg>Reset layout</button>
+      </div>
+      <p class="muted small" id="storage-status">Only display preferences are saved on this browser.</p>
+    </section>
+    <div class="work-area" id="work-area">
+      <div class="primary-work">
+        <section class="panel" aria-labelledby="tasks-heading">
+          <div class="section-heading"><h2 id="tasks-heading">Tasks</h2><span class="muted small">3 in this project</span></div>
+          <table><caption class="sr-only">Fictional project tasks; select a task to inspect it.</caption><thead><tr><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
+          <tbody><tr class="selected"><td><button class="task-select" data-task="0" aria-pressed="true">Review prototype</button><span class="task-meta">Design · Avery</span></td><td><span class="status info">In review</span></td></tr>
+          <tr><td><button class="task-select" data-task="1" aria-pressed="false">Validate assets</button><span class="task-meta">Quality · Morgan</span></td><td><span class="status warning">Needs check</span></td></tr>
+          <tr><td><button class="task-select" data-task="2" aria-pressed="false">Prepare handoff</button><span class="task-meta">Delivery · Jules</span></td><td><span class="status">Ready</span></td></tr></tbody></table>
+        </section>
+        <section class="panel simulation" aria-labelledby="simulation-heading">
+          <div class="section-heading"><h2 id="simulation-heading">Prepare preview</h2><span class="badge">Simulated</span></div>
+          <p class="muted">A local progress example. No files are processed or uploaded.</p>
+          <div class="progress-heading"><span id="job-status" role="status">Ready</span><output id="percentage" for="job-progress">0%</output></div>
+          <progress id="job-progress" max="100" value="0" aria-label="Simulated preview progress">0%</progress>
+          <div class="button-row"><button class="primary" id="start"><svg aria-hidden="true"><use href="icons.svg#play"/></svg>Start simulation</button><button id="pause" disabled><svg aria-hidden="true"><use href="icons.svg#pause"/></svg><span>Pause</span></button><button id="cancel" disabled><svg aria-hidden="true"><use href="icons.svg#cancel"/></svg>Cancel</button></div>
+        </section>
+        <section class="panel" aria-labelledby="examples-heading"><h2 id="examples-heading">Feedback & recovery</h2><p class="muted small">Choose an example; these controls never test a real connection.</p>
+          <label>Example state<select id="example"><option value="normal">Validation</option><option value="empty">Empty</option><option value="offline">Offline</option><option value="error">Error</option></select></label>
+          <div id="validation-example"><form id="name-form" novalidate><label for="workspace-name">Workspace name</label><input id="workspace-name" maxlength="60" aria-describedby="name-help name-error" value="Interface foundations" required><p id="name-help" class="muted small">Use at least 3 characters.</p><p id="name-error" class="error-text" hidden>Enter a name with at least 3 characters.</p><button type="submit">Validate name</button></form></div>
+          <div id="recovery-example" hidden><h3 id="recovery-title"></h3><p id="recovery-copy"></p><button id="retry">Retry example</button></div>
+          <p id="feedback" class="small" role="status"></p>
+        </section>
+      </div>
+      <div id="resize" role="separator" tabindex="0" aria-label="Details width" aria-controls="inspector" aria-orientation="vertical" aria-valuemin="240" aria-valuemax="420" aria-valuenow="300" aria-valuetext="300 pixels" title="Drag, or use Left/Right arrows; Home/End set limits"></div>
+      <div id="inspector-slot"><aside class="panel inspector" id="inspector" aria-labelledby="details-title">
+        <div class="section-heading"><h2 id="details-title">Details</h2><button id="close-details">Collapse</button></div>
+        <p class="eyebrow">Selected task</p><h3 id="task-title">Review prototype</h3><p id="task-description">Check hierarchy, keyboard access, and readable task states before handoff.</p>
+        <dl><dt>Owner</dt><dd id="task-owner">Avery</dd><dt>Project</dt><dd>Interface foundations</dd><dt>Mode</dt><dd>Fictional review</dd></dl>
+        <div class="note"><svg aria-hidden="true"><use href="icons.svg#info"/></svg><p>Selection stays available when this compartment is collapsed.</p></div>
+        <p class="small muted" id="resize-help">Resize with the divider: Left/Right, Home/End. Width is saved; Reset layout restores 300 pixels.</p>
+      </aside></div>
+    </div>
+    <footer><svg aria-hidden="true"><use href="icons.svg#check"/></svg>Local reference · No account, network service, or background job <a href="../docs/verification.md">Verification limits</a></footer>
+  </main>
+</div>
+<dialog id="details-dialog" aria-labelledby="details-title"><div id="drawer-slot"></div></dialog>
+<dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-copy"><h2 id="reset-title">Reset workspace layout?</h2><p id="reset-copy">Restore the details width and show the inspector. Theme, density, and effects stay as selected.</p><form method="dialog" class="button-row"><button value="cancel" autofocus>Keep layout</button><button value="reset" class="primary">Reset layout</button></form></dialog>
+<noscript><p class="panel">JavaScript is required for this interaction reference. No simulation starts without it.</p></noscript>
+</body></html>
