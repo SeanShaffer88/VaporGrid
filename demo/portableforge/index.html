@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-text-size="100" data-texture="tread">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>PortableForge workflow reference · VaporGrid</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header class="shell-header" data-fit>
+    <a class="brand" href="../../">VaporGrid <span> / PortableForge</span></a>
+    <div class="display-settings" role="group" aria-label="Display preferences">
+      <label>Text size
+        <select id="text-size"><option value="100">100%</option><option value="125">125%</option><option value="150">150%</option></select>
+      </label>
+      <label>Theme
+        <select id="theme"><option value="dark">Dark</option><option value="light">Light</option></select>
+      </label>
+      <label>Surface
+        <select id="texture"><option value="tread">Tread</option><option value="flat">Flat</option></select>
+      </label>
+    </div>
+  </header>
+  <main id="workspace" class="workspace">
+    <section class="step-intro" aria-labelledby="step-heading" data-fit>
+      <p id="step-count" class="eyebrow"></p>
+      <h1 id="step-heading" tabindex="-1">PortableForge workflow</h1>
+      <p id="step-help" class="help"></p>
+    </section>
+    <form id="stage-form" novalidate data-fit></form>
+    <noscript><p>Enable JavaScript to try the sample workflow.</p></noscript>
+    <footer class="step-footer" data-fit>
+      <div id="status" class="status" role="status" aria-atomic="true" tabindex="-1">
+        <strong id="status-title"></strong>
+        <span id="status-message"></span>
+      </div>
+      <div class="actions">
+        <button id="step-back" type="button" hidden>Back</button>
+        <button id="step-reset" type="button" hidden>Start over</button>
+        <button id="step-primary" type="submit" form="stage-form" class="primary" hidden></button>
+      </div>
+    </footer>
+  </main>
+  <dialog id="path-dialog" aria-labelledby="path-title">
+    <h2 id="path-title">Full path</h2>
+    <p id="path-value" class="path-value"></p>
+    <form method="dialog" class="dialog-actions">
+      <button id="close-path" type="submit" autofocus>Close</button>
+    </form>
+  </dialog>
+
+  <template id="capture-template">
+    <p class="help notice">Practice with sample data. The demo keeps paths in this tab and opens no files.</p>
+    <div class="field">
+      <label id="setup-label" for="setup-path">Setup file</label>
+      <div class="field-row">
+        <div class="path-editor" data-value=""><textarea id="setup-path" rows="1" maxlength="320" spellcheck="false" required aria-describedby="capture-help"></textarea></div>
+        <button type="button" data-path-for="setup-path" aria-label="View full setup file path">View path</button>
+      </div>
+    </div>
+    <div class="field">
+      <label id="installed-label" for="installed-path">Installed app</label>
+      <div class="field-row">
+        <div class="path-editor" data-value=""><textarea id="installed-path" rows="1" maxlength="320" spellcheck="false" required aria-describedby="capture-help"></textarea></div>
+        <button type="button" data-path-for="installed-path" aria-label="View full installed app path">View path</button>
+      </div>
+    </div>
+    <div class="inline-actions">
+      <button id="use-sample" type="button">Use sample paths</button>
+      <p id="capture-help" class="help"></p>
+    </div>
+  </template>
+
+  <template id="review-template">
+    <div class="review-controls">
+      <label>Findings
+        <select id="review-filter"><option value="all">All findings</option><option value="attention">Needs attention</option></select>
+      </label>
+      <p id="review-summary" class="help"></p>
+    </div>
+    <div id="finding" class="finding" aria-labelledby="finding-title">
+      <h2 id="finding-title" tabindex="-1"></h2>
+      <p id="finding-description"></p>
+      <p id="finding-path" class="path-value"></p>
+      <label class="choice"><input id="review-choice" type="checkbox"><span id="choice-label"></span></label>
+    </div>
+    <p id="review-empty" hidden>No findings need attention. View all findings to review your other choices.</p>
+    <nav class="pager" aria-label="Review pages">
+      <button id="review-previous" type="button">Previous</button>
+      <span id="review-count" role="status" aria-atomic="true"></span>
+      <button id="review-next" type="button">Next</button>
+    </nav>
+  </template>
+
+  <template id="save-template">
+    <div class="field">
+      <label for="profile-name">Profile name</label>
+      <input id="profile-name" maxlength="80" required autocomplete="off" aria-describedby="save-summary">
+    </div>
+    <p id="save-summary" class="help"></p>
+  </template>
+
+  <template id="rebuild-template">
+    <p id="profile-summary"></p>
+    <div class="field">
+      <label id="rebuild-label" for="rebuild-setup">Sample setup file</label>
+      <select id="rebuild-setup">
+        <option value="original">Original sample setup</option>
+        <option value="changed">Changed sample setup</option>
+      </select>
+    </div>
+  </template>
+
+  <template id="result-template">
+    <dl class="result-summary">
+      <div><dt>Profile</dt><dd id="result-name"></dd></div>
+      <div><dt>Setup check</dt><dd>Matched the saved sample</dd></div>
+      <div><dt>Result</dt><dd>Sample installer build complete</dd></div>
+    </dl>
+    <p class="help">The browser demo records this result in memory. PortableForge for Windows creates the installer.</p>
+  </template>
+</body>
+</html>

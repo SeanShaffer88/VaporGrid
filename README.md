@@ -89,6 +89,7 @@ outlines. Theme and accent apply immediately and persist separately. [Preset val
 ## Adopt VaporGrid
 
 - Start with the [design guidelines](docs/design-guidelines.md) and [component usage](docs/components.md).
+- Use the [compact workflow recipes](docs/workflow-recipes.md) for forms, review paging, progress, and recovery. Try the [PortableForge workflow reference](https://seanshaffer88.github.io/VaporGrid/demo/portableforge/) with sample data or read the [Windows case study](docs/workflow-recipes.md#portableforge-case-study).
 - Use the [CSS custom properties](demo/tokens.css) or [JSON tokens](docs/tokens.json). Choose component states using the [materials guide](docs/materials.md).
 - Native apps: take a generated export from [`dist/`](dist/). It contains [DTCG JSON](dist/vaporgrid.tokens.json), [WinUI 3](dist/VaporGrid.xaml), WPF [dark](dist/VaporGrid.Dark.xaml)/[light](dist/VaporGrid.Light.xaml), [Rust](dist/vaporgrid.rs), [Slint](dist/VaporGrid.slint) and [Godot](dist/vaporgrid_tokens.gd) files. All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`.
 - Open the [live workspace](https://seanshaffer88.github.io/VaporGrid/demo/) or follow the [local setup](demo/README.md).
