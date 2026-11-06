@@ -74,6 +74,18 @@ Apply or Cancel. Action buttons fill the available row space in source order.
 See the [responsive mockup](assets/vaporgrid-responsive-settings.png) and
 [behavior rules](docs/design-guidelines.md#responsive-controls-and-settings--revision-4).
 
+### Appearance preferences
+
+Settings → Appearance lets you choose System, Light, or Dark independently of
+Crimson, Blue, or Teal. The accent preset changes selection markers and focus
+outlines. Theme and accent apply immediately and persist separately. [Preset values and consumer guidance](docs/materials.md#appearance-presets)
+
+<p align="center">
+  <img src="assets/vaporgrid-appearance.png" alt="Appearance concept showing a dark workspace with blue cues and a light workspace with teal cues" width="80%">
+</p>
+
+*Illustrative appearance study. The live demo uses native selects and the published token values.*
+
 ## Adopt VaporGrid
 
 - Start with the [design guidelines](docs/design-guidelines.md) and [component usage](docs/components.md).

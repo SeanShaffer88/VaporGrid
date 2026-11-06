@@ -12,6 +12,20 @@ Body typography starts at 16 CSS pixels under default browser settings and follo
 
 VaporGrid's accent is `#76172A` in both themes. Use `accent` for a deliberate brand or action fill, paired with `accentForeground` (`#F1F1F3`) for labels. The pairing measures 9.66:1. Provide a visible control boundary where the fill alone has insufficient contrast with its surroundings. Use `selectionIndicator` and `focus` for thin state cues, and system colors in forced-color mode.
 
+### Appearance presets
+
+Keep theme and accent color as independent choices. The demo offers Crimson, Blue, and Teal. Crimson uses the base theme values. Blue and Teal update the selection marker and focus outline immediately, with distinct cues in each effective theme. Retain the selected fill, semantic colors, deep-crimson action fill, and textual or programmatic cues.
+
+| Preset | Dark selection | Dark focus | Light selection | Light focus |
+| --- | --- | --- | --- | --- |
+| Crimson | `#DC2749` | `#FF4D73` | `#9E1534` | `#D61F45` |
+| Blue | `#5FA8FF` | `#ACD1FF` | `#1558A6` | `#327AD1` |
+| Teal | `#37B7AF` | `#8FE4D9` | `#00665F` | `#13877F` |
+
+Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark, and System and uses `Highlight` for both cues in forced colors. Preserve an independent outline and selection marker so both remain identifiable when the system supplies the same color.
+
+Native consumers keep the base dark/light palette API and apply the two overrides from the preset map for the effective theme. Store a validated preset ID and fall back to Crimson when it is missing or unknown. Reapply the preset when the effective theme changes and defer to native highlight colors in high contrast. The base XAML, Rust, Slint, and Godot exports continue to supply the default theme palettes. Alternate sRGB values are available under `color.accentPresets` in [generated DTCG JSON](../dist/vaporgrid.tokens.json) and as sRGB and OKLCH in [source tokens](tokens.json).
+
 ## Dark tread plate
 
 Use a subtle tread-plate finish on dark workspace backgrounds. Arrange equal square tiles in an aligned grid with faint seams. Set four small raised diamonds in each tile, alternating their diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.

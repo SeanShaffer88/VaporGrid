@@ -1,5 +1,7 @@
 # Image generation notes
 
+The Appearance study illustrates two combinations of the same preferences: Dark with Blue and Light with Teal. The running demo uses native selects and the generated token colors. [Mockup](../assets/vaporgrid-appearance.png) · [Public prompt](image-prompt-appearance.txt)
+
 Sean Shaffer directed six fictional static interface mockups using ImageGen. The prompts express design direction, not a pixel-perfect production specification. Generated text, geometry, controls, and color values can vary; use the [guidelines](design-guidelines.md) and [tokens](tokens.json) when implementing a design.
 
 ## Shared prompt direction

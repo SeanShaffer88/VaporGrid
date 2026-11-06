@@ -6,6 +6,7 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ### Added
 
+- Independent Crimson, Blue, and Teal appearance presets for selection markers and focus, with generated CSS and DTCG values and backward-compatible preference storage.
 - Dark workspace tread-plate guidance and a reusable SVG swatch with measured contrast against the brightest ridge.
 - Generated token exports in `dist/`: W3C DTCG JSON, WinUI 3 ThemeDictionaries with a HighContrast mapping, WPF dark and light dictionaries, Rust, Slint, and Godot. `tools/build-tokens.mjs` builds them, and `demo/tokens.css`, from `docs/tokens.json`. CI fails when they are stale.
 - A `selected` token (`--surface-4`) for selected rows, the current navigation item, and secondary control hover.
