@@ -163,3 +163,17 @@ Browser observations supply no shell exit code. The browser engine version was n
 
 - The in-app browser verified all nine combinations of System, Light, and Dark with Crimson, Blue, and Teal. Light with Teal persisted across reload and a confirmed layout reset. The live System checks used the browser's current preference. System-light switching and forced-colors behavior were checked in generated source, with no live emulation run. Browser observations supply no shell exit code.
 - Twelve focused preference and token tests passed. The tests cover legacy records, invalid accent IDs, role-specific contrast in both encodings, and generated CSS and DTCG mappings. The token generator's `--check` mode, JavaScript syntax checks, and `git diff --check` exited 0.
+
+## PortableForge workflow reference verification
+
+Run `node tools/verify-reference.mjs` with an installed Chrome browser. Set `CHROME_PATH` if Chrome is outside the default location. Pass `--root` with the staged site directory to test the files that Pages will serve. The CI job runs this check before uploading the site artifact.
+
+| Scenario | Checked behavior |
+| --- | --- |
+| Compact layout | Complete sample flow at 640 × 480 CSS px and 100% text. The populated capture form also fits at 800 × 600 and 125%, and 960 × 720 and 150%. |
+| Text and paths | In-place text-size changes preserve inputs. A long German fixture checks wrapping, the error message, and action reachability at 150%. A 320 px viewport uses document reflow with zero horizontal overflow. |
+| Keyboard | Tab order follows the form. Task headings receive focus after navigation. The path dialog contains Tab and Shift+Tab and restores its opener after Close or Escape. |
+| Review and recovery | Choices survive paging. The attention filter exposes unresolved findings, and the save gate checks the entire review. A changed sample setup preserves the profile and selected input. The original setup succeeds on retry. |
+| Appearance and requests | Square tread is present on the dark surface, with a flat surface in Light and forced colors. The browser checks for runtime errors and requests outside the local test origin. |
+
+The browser gate uses a fresh Chrome profile and sample data. Its geometry and keyboard checks cover the exercised states. Native Windows containment, cleanup, and installer compilation were verified separately in [PortableForge PR #4](https://github.com/SeanShaffer88/PortableForge/pull/4).

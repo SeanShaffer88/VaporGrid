@@ -22,6 +22,8 @@ Genuinely two-dimensional content, such as a timeline or map that requires a fix
 
 Check fit at the smallest supported width and height and across supported zoom and text scales. Test long localized text and populated, error, and progress states. Verify that controls, labels, and focus indicators remain visible and that ordinary surfaces have no overflow.
 
+Use the [compact workflow recipes](workflow-recipes.md) to choose page layouts, place responsive fields, and test fit when text size changes mid-task.
+
 ## Compartments
 
 Give each compartment a clear heading and purpose. Define minimum sizes, resize limits, collapse behavior, and how users restore hidden regions. Keep critical status and recovery actions reachable when a compartment collapses.
@@ -45,6 +47,8 @@ For implementation, target at least 4.5:1 for normal text, 3:1 for qualifying la
 ## Interaction and feedback
 
 Provide a visible focus indicator, a logical keyboard order, and discoverable shortcuts that respect platform conventions. Pair selected, warning, and error colors with text, icons, or another perceptible cue. Keep hover, focus, selection, and disabled states distinguishable.
+
+Write the next action in plain language. Keep status and retry controls in a predictable region. Restore focus to the dialog opener after dismissal. [Copy examples](workflow-recipes.md#plain-language-copy) · [Keyboard and focus](workflow-recipes.md#keyboard-and-focus) · [Status and recovery](workflow-recipes.md#status-and-recovery)
 
 Explain loading with the current operation, meaningful units or percentage when known, and available pause or cancel actions. Use an indeterminate state when progress cannot be measured. Report completion and failure explicitly, including a recovery action where possible; do not fabricate progress.
 

@@ -56,3 +56,7 @@ The coordinator showed the ImageGen keyboard and elevation study before implemen
 The coordinator showed the ImageGen appearance study before implementation. Its interface, swatches, and colors are illustrative. The demo uses native selects and generated preset values. [Mockup](assets/vaporgrid-appearance.png) · [Public prompt](docs/image-prompt-appearance.txt)
 
 The [dark tread-plate swatch](assets/vaporgrid-tread-plate.svg) and [deep crimson swatch](assets/vaporgrid-accent.svg) are original geometric SVGs authored for VaporGrid by Sean Shaffer with AI assistance and use the repository's CC BY 4.0 license.
+
+## PortableForge workflow reference
+
+The [browser reference](demo/portableforge/) uses original educational HTML, CSS, JavaScript, and synthetic sample data authored for VaporGrid by Sean Shaffer with AI assistance under CC BY 4.0. It reuses the VaporGrid tokens and tread-plate swatch and illustrates the [PortableForge Windows workflow](docs/workflow-recipes.md#portableforge-case-study).

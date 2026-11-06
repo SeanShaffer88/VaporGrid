@@ -36,32 +36,26 @@ jobs:
         run: for f in dist/*.xaml; do python3 -c 'import sys, xml.dom.minidom as m; m.parse(sys.argv[1])' "$f"; done
       - name: Test interaction state and token contrast
         run: node --test
-
-  package:
-    name: Package public reference
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: validate
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
       - name: Stage site files
         run: |
-          mkdir -p _site/demo _site/docs
+          mkdir -p _site/demo/portableforge _site/docs _site/assets
           cp -- index.html LICENSE _site/
           cp -- demo/index.html demo/app.js demo/state.mjs demo/palette.mjs demo/style.css demo/tokens.css demo/palette.css demo/icons.svg _site/demo/
+          cp -- demo/portableforge/index.html demo/portableforge/app.mjs demo/portableforge/state.mjs demo/portableforge/style.css _site/demo/portableforge/
+          cp -- assets/vaporgrid-tread-plate.svg _site/assets/
           cp -- docs/tokens.json _site/docs/
           mkdir -p _site/dist && cp -- dist/* _site/dist/
+      - name: Check the staged PortableForge reference in Chrome
+        run: node tools/verify-reference.mjs --root _site
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: _site
 
   deploy:
     name: Deploy GitHub Pages
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: package
+    needs: validate
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
