@@ -18,8 +18,12 @@
   <SolidColorBrush x:Key="VgMutedBrush" Color="#B7B7C1" />
   <Color x:Key="VgBorderColor">#92929C</Color>
   <SolidColorBrush x:Key="VgBorderBrush" Color="#92929C" />
-  <Color x:Key="VgAccentColor">#DC2749</Color>
-  <SolidColorBrush x:Key="VgAccentBrush" Color="#DC2749" />
+  <Color x:Key="VgAccentColor">#76172A</Color>
+  <SolidColorBrush x:Key="VgAccentBrush" Color="#76172A" />
+  <Color x:Key="VgAccentForegroundColor">#F1F1F3</Color>
+  <SolidColorBrush x:Key="VgAccentForegroundBrush" Color="#F1F1F3" />
+  <Color x:Key="VgSelectionIndicatorColor">#DC2749</Color>
+  <SolidColorBrush x:Key="VgSelectionIndicatorBrush" Color="#DC2749" />
   <Color x:Key="VgFocusColor">#FF4D73</Color>
   <SolidColorBrush x:Key="VgFocusBrush" Color="#FF4D73" />
   <Color x:Key="VgActionColor">#383840</Color>

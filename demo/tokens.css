@@ -18,7 +18,9 @@
   --fg: #F1F1F3;
   --muted: #B7B7C1;
   --border: #92929C;
-  --accent: #DC2749;
+  --accent: #76172A;
+  --accent-foreground: #F1F1F3;
+  --selection-indicator: #DC2749;
   --focus: #FF4D73;
   --action: #383840;
   --action-hover: #41414A;
@@ -41,7 +43,9 @@
   --fg: #202023;
   --muted: #50505B;
   --border: #676772;
-  --accent: #9E1534;
+  --accent: #76172A;
+  --accent-foreground: #F1F1F3;
+  --selection-indicator: #9E1534;
   --focus: #D61F45;
   --action: #D0D0D7;
   --action-hover: #CACAD1;
@@ -65,7 +69,9 @@
     --fg: #202023;
     --muted: #50505B;
     --border: #676772;
-    --accent: #9E1534;
+    --accent: #76172A;
+    --accent-foreground: #F1F1F3;
+    --selection-indicator: #9E1534;
     --focus: #D61F45;
     --action: #D0D0D7;
     --action-hover: #CACAD1;
@@ -91,7 +97,9 @@
     --fg: oklch(0.95871168 0.00265877 286.3496);
     --muted: oklch(0.78249408 0.01403757 286.0709);
     --border: oklch(0.6631639 0.01464316 285.9937);
-    --accent: oklch(0.58226222 0.21212148 17.8042);
+    --accent: oklch(0.37536078 0.12835748 15.2251);
+    --accent-foreground: oklch(0.95871168 0.00265877 286.3496);
+    --selection-indicator: oklch(0.58226222 0.21212148 17.8042);
     --focus: oklch(0.6798201 0.21343679 12.5843);
     --action: oklch(0.34381772 0.01385 285.6487);
     --action-hover: oklch(0.37872522 0.0152088 285.6511);
@@ -112,7 +120,9 @@
     --fg: oklch(0.24477082 0.00563709 285.9759);
     --muted: oklch(0.43533305 0.01795528 285.6302);
     --border: oklch(0.51761986 0.01717247 285.7846);
-    --accent: oklch(0.45318915 0.16841398 16.2572);
+    --accent: oklch(0.37536078 0.12835748 15.2251);
+    --accent-foreground: oklch(0.95871168 0.00265877 286.3496);
+    --selection-indicator: oklch(0.45318915 0.16841398 16.2572);
     --focus: oklch(0.56625342 0.21175472 17.6485);
     --action: oklch(0.85966772 0.00958313 286.1964);
     --action-hover: oklch(0.8410888 0.00963633 286.1907);
@@ -134,7 +144,9 @@
       --fg: oklch(0.24477082 0.00563709 285.9759);
       --muted: oklch(0.43533305 0.01795528 285.6302);
       --border: oklch(0.51761986 0.01717247 285.7846);
-      --accent: oklch(0.45318915 0.16841398 16.2572);
+      --accent: oklch(0.37536078 0.12835748 15.2251);
+      --accent-foreground: oklch(0.95871168 0.00265877 286.3496);
+      --selection-indicator: oklch(0.45318915 0.16841398 16.2572);
       --focus: oklch(0.56625342 0.21175472 17.6485);
       --action: oklch(0.85966772 0.00958313 286.1964);
       --action-hover: oklch(0.8410888 0.00963633 286.1907);
