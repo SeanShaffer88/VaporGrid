@@ -101,12 +101,12 @@ test('the deep crimson accent matches the brand swatch and preserves label contr
 
 test('dark tread plate stays faint and preserves contrast at its brightest ridge', () => {
   const svg = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
-  const fills = [...svg.matchAll(/fill="(#[0-9a-f]{6})"/gi)].map(match => match[1].toLowerCase());
-  assert.ok(fills.includes(tokens.color.background.toLowerCase()));
-  assert.ok(new Set(fills).size >= 3, 'Expected a base, highlight and shadow');
-  fills.sort((a, b) => luminance(a) - luminance(b));
-  const brightest = fills.at(-1);
-  assert.ok(ratio(fills[0], brightest) <= 1.15, 'Tread relief is too strong');
+  const colors = [...svg.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1].toLowerCase());
+  assert.ok(colors.includes(tokens.color.background.toLowerCase()));
+  assert.ok(new Set(colors).size >= 4, 'Expected a base, highlight, shadow and seams');
+  colors.sort((a, b) => luminance(a) - luminance(b));
+  const brightest = colors.at(-1);
+  assert.ok(ratio(colors[0], brightest) <= 1.15, 'Tread relief is too strong');
   for (const palette of [tokens.color, tokens.colorOklch.dark]) {
     for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
       assert.ok(ratio(palette[text], brightest) >= 4.5, `${text} on the tread ridge`);

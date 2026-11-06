@@ -14,9 +14,9 @@ VaporGrid's accent is `#76172A` in both themes. Use `accent` for a deliberate br
 
 ## Dark tread plate
 
-Use a subtle tread-plate finish on dark workspace backgrounds. Repeat small raised diamonds on alternating diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.
+Use a subtle tread-plate finish on dark workspace backgrounds. Arrange equal square tiles in an aligned grid with faint seams. Set four small raised diamonds in each tile, alternating their diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.
 
-<img src="../assets/vaporgrid-tread-plate.svg" alt="Charcoal surface with faint alternating diagonal diamond treads" width="160" height="96">
+<img src="../assets/vaporgrid-tread-plate.svg" alt="Charcoal square grid with four alternating diagonal treads in each tile" width="160" height="96">
 
 Use the flat background in Light and forced-color modes, including when System resolves to Light. Check label, boundary, selection, and focus contrast against the brightest rendered ridge. Apply the existing 4.5:1 normal-text and 3:1 required non-text contrast targets.
 

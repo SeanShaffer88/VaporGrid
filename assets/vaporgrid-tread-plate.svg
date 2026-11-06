@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
-  <title>Dark VaporGrid tread-plate swatch</title>
+  <title>Dark VaporGrid square-grid tread-plate swatch</title>
   <defs>
     <path id="ridge-shadow" d="M-6 0 -3-1.5 3-1.5 6 0 3 1.5 -3 1.5Z" fill="#1c1c1e"/>
     <path id="ridge-top" d="M-6 0 -3-1.5 3-1.5 6 0 3 .4 -3 .4Z" fill="#27272a"/>
@@ -8,6 +8,7 @@
       <use href="#ridge-top"/>
     </g>
     <pattern id="tread" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M.5 32V.5H32" fill="none" stroke="#252527" shape-rendering="crispEdges"/>
       <use href="#ridge" transform="translate(8 8) rotate(-45)"/>
       <use href="#ridge" transform="translate(24 8) rotate(45)"/>
       <use href="#ridge" transform="translate(8 24) rotate(45)"/>
