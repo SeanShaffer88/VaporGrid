@@ -85,6 +85,24 @@ test('dark charcoal levels step 5–10% in relative luminance in both encodings'
   }
 });
 
+test('dark tread plate stays faint and preserves contrast at its brightest ridge', () => {
+  const svg = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
+  const fills = [...svg.matchAll(/fill="(#[0-9a-f]{6})"/gi)].map(match => match[1].toLowerCase());
+  assert.ok(fills.includes(tokens.color.background.toLowerCase()));
+  assert.ok(new Set(fills).size >= 3, 'Expected a base, highlight and shadow');
+  fills.sort((a, b) => luminance(a) - luminance(b));
+  const brightest = fills.at(-1);
+  assert.ok(ratio(fills[0], brightest) <= 1.15, 'Tread relief is too strong');
+  for (const palette of [tokens.color, tokens.colorOklch.dark]) {
+    for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
+      assert.ok(ratio(palette[text], brightest) >= 4.5, `${text} on the tread ridge`);
+    }
+    for (const indicator of ['accent', 'focus', 'border', 'progress']) {
+      assert.ok(ratio(palette[indicator], brightest) >= 3, `${indicator} on the tread ridge`);
+    }
+  }
+});
+
 test('both themes preserve unrounded text, primary, semantic, focus, and boundary contrast', () => {
   for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
     const requireRatio = (foreground, background, minimum) => {

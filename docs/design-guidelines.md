@@ -4,7 +4,7 @@ Use these foundations to adapt VaporGrid to your application's tasks. Revision 5
 
 ## Foundations
 
-Build with opaque charcoal surfaces, high-contrast text, and a restrained functional crimson accent. Keep the optional edge treatment neutral. Reserve crimson for keyboard focus, current selection, or a clearly named destructive cue. Pair color with text, shape, or a programmatic state. Use a below-5% accent coverage budget as a design review target.
+Build with opaque charcoal surfaces, high-contrast text, and a restrained functional crimson accent. Give dark workspace backgrounds a faint, static diamond tread while keeping controls and state fills solid. Keep the optional edge treatment neutral. Reserve crimson for keyboard focus, current selection, or a clearly named destructive cue. Pair color with text, shape, or a programmatic state. Use a below-5% accent coverage budget as a design review target. [Dark tread plate](materials.md#dark-tread-plate)
 
 The direction starts with Windows workflows. Preserve task clarity when adapting it to another platform, rather than copying desktop density into every form factor. Follow the target platform's interaction conventions.
 

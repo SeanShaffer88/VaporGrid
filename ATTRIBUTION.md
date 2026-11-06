@@ -52,3 +52,5 @@ The original vectors take broad aesthetic inspiration from the clean hardware mi
 ## Revision 5 addition
 
 The coordinator showed the ImageGen keyboard and elevation study before implementation. Its fictional data, glyphs, and depicted shortcut labels illustrate the concept. Use the published tokens and running demo for exact colors and implemented commands. [Mockup](assets/vaporgrid-keyboard-and-elevation.png) · [Public prompt](docs/image-prompt-v5.txt)
+
+The [dark tread-plate swatch](assets/vaporgrid-tread-plate.svg) is an original geometric SVG authored for VaporGrid by Sean Shaffer with AI assistance and uses the repository's CC BY 4.0 license.

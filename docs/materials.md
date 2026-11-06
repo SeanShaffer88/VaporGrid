@@ -6,6 +6,16 @@ Primary actions use a neutral solid fill and a semibold label. A lighter hover f
 
 Body typography starts at 16 CSS pixels under default browser settings and follows user font sizing. Smaller labels and metadata retain their contrast. Grouped controls default to 8px gaps with a 6px minimum. Narrow layouts and coarse pointers use a 44 by 44px minimum for standalone interactive controls and their clickable labels. The reference keeps the 180ms drawer entrance and limits nonessential transitions to 200ms. Reduced-motion and forced-color preferences use the browser’s corresponding modes.
 
+## Dark tread plate
+
+Use a subtle tread-plate finish on dark workspace backgrounds. Repeat small raised diamonds on alternating diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.
+
+<img src="../assets/vaporgrid-tread-plate.svg" alt="Charcoal surface with faint alternating diagonal diamond treads" width="160" height="96">
+
+Use the flat background in Light and forced-color modes, including when System resolves to Light. Check label, boundary, selection, and focus contrast against the brightest rendered ridge. Apply the existing 4.5:1 normal-text and 3:1 required non-text contrast targets.
+
+The reference swatch uses `#1F1F21` for the base, `#27272A` for the lightest ridge, and `#1C1C1E` for its shadow. Keep the lightest-to-darkest contrast at or below 1.15:1. The swatch measures 1.14:1. Against the brightest ridge, the sRGB token minima are 7.49:1 for body and muted text, 8.59:1 for semantic text, 4.83:1 for the control boundary, 4.65:1 for focus, and 3.14:1 for the selection marker. Recheck rendered colors if the pattern or palette changes.
+
 ## Measured palette contract
 
 The dark Background, Surface, and Raised OKLCH lightness values are 0.240, 0.247, and 0.254, with constant chroma and hue. Their linear-sRGB relative luminance increases by 9.01% and 8.75%. The rounded sRGB fallback steps are 9.78% and 6.70%. The 5–10% target applies to the relative change from each preceding dark surface. [CSS Color 4 conversion method](https://www.w3.org/TR/css-color/#color-conversion-code)
