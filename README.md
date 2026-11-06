@@ -1,6 +1,6 @@
 # VaporGrid
 
-A dark, dense, tactile interface standard.
+A dense, tactile interface standard for dark and light workspaces.
 
 [![Validation status](https://github.com/SeanShaffer88/VaporGrid/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/SeanShaffer88/VaporGrid/actions/workflows/validate.yml) · [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Component examples](https://seanshaffer88.github.io/VaporGrid/#usage-heading) · [CC BY 4.0](LICENSE)
 
@@ -9,7 +9,17 @@ A dark, dense, tactile interface standard.
 > editors, monitoring surfaces, and workflow tools. It specifies the spacing,
 > hierarchy, and behavior needed for long sessions in high-density interfaces.
 
-**Contents** · [Why this exists](#why-this-exists) · [Visual proof](#visual-proof) · [Design decisions](#design-decisions) · [Adopt VaporGrid](#adopt-vaporgrid) · [Open questions](#open-questions)
+**Contents** · [Release](#vaporgrid-550) · [Why this exists](#why-this-exists) · [Visual proof](#visual-proof) · [Design decisions](#design-decisions) · [Adopt VaporGrid](#adopt-vaporgrid) · [Open questions](#open-questions)
+
+## VaporGrid 5.5.0
+
+The first tagged release includes dark and light token palettes, Crimson, Blue,
+and Teal presets, responsive Settings, a keyboard command palette, and compact
+workflow guidance with an interactive PortableForge reference. Download the
+Tokens ZIP for `demo/tokens.css`, canonical JSON, and the generated exports
+in `dist/`. Download the tagged source archive to run the complete demos
+locally.
+[Download v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0) · [Local demo setup](demo/README.md) · [Changelog](CHANGELOG.md)
 
 ## Why this exists
 
@@ -48,15 +58,16 @@ interaction, and a keyboard path through each task.
 | Principle | Decision | Why it matters |
 | --- | --- | --- |
 | Density has rhythm | 6 CSS px minimum between distinct grouped controls, 8 px by default, 12–16 px between related groups, 24 px between sections | Makes groups scannable as layouts resize |
+| The current task fits | Minimize unused space, stretch related controls into available width, and keep each task page's text and controls fully visible without scrollbars. Page long content. [Compact fit](docs/design-guidelines.md#compact-fit) | Keeps the whole task page in view |
 | Compartments support a judgment | Give each view a dominant metric or action and give each region a clear task | Establishes a reading order in dense views |
-| Crimson carries meaning | Use it for a focus indicator, current state, or clearly labeled destructive action. Aim below 5% accent coverage as a design review budget | Preserves the accent as a signal |
+| Deep crimson accent | Use `#76172A` for deliberate brand or action fills and use separate colors for focus and selection. Aim below 5% accent coverage. [Accent swatch](docs/materials.md#deep-crimson-accent) | Preserves the visibility of thin state indicators |
 | Elevation follows luminance | Use three charcoal levels for the workspace base, compartments, and raised surfaces, plus a visible selected fill. Specify colors in OKLCH | Keeps physical structure legible at low luminance |
 | Typography supports long sessions | Use a 16 px body scale in the web reference, with weight and placement to distinguish headings and actions | Maintains legibility while preserving density |
 | Keyboard access starts at the surface | Preserve logical Tab order and visible focus. Offer Commands or Ctrl/⌘+K for searchable actions | Gives keyboard users a direct path through the workspace |
 
 Use text, shape, or programmatic state alongside color. Give the primary action
-a neutral raised treatment with a clear verb, place it where the task calls for
-it, and label destructive confirmations explicitly. Keep user-triggered motion
+a clear verb and place it where the task calls for it. Label destructive
+confirmations explicitly. Keep user-triggered motion
 under 200 ms and respect reduced-motion settings.
 
 VaporGrid targets [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including 4.5:1
@@ -73,9 +84,22 @@ Apply or Cancel. Action buttons fill the available row space in source order.
 See the [responsive mockup](assets/vaporgrid-responsive-settings.png) and
 [behavior rules](docs/design-guidelines.md#responsive-controls-and-settings--revision-4).
 
+### Appearance preferences
+
+Settings → Appearance lets you choose System, Light, or Dark independently of
+Crimson, Blue, or Teal. The accent preset changes selection markers and focus
+outlines. Theme and accent apply immediately and persist separately. [Preset values and consumer guidance](docs/materials.md#appearance-presets)
+
+<p align="center">
+  <img src="assets/vaporgrid-appearance.png" alt="Appearance concept showing a dark workspace with blue cues and a light workspace with teal cues" width="80%">
+</p>
+
+*Illustrative appearance study. The live demo uses native selects and the published token values.*
+
 ## Adopt VaporGrid
 
 - Start with the [design guidelines](docs/design-guidelines.md) and [component usage](docs/components.md).
+- Use the [compact workflow recipes](docs/workflow-recipes.md) for forms, review paging, progress, and recovery. Try the [PortableForge workflow reference](https://seanshaffer88.github.io/VaporGrid/demo/portableforge/) with sample data or read the [Windows case study](docs/workflow-recipes.md#portableforge-case-study).
 - Use the [CSS custom properties](demo/tokens.css) or [JSON tokens](docs/tokens.json). Choose component states using the [materials guide](docs/materials.md).
 - Native apps: take a generated export from [`dist/`](dist/). It contains [DTCG JSON](dist/vaporgrid.tokens.json), [WinUI 3](dist/VaporGrid.xaml), WPF [dark](dist/VaporGrid.Dark.xaml)/[light](dist/VaporGrid.Light.xaml), [Rust](dist/vaporgrid.rs), [Slint](dist/VaporGrid.slint) and [Godot](dist/vaporgrid_tokens.gd) files. All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`.
 - Open the [live workspace](https://seanshaffer88.github.io/VaporGrid/demo/) or follow the [local setup](demo/README.md).
@@ -97,8 +121,8 @@ See the [original icon sheet](assets/vaporgrid-icon-sheet.svg) and
 ## What shaped this revision
 
 Earlier revisions explored tactile rims, shadows, and crimson primary buttons.
-The current design uses luminance steps for structural depth and keeps crimson
-for functional cues. The [changelog](CHANGELOG.md) tracks those design decisions.
+The current design uses luminance steps for structural depth and deep crimson
+for deliberate fills. The [changelog](CHANGELOG.md) tracks those design decisions.
 
 ## Open questions
 

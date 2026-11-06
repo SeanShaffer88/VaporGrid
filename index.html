@@ -12,7 +12,10 @@
     main > * + * { margin-block-start: 24px; }
     .links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
     .links a, .examples a, footer a { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; padding: 6px 8px; }
-    .links .primary { border: 1px solid var(--border); border-radius: .35rem; }
+    .links .primary { color: var(--accent-foreground); background: var(--accent); border: 1px solid var(--border); border-radius: .35rem; }
+    @media (forced-colors: active) {
+      .links .primary { color: LinkText; background: Canvas; border-color: LinkText; }
+    }
     .examples { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
     .examples h3 { margin-block-start: 0; }
     .surface { padding: 12px; border: 1px solid var(--border); border-radius: .35rem; }
@@ -34,6 +37,8 @@
     <p>Dark, dense, tactile interfaces for dashboards, editors, monitoring tools, and workflow applications.</p>
     <nav class="links" aria-label="VaporGrid resources">
       <a class="primary" href="demo/">Open the live workspace</a>
+      <a href="demo/portableforge/">Try the PortableForge workflow</a>
+      <a href="https://github.com/SeanShaffer88/VaporGrid/blob/main/docs/workflow-recipes.md">Compact workflow recipes</a>
       <a href="docs/tokens.json">Design tokens JSON</a>
       <a href="demo/tokens.css">CSS custom properties</a>
       <a href="https://github.com/SeanShaffer88/VaporGrid">Repository</a>
@@ -58,7 +63,7 @@
           <button type="button" disabled>Unavailable action</button>
           <a href="demo/#simulation-heading">Try a primary action in the workspace</a>
         </div>
-        <p>Lead with one neutral primary action and a clear verb. Reserve crimson for focus, selection, or a clearly labeled destructive confirmation. Pair color with visible text and programmatic state.</p>
+        <p>Lead with one primary action and a clear verb. VaporGrid uses deep crimson <code>#76172A</code> for accent fills and dedicated indicators for focus and selection. Pair color with visible text and programmatic state.</p>
       </article>
       <article class="panel">
         <h3>Panels and preferences</h3>

@@ -23,6 +23,20 @@ const screaming = name => name.replace(/[A-Z]/g, c => `_${c}`).toUpperCase();
 const snake = name => name.replace(/[A-Z]/g, c => `_${c.toLowerCase()}`);
 const channels = hex => hex.slice(1).match(/../g).map(c => Number.parseInt(c, 16));
 const fontStack = list => list.map(f => (/\s/.test(f) ? `'${f}'` : f)).join(', ');
+const accentRoles = ['selectionIndicator', 'focus'];
+const accentPresets = Object.entries(tokens.appearanceAccents.presets)
+  .filter(([id]) => id !== tokens.appearanceAccents.default);
+for (const [id, preset] of accentPresets) {
+  if (!/^[a-z]+$/.test(id)) throw new Error(`Invalid accent ID: ${id}`);
+  for (const theme of ['dark', 'light']) {
+    for (const role of accentRoles) {
+      if (!/^#[\da-f]{6}$/i.test(preset[theme]?.[role] ?? '') ||
+          !/^oklch\([\d.]+ [\d.]+ [\d.]+\)$/.test(preset.oklch?.[theme]?.[role] ?? '')) {
+        throw new Error(`Invalid ${id} ${theme} ${role} token`);
+      }
+    }
+  }
+}
 
 // ---------- demo/tokens.css ----------
 function css() {
@@ -55,12 +69,32 @@ function css() {
     `${indent}  }`,
     `${indent}}`,
   ].join('\n');
+  function accentScopes(useOklch, indent = '') {
+    return accentPresets.map(([id, preset]) => {
+      const palette = useOklch ? preset.oklch : preset;
+      const selector = `:root[data-accent=${id}]`;
+      const declarations = theme => accentRoles.map(role => `--${kebab(role)}: ${palette[theme][role]};`).join(' ');
+      return [
+        `${indent}${selector} { ${declarations('dark')} }`,
+        `${indent}${selector}[data-theme=light] { ${declarations('light')} }`,
+        `${indent}@media (prefers-color-scheme: light) {`,
+        `${indent}  ${selector}[data-theme=system] { ${declarations('light')} }`,
+        `${indent}}`,
+      ].join('\n');
+    }).join('\n');
+  }
   return [
     `/* ${generatedNote} */`,
     scopes(tokens.color, tokens.lightColor, ''),
+    accentScopes(false),
     '',
     '@supports (color: oklch(0.5 0 0)) {',
     scopes(tokens.colorOklch.dark, tokens.colorOklch.light, '  '),
+    accentScopes(true, '  '),
+    '}',
+    '',
+    '@media (forced-colors: active) {',
+    '  :root { --selection-indicator: Highlight !important; --focus: Highlight !important; }',
     '}',
     '',
   ].join('\n');
@@ -72,10 +106,13 @@ function dtcg() {
   const dim = px => ({ $type: 'dimension', $value: { value: px, unit: 'px' } });
   const ms = value => ({ $type: 'duration', $value: { value, unit: 'ms' } });
   const palette = p => Object.fromEntries(roles.map(role => [role, color(p[role])]));
+  const presets = Object.fromEntries(accentPresets.map(([id, preset]) => [id,
+    Object.fromEntries(['dark', 'light'].map(theme => [theme,
+      Object.fromEntries(accentRoles.map(role => [role, color(preset[theme][role])]))]))]));
   const d = tokens.density;
   return JSON.stringify({
     $description: generatedNote,
-    color: { dark: palette(tokens.color), light: palette(tokens.lightColor) },
+    color: { dark: palette(tokens.color), light: palette(tokens.lightColor), accentPresets: presets },
     space: {
       ...Object.fromEntries(tokens.space.scale.map(v => [`s${v}`, dim(v)])),
       controlGap: dim(tokens.space.controlGap), controlGapMinimum: dim(tokens.space.controlGapMinimum),
@@ -103,7 +140,9 @@ function dtcg() {
 const highContrast = {
   background: 'SystemColorWindowColor', surface: 'SystemColorWindowColor', raised: 'SystemColorWindowColor',
   selected: 'SystemColorHighlightColor', foreground: 'SystemColorWindowTextColor', muted: 'SystemColorWindowTextColor',
-  border: 'SystemColorWindowTextColor', accent: 'SystemColorHighlightColor', focus: 'SystemColorHighlightColor',
+  border: 'SystemColorWindowTextColor', accent: 'SystemColorHighlightColor',
+  accentForeground: 'SystemColorHighlightTextColor', selectionIndicator: 'SystemColorHighlightColor',
+  focus: 'SystemColorHighlightColor',
   action: 'SystemColorButtonFaceColor', actionHover: 'SystemColorButtonFaceColor', actionPressed: 'SystemColorButtonFaceColor',
   progress: 'SystemColorHighlightColor', info: 'SystemColorWindowTextColor', warning: 'SystemColorWindowTextColor',
   success: 'SystemColorWindowTextColor', danger: 'SystemColorWindowTextColor',

@@ -13,7 +13,9 @@
         <Color x:Key="VgForegroundColor">#F1F1F3</Color>
         <Color x:Key="VgMutedColor">#B7B7C1</Color>
         <Color x:Key="VgBorderColor">#92929C</Color>
-        <Color x:Key="VgAccentColor">#DC2749</Color>
+        <Color x:Key="VgAccentColor">#76172A</Color>
+        <Color x:Key="VgAccentForegroundColor">#F1F1F3</Color>
+        <Color x:Key="VgSelectionIndicatorColor">#DC2749</Color>
         <Color x:Key="VgFocusColor">#FF4D73</Color>
         <Color x:Key="VgActionColor">#383840</Color>
         <Color x:Key="VgActionHoverColor">#41414A</Color>
@@ -34,7 +36,9 @@
         <Color x:Key="VgForegroundColor">#202023</Color>
         <Color x:Key="VgMutedColor">#50505B</Color>
         <Color x:Key="VgBorderColor">#676772</Color>
-        <Color x:Key="VgAccentColor">#9E1534</Color>
+        <Color x:Key="VgAccentColor">#76172A</Color>
+        <Color x:Key="VgAccentForegroundColor">#F1F1F3</Color>
+        <Color x:Key="VgSelectionIndicatorColor">#9E1534</Color>
         <Color x:Key="VgFocusColor">#D61F45</Color>
         <Color x:Key="VgActionColor">#D0D0D7</Color>
         <Color x:Key="VgActionHoverColor">#CACAD1</Color>
@@ -56,6 +60,8 @@
         <StaticResource x:Key="VgMutedColor" ResourceKey="SystemColorWindowTextColor" />
         <StaticResource x:Key="VgBorderColor" ResourceKey="SystemColorWindowTextColor" />
         <StaticResource x:Key="VgAccentColor" ResourceKey="SystemColorHighlightColor" />
+        <StaticResource x:Key="VgAccentForegroundColor" ResourceKey="SystemColorHighlightTextColor" />
+        <StaticResource x:Key="VgSelectionIndicatorColor" ResourceKey="SystemColorHighlightColor" />
         <StaticResource x:Key="VgFocusColor" ResourceKey="SystemColorHighlightColor" />
         <StaticResource x:Key="VgActionColor" ResourceKey="SystemColorButtonFaceColor" />
         <StaticResource x:Key="VgActionHoverColor" ResourceKey="SystemColorButtonFaceColor" />
@@ -77,6 +83,8 @@
   <SolidColorBrush x:Key="VgMutedBrush" Color="{ThemeResource VgMutedColor}" />
   <SolidColorBrush x:Key="VgBorderBrush" Color="{ThemeResource VgBorderColor}" />
   <SolidColorBrush x:Key="VgAccentBrush" Color="{ThemeResource VgAccentColor}" />
+  <SolidColorBrush x:Key="VgAccentForegroundBrush" Color="{ThemeResource VgAccentForegroundColor}" />
+  <SolidColorBrush x:Key="VgSelectionIndicatorBrush" Color="{ThemeResource VgSelectionIndicatorColor}" />
   <SolidColorBrush x:Key="VgFocusBrush" Color="{ThemeResource VgFocusColor}" />
   <SolidColorBrush x:Key="VgActionBrush" Color="{ThemeResource VgActionColor}" />
   <SolidColorBrush x:Key="VgActionHoverBrush" Color="{ThemeResource VgActionHoverColor}" />

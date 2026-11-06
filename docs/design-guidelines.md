@@ -4,15 +4,25 @@ Use these foundations to adapt VaporGrid to your application's tasks. Revision 5
 
 ## Foundations
 
-Build with opaque charcoal surfaces, high-contrast text, and a restrained functional crimson accent. Keep the optional edge treatment neutral. Reserve crimson for keyboard focus, current selection, or a clearly named destructive cue. Pair color with text, shape, or a programmatic state. Use a below-5% accent coverage budget as a design review target.
+Build with opaque charcoal surfaces, high-contrast text, and deep crimson `#76172A` as the VaporGrid accent. Give dark workspace backgrounds a faint, static square grid of diamond treads while keeping controls and state fills solid. Keep the optional edge treatment neutral. Use dedicated indicators for focus and selection. Pair color with text, shape, or a programmatic state. Use a below-5% accent coverage budget as a design review target. [Deep crimson accent](materials.md#deep-crimson-accent) · [Dark tread plate](materials.md#dark-tread-plate)
 
 The direction starts with Windows workflows. Preserve task clarity when adapting it to another platform, rather than copying desktop density into every form factor. Follow the target platform's interaction conventions.
 
 ## Layout
 
-Map navigation, primary work, contextual detail, and status to explicit regions. Align compartment edges, balance visual weight, without forcing symmetry between regions with different jobs. Keep narrow gutters consistent; introduce more space where users must distinguish actions or groups.
+Map navigation, primary work, contextual detail, and status to explicit regions. Align compartment edges and balance visual weight across regions with different jobs. Keep narrow gutters consistent and give distinct actions or groups enough separation to scan.
 
-Start with the spacing values in the token file, then test real content, localization, and text scaling. Keep primary work usable at the smallest supported window size. Move secondary detail into a drawer or stacked view when columns no longer fit.
+### Compact fit
+
+Minimize unused space. Remove filler rows and oversized padding. Let fields, action rows, and related compartments expand into remaining width when it improves fit. Align related elements and let each row grow to fit its text. Preserve readable typography, logical grouping, and the existing control sizes and spacing.
+
+Keep all text, controls, and status for the current task page fully visible at once at supported window sizes and zoom levels. Ordinary task pages, forms, dialogs, and drawers must fit without horizontal or vertical scrollbars. Wrap labels and values. Reflow rows or use shorter, explicitly navigable pages when content exceeds the available height. Page unbounded lists, long reports, and large review sets. Keep navigation, required decisions, errors, and recovery actions visible on the relevant page.
+
+Genuinely two-dimensional content, such as a timeline or map that requires a fixed spatial relationship, may use a bounded viewport with visible, keyboard-accessible pan and zoom controls. Keep the viewport free of scrollbars and keep surrounding task controls and status visible.
+
+Check fit at the smallest supported width and height and across supported zoom and text scales. Test long localized text and populated, error, and progress states. Verify that controls, labels, and focus indicators remain visible and that ordinary surfaces have no overflow.
+
+Use the [compact workflow recipes](workflow-recipes.md) to choose page layouts, place responsive fields, and test fit when text size changes mid-task.
 
 ## Compartments
 
@@ -24,7 +34,7 @@ In an implementation, make resize and collapse controls keyboard operable, label
 
 Use a Segoe UI-like sans-serif hierarchy on Windows with native system fallbacks elsewhere. Reserve a monospace face for code, timecodes, and aligned technical values. The descriptive type sizes use CSS-pixel-equivalent values; map them to the native toolkit's units and scaling behavior.
 
-Keep labels readable at the user's text size. Allow wrapping or provide a way to inspect truncated values. Use weight, placement, and labels to establish hierarchy before adding color or glow.
+Keep labels readable at the user's text size. Wrap task text and values, or give exceptionally long technical values a labeled detail page where they can be read in full. Use weight, placement, and labels to establish hierarchy before adding color or glow.
 
 ## Color and contrast
 
@@ -37,6 +47,8 @@ For implementation, target at least 4.5:1 for normal text, 3:1 for qualifying la
 ## Interaction and feedback
 
 Provide a visible focus indicator, a logical keyboard order, and discoverable shortcuts that respect platform conventions. Pair selected, warning, and error colors with text, icons, or another perceptible cue. Keep hover, focus, selection, and disabled states distinguishable.
+
+Write the next action in plain language. Keep status and retry controls in a predictable region. Restore focus to the dialog opener after dismissal. [Copy examples](workflow-recipes.md#plain-language-copy) · [Keyboard and focus](workflow-recipes.md#keyboard-and-focus) · [Status and recovery](workflow-recipes.md#status-and-recovery)
 
 Explain loading with the current operation, meaningful units or percentage when known, and available pause or cancel actions. Use an indeterminate state when progress cannot be measured. Report completion and failure explicitly, including a recovery action where possible; do not fabricate progress.
 
@@ -68,17 +80,17 @@ Revision 2 replaces uniform density and decorative emphasis with purposeful info
 | Comfortable (default) | Mixed reading and manipulation | 16 | 40 |
 | Touch | Direct touch or greater motor spacing | 20 | 48 |
 
-Density changes spacing rather than shrinking typography. The demo uses a 16px root with relative text sizes, wraps labels, and raises narrow-window controls to at least 44px. Recheck 320, 768, 1024, and 1440 CSS pixels, 200% text/zoom, localization, and physical-device targets. Retain horizontal scrolling only for genuinely two-dimensional content when needed; do not hide essential controls.
+Density changes spacing rather than shrinking typography. The demo uses a 16px root with relative text sizes, wraps labels, and raises narrow-window controls to at least 44px. Recheck 320, 768, 1024, and 1440 CSS pixels, 200% text/zoom, localization, and physical-device targets. For genuinely two-dimensional content, follow the [compact fit](#compact-fit) viewport and control rules.
 
 ### Brand and semantic feedback
 
 Success and danger have independent theme tokens, separate from brand and focus. Success styles valid-name/recovery feedback and Completed; danger styles the invalid boundary, inline explanation, and labeled error recovery. Offline uses warning, empty recovery stays neutral, and Cancelled stays neutral. Explicit text remains present in every state. The focus outline continues to use the focus token.
 
-Crimson marks keyboard focus, the current selection, and explicitly labeled destructive cues. It never means error by itself, and it never fills a primary action. Pair status with explicit words and functional shape: In review, Needs check, Ready, Running, Paused, Completed, Cancelled. Add icons where useful without making dots or color the only signal. The reference's original icons use a clear silhouette first; see [iconography](iconography.md). Current pairings and their measured minimums are in the [measured palette contract](materials.md#measured-palette-contract); revision 2 pairings are archived in [historical color studies](history/color-studies.md).
+Use distinct focus, selection, and destructive indicators. Pair status with explicit words and functional shape, such as In review, Needs check, Ready, Running, Paused, Completed, and Cancelled. Add icons where useful. The reference's original icons use a clear silhouette. [Iconography](iconography.md) · [Measured palette contract](materials.md#measured-palette-contract) · [Historical color studies](history/color-studies.md)
 
 ### Theme and component states
 
-Keep the dark signature, but offer System, Light, and Dark. System tracks OS preference changes. Forced colors must retain outlines, native controls, selected-row boundaries, and currentColor icons using system colors; do not force the brand palette through contrast themes. Preserve all meaning under reduced motion. No animation is required to understand progress.
+Provide user-facing System, Light, and Dark theme choices. System tracks OS preference changes. Offer a separate Accent color choice with Crimson, Blue, and Teal. Apply the selected preset to the focus outline and selection marker for the effective theme, and persist it independently of the theme. Forced colors must retain outlines, native controls, selected-row boundaries, and currentColor icons using system colors. Preserve all meaning under reduced motion. [Appearance presets](materials.md#appearance-presets)
 
 | Component | Applicable states and behavior |
 | --- | --- |
@@ -118,7 +130,7 @@ Settings opens in the same window as a modal drawer aligned to the right edge. A
 
 Keep one Settings DOM instance. Provide visible Close and Pin/Unpin controls, focus Close on opening, and return focus to the opening trigger on dismissal. Escape closes the topmost dialog, or closes a nonmodal Settings drawer when focus is inside. Native modal behavior contains focus. Relocate the focused control on a breakpoint transition, using Close if the former control becomes disabled. Coordinate Details and reset confirmation so that one modal owns focus at a time. Reset returns focus to its trigger inside Settings.
 
-Appearance applies Theme, Density, and Decorative edge immediately. Layout stages the existing Details width from 240 to 420 whole CSS pixels. Editing creates a dirty draft. Apply validates and commits it. Cancel restores the latest committed width. Closing or changing section retains the draft for the visit. Divider gestures and confirmed layout resets update the committed width immediately. A clean draft follows those changes, while a dirty draft remains intact until explicit Apply or Cancel. Drafts are transient and never persisted. Reset continues to affect committed width and collapse only.
+Appearance applies Theme, Accent color, Density, and Decorative edge immediately. Layout stages the existing Details width from 240 to 420 whole CSS pixels. Editing creates a dirty draft. Apply validates and commits it. Cancel restores the latest committed width. Closing or changing section retains the draft for the visit. Divider gestures and confirmed layout resets update the committed width immediately. A clean draft follows those changes, while a dirty draft remains intact until explicit Apply or Cancel. Drafts are transient and never persisted. Reset continues to affect committed width and collapse only.
 
 For extensive settings, use a same-window full settings view with section navigation, searchable section names where warranted, headings, scoped validation, and an explicit return to work. Keep immediate preferences clearly separate from staged transactional sections. State what Apply commits, validate before committing, and retain or explicitly resolve drafts on close. For multi-field transactions, apply a validated snapshot atomically and report failures without losing the draft. Show shortcuts only for implemented bindings and describe their focus context. The reference lists native keyboard navigation, dialog Escape, and focused divider keys.
 
@@ -127,10 +139,10 @@ Use the [mockup](../assets/vaporgrid-responsive-settings.png) as direction and t
 ## Revision 5 token and keyboard contract
 
 - Define workspace, compartment, and raised surfaces as three OKLCH levels. Keep hue and chroma controlled within the charcoal family. Evaluate relative luminance in the rendered color space. Use borders, shape, or labels where small luminance steps alone cannot communicate meaning. [Materials and state guidance](materials.md)
-- Keep neutral primary actions prominent through placement, weight, and a clear verb. Reserve crimson for focus, selection, or a labeled destructive cue. Budget below 5% accent coverage as a review goal and record any measured screen with its viewport and state. [Component usage](components.md)
+- Give the primary action visual priority through placement, weight, and a clear verb. Use a neutral fill by default or deep crimson for one deliberate accent action. Budget below 5% accent coverage as a review goal and record any measured screen with its viewport and state. [Component usage](components.md)
 - Start body typography at 16 CSS px in the reference. Check weight, line length, and contrast on each dark surface. Give each view one dominant judgment or action. Organize its compartments around the information needed to make that judgment. [CSS properties](../demo/tokens.css) · [JSON tokens](tokens.json)
 - Provide logical Tab order and a visible command trigger. Ctrl/⌘+K opens the palette from the workspace. Let the search field accept ordinary editing keys and expose only implemented commands. Use native dialog containment and Escape. Restore focus to the invoker after dismissal and place focus where the executed action requires it. [W3C modal dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
 - Keep user-triggered transitions within 200 ms and respect reduced motion. Give motion a purpose, such as locating the edge of an opened drawer. Keep page load immediate.
-- Keep state fills distinguishable: Selected differs from Surface, the primary action differs from Raised, and focus differs from accent so a focused selected item shows two cues. `tokens.json` → `contrast` holds the minimums and the token tests enforce them. [Measured palette contract](materials.md#measured-palette-contract)
+- Keep state fills distinguishable. Selected differs from Surface, the neutral primary action differs from Raised, and focus differs from the selection indicator so a focused selected item shows two cues. The token tests enforce the minimums in `tokens.json`. [Measured palette contract](materials.md#measured-palette-contract)
 - Consume tokens from `docs/tokens.json` or its generated exports in `dist/`: W3C DTCG JSON, WinUI 3 and WPF resource dictionaries, Rust, Slint and Godot. Regenerate them with `node tools/build-tokens.mjs`; never edit them by hand.
 - Target WCAG 2.2 AA. Check normal text at 4.5:1 and required non-text UI contrast at 3:1. Evaluate focus visibility, focus obscuration, keyboard paths, and target size separately. The project's 44 × 44 CSS px touch goal is distinct from AA's 24 × 24 CSS px criterion and its exceptions. [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/) · [Verification record](verification.md#revision-5-verification)

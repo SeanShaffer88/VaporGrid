@@ -52,3 +52,11 @@ The original vectors take broad aesthetic inspiration from the clean hardware mi
 ## Revision 5 addition
 
 The coordinator showed the ImageGen keyboard and elevation study before implementation. Its fictional data, glyphs, and depicted shortcut labels illustrate the concept. Use the published tokens and running demo for exact colors and implemented commands. [Mockup](assets/vaporgrid-keyboard-and-elevation.png) · [Public prompt](docs/image-prompt-v5.txt)
+
+The coordinator showed the ImageGen appearance study before implementation. Its interface, swatches, and colors are illustrative. The demo uses native selects and generated preset values. [Mockup](assets/vaporgrid-appearance.png) · [Public prompt](docs/image-prompt-appearance.txt)
+
+The [dark tread-plate swatch](assets/vaporgrid-tread-plate.svg) and [deep crimson swatch](assets/vaporgrid-accent.svg) are original geometric SVGs authored for VaporGrid by Sean Shaffer with AI assistance and use the repository's CC BY 4.0 license.
+
+## PortableForge workflow reference
+
+The [browser reference](demo/portableforge/) uses original educational HTML, CSS, JavaScript, and synthetic sample data authored for VaporGrid by Sean Shaffer with AI assistance under CC BY 4.0. It reuses the VaporGrid tokens and tread-plate swatch and illustrates the [PortableForge Windows workflow](docs/workflow-recipes.md#portableforge-case-study).

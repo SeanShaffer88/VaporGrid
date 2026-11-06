@@ -18,7 +18,9 @@
   --fg: #F1F1F3;
   --muted: #B7B7C1;
   --border: #92929C;
-  --accent: #DC2749;
+  --accent: #76172A;
+  --accent-foreground: #F1F1F3;
+  --selection-indicator: #DC2749;
   --focus: #FF4D73;
   --action: #383840;
   --action-hover: #41414A;
@@ -41,7 +43,9 @@
   --fg: #202023;
   --muted: #50505B;
   --border: #676772;
-  --accent: #9E1534;
+  --accent: #76172A;
+  --accent-foreground: #F1F1F3;
+  --selection-indicator: #9E1534;
   --focus: #D61F45;
   --action: #D0D0D7;
   --action-hover: #CACAD1;
@@ -65,7 +69,9 @@
     --fg: #202023;
     --muted: #50505B;
     --border: #676772;
-    --accent: #9E1534;
+    --accent: #76172A;
+    --accent-foreground: #F1F1F3;
+    --selection-indicator: #9E1534;
     --focus: #D61F45;
     --action: #D0D0D7;
     --action-hover: #CACAD1;
@@ -81,6 +87,16 @@
     --material-shadow: 0 2px 3px #00000014;
   }
 }
+:root[data-accent=blue] { --selection-indicator: #5FA8FF; --focus: #ACD1FF; }
+:root[data-accent=blue][data-theme=light] { --selection-indicator: #1558A6; --focus: #327AD1; }
+@media (prefers-color-scheme: light) {
+  :root[data-accent=blue][data-theme=system] { --selection-indicator: #1558A6; --focus: #327AD1; }
+}
+:root[data-accent=teal] { --selection-indicator: #37B7AF; --focus: #8FE4D9; }
+:root[data-accent=teal][data-theme=light] { --selection-indicator: #00665F; --focus: #13877F; }
+@media (prefers-color-scheme: light) {
+  :root[data-accent=teal][data-theme=system] { --selection-indicator: #00665F; --focus: #13877F; }
+}
 
 @supports (color: oklch(0.5 0 0)) {
   :root {
@@ -91,7 +107,9 @@
     --fg: oklch(0.95871168 0.00265877 286.3496);
     --muted: oklch(0.78249408 0.01403757 286.0709);
     --border: oklch(0.6631639 0.01464316 285.9937);
-    --accent: oklch(0.58226222 0.21212148 17.8042);
+    --accent: oklch(0.37536078 0.12835748 15.2251);
+    --accent-foreground: oklch(0.95871168 0.00265877 286.3496);
+    --selection-indicator: oklch(0.58226222 0.21212148 17.8042);
     --focus: oklch(0.6798201 0.21343679 12.5843);
     --action: oklch(0.34381772 0.01385 285.6487);
     --action-hover: oklch(0.37872522 0.0152088 285.6511);
@@ -112,7 +130,9 @@
     --fg: oklch(0.24477082 0.00563709 285.9759);
     --muted: oklch(0.43533305 0.01795528 285.6302);
     --border: oklch(0.51761986 0.01717247 285.7846);
-    --accent: oklch(0.45318915 0.16841398 16.2572);
+    --accent: oklch(0.37536078 0.12835748 15.2251);
+    --accent-foreground: oklch(0.95871168 0.00265877 286.3496);
+    --selection-indicator: oklch(0.45318915 0.16841398 16.2572);
     --focus: oklch(0.56625342 0.21175472 17.6485);
     --action: oklch(0.85966772 0.00958313 286.1964);
     --action-hover: oklch(0.8410888 0.00963633 286.1907);
@@ -134,7 +154,9 @@
       --fg: oklch(0.24477082 0.00563709 285.9759);
       --muted: oklch(0.43533305 0.01795528 285.6302);
       --border: oklch(0.51761986 0.01717247 285.7846);
-      --accent: oklch(0.45318915 0.16841398 16.2572);
+      --accent: oklch(0.37536078 0.12835748 15.2251);
+      --accent-foreground: oklch(0.95871168 0.00265877 286.3496);
+      --selection-indicator: oklch(0.45318915 0.16841398 16.2572);
       --focus: oklch(0.56625342 0.21175472 17.6485);
       --action: oklch(0.85966772 0.00958313 286.1964);
       --action-hover: oklch(0.8410888 0.00963633 286.1907);
@@ -148,4 +170,18 @@
       --material-shade: oklch(0.81646189 0.01110062 286.1513);
     }
   }
+  :root[data-accent=blue] { --selection-indicator: oklch(0.72238209 0.14716247 254.0187); --focus: oklch(0.84989071 0.07571522 254.1011); }
+  :root[data-accent=blue][data-theme=light] { --selection-indicator: oklch(0.46520940 0.14122394 255.6445); --focus: oklch(0.57876071 0.15165936 255.1482); }
+  @media (prefers-color-scheme: light) {
+    :root[data-accent=blue][data-theme=system] { --selection-indicator: oklch(0.46520940 0.14122394 255.6445); --focus: oklch(0.57876071 0.15165936 255.1482); }
+  }
+  :root[data-accent=teal] { --selection-indicator: oklch(0.70961141 0.10910152 188.8699); --focus: oklch(0.86166348 0.08426082 185.3628); }
+  :root[data-accent=teal][data-theme=light] { --selection-indicator: oklch(0.45933432 0.08033610 186.6271); --focus: oklch(0.56331783 0.09443089 187.3308); }
+  @media (prefers-color-scheme: light) {
+    :root[data-accent=teal][data-theme=system] { --selection-indicator: oklch(0.45933432 0.08033610 186.6271); --focus: oklch(0.56331783 0.09443089 187.3308); }
+  }
+}
+
+@media (forced-colors: active) {
+  :root { --selection-indicator: Highlight !important; --focus: Highlight !important; }
 }

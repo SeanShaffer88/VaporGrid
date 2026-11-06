@@ -15,18 +15,19 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 ## Controls
 
 - Theme: System, Light, Dark. System follows OS color preference through CSS.
+- Accent color: Crimson, Blue, or Teal for selection markers and focus. Changes apply immediately. The preset follows the effective theme and system highlights take precedence in forced colors.
 - Density: Compact, Comfortable, Touch. Narrow windows keep controls at least 44 CSS pixels high.
 - Decorative edge: optional neutral masthead edge, off by default.
 - Commands: open with the visible button or Ctrl/⌘+K from the workspace. Filter implemented actions in Search commands. Use the palette's keyboard hints, Tab, or click to select an available action. Escape closes the dialog and returns focus to the invoker.
 - Details: restore the desktop inspector or open the narrow modal drawer. Select a task to update details; on narrow screens selection opens the drawer.
 - Desktop divider: drag with pointer capture; Left expands the right inspector, Right shrinks it, Home sets 240 pixels, End sets 420. Steps are 10 pixels. Collapse and restore are always reachable.
-- Reset layout: a native confirmation dialog restores 300-pixel width and expanded state. Keep layout and Escape preserve everything. Theme, density, and effects survive reset.
+- Reset layout: a native confirmation dialog restores 300-pixel width and expanded state. Keep layout and Escape preserve everything. Theme, accent color, density, and effects survive reset.
 - Start simulation: begins at zero. Pause freezes progress; Resume continues. Cancel and completion stop the timer. A new start clears old progress. Only this explicit action starts a job.
 - Feedback & recovery: select validation, empty, offline, or error examples. Retry is a local demonstration; it never contacts a service. Names validate locally and are not saved.
 
 ## Persistence and boundaries
 
-The `vaporgrid.display.v1` localStorage entry contains versioned theme, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain Appearance and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
+The `vaporgrid.display.v1` localStorage entry contains versioned theme, accent ID, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain Crimson, Appearance, and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
 
 The same inspector DOM moves into a native modal dialog below 901 CSS pixels. Native modal behavior provides focus containment and Escape; the script restores focus to the opening control. No service worker, PWA registration, automatic synchronization, or startup job exists.
 
