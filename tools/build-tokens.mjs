@@ -103,7 +103,9 @@ function dtcg() {
 const highContrast = {
   background: 'SystemColorWindowColor', surface: 'SystemColorWindowColor', raised: 'SystemColorWindowColor',
   selected: 'SystemColorHighlightColor', foreground: 'SystemColorWindowTextColor', muted: 'SystemColorWindowTextColor',
-  border: 'SystemColorWindowTextColor', accent: 'SystemColorHighlightColor', focus: 'SystemColorHighlightColor',
+  border: 'SystemColorWindowTextColor', accent: 'SystemColorHighlightColor',
+  accentForeground: 'SystemColorHighlightTextColor', selectionIndicator: 'SystemColorHighlightColor',
+  focus: 'SystemColorHighlightColor',
   action: 'SystemColorButtonFaceColor', actionHover: 'SystemColorButtonFaceColor', actionPressed: 'SystemColorButtonFaceColor',
   progress: 'SystemColorHighlightColor', info: 'SystemColorWindowTextColor', warning: 'SystemColorWindowTextColor',
   success: 'SystemColorWindowTextColor', danger: 'SystemColorWindowTextColor',

@@ -50,14 +50,14 @@ interaction, and a keyboard path through each task.
 | Density has rhythm | 6 CSS px minimum between distinct grouped controls, 8 px by default, 12–16 px between related groups, 24 px between sections | Makes groups scannable as layouts resize |
 | The current task fits | Minimize unused space, stretch related controls into available width, and keep each task page's text and controls fully visible without scrollbars. Page long content. [Compact fit](docs/design-guidelines.md#compact-fit) | Keeps the whole task page in view |
 | Compartments support a judgment | Give each view a dominant metric or action and give each region a clear task | Establishes a reading order in dense views |
-| Crimson carries meaning | Use it for a focus indicator, current state, or clearly labeled destructive action. Aim below 5% accent coverage as a design review budget | Preserves the accent as a signal |
+| Deep crimson accent | Use `#76172A` for deliberate brand or action fills and use separate colors for focus and selection. Aim below 5% accent coverage. [Accent swatch](docs/materials.md#deep-crimson-accent) | Preserves the visibility of thin state indicators |
 | Elevation follows luminance | Use three charcoal levels for the workspace base, compartments, and raised surfaces, plus a visible selected fill. Specify colors in OKLCH | Keeps physical structure legible at low luminance |
 | Typography supports long sessions | Use a 16 px body scale in the web reference, with weight and placement to distinguish headings and actions | Maintains legibility while preserving density |
 | Keyboard access starts at the surface | Preserve logical Tab order and visible focus. Offer Commands or Ctrl/⌘+K for searchable actions | Gives keyboard users a direct path through the workspace |
 
 Use text, shape, or programmatic state alongside color. Give the primary action
-a neutral raised treatment with a clear verb, place it where the task calls for
-it, and label destructive confirmations explicitly. Keep user-triggered motion
+a clear verb and place it where the task calls for it. Label destructive
+confirmations explicitly. Keep user-triggered motion
 under 200 ms and respect reduced-motion settings.
 
 VaporGrid targets [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including 4.5:1
@@ -98,8 +98,8 @@ See the [original icon sheet](assets/vaporgrid-icon-sheet.svg) and
 ## What shaped this revision
 
 Earlier revisions explored tactile rims, shadows, and crimson primary buttons.
-The current design uses luminance steps for structural depth and keeps crimson
-for functional cues. The [changelog](CHANGELOG.md) tracks those design decisions.
+The current design uses luminance steps for structural depth and deep crimson
+for deliberate fills. The [changelog](CHANGELOG.md) tracks those design decisions.
 
 ## Open questions
 

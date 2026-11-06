@@ -85,6 +85,38 @@ test('dark charcoal levels step 5–10% in relative luminance in both encodings'
   }
 });
 
+test('the deep crimson accent matches the brand swatch and preserves label contrast', () => {
+  const swatch = readFileSync(new URL('../assets/vaporgrid-accent.svg', import.meta.url), 'utf8');
+  for (const palette of [tokens.color, tokens.lightColor]) {
+    assert.equal(palette.accent, '#76172A');
+    assert.ok(swatch.includes(`fill="${palette.accent}"`));
+  }
+  for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
+    assert.notEqual(palette.accent, palette.selectionIndicator);
+    assert.ok(ratio(palette.accentForeground, palette.accent) >= 5);
+    assert.ok(linearSrgb(palette.accent).every((channel, i) =>
+      Math.abs(channel - linearSrgb('#76172A')[i]) < 1e-6));
+  }
+});
+
+test('dark tread plate stays faint and preserves contrast at its brightest ridge', () => {
+  const svg = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
+  const colors = [...svg.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1].toLowerCase());
+  assert.ok(colors.includes(tokens.color.background.toLowerCase()));
+  assert.ok(new Set(colors).size >= 4, 'Expected a base, highlight, shadow and seams');
+  colors.sort((a, b) => luminance(a) - luminance(b));
+  const brightest = colors.at(-1);
+  assert.ok(ratio(colors[0], brightest) <= 1.15, 'Tread relief is too strong');
+  for (const palette of [tokens.color, tokens.colorOklch.dark]) {
+    for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
+      assert.ok(ratio(palette[text], brightest) >= 4.5, `${text} on the tread ridge`);
+    }
+    for (const indicator of ['selectionIndicator', 'focus', 'border', 'progress']) {
+      assert.ok(ratio(palette[indicator], brightest) >= 3, `${indicator} on the tread ridge`);
+    }
+  }
+});
+
 test('both themes preserve unrounded text, primary, semantic, focus, and boundary contrast', () => {
   for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
     const requireRatio = (foreground, background, minimum) => {
@@ -95,7 +127,7 @@ test('both themes preserve unrounded text, primary, semantic, focus, and boundar
       for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
         requireRatio(text, background, 4.5);
       }
-      for (const indicator of ['accent', 'focus', 'border', 'progress']) {
+      for (const indicator of ['selectionIndicator', 'focus', 'border', 'progress']) {
         requireRatio(indicator, background, 3);
       }
     }
@@ -107,7 +139,7 @@ test('both themes preserve unrounded text, primary, semantic, focus, and boundar
 });
 
 test('state fills and indicators that mean different things stay distinguishable', () => {
-  const { distinctFillMinimum, selectedFillMinimum, focusAccentMinimum } = tokens.contrast;
+  const { distinctFillMinimum, selectedFillMinimum, focusSelectionMinimum } = tokens.contrast;
   for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
     const requireRatio = (a, b, minimum) => {
       const measured = ratio(palette[a], palette[b]);
@@ -119,12 +151,12 @@ test('state fills and indicators that mean different things stay distinguishable
     requireRatio('actionPressed', 'action', distinctFillMinimum);
     requireRatio('actionPressed', 'actionHover', distinctFillMinimum);
     // A focused selected item shows two cues, not one.
-    requireRatio('focus', 'accent', focusAccentMinimum);
+    requireRatio('focus', 'selectionIndicator', focusSelectionMinimum);
     // Selection reads as a fill change, not only through its marker.
     requireRatio('selected', 'surface', selectedFillMinimum);
     requireRatio('selected', 'raised', distinctFillMinimum);
     // Content and focus remain legible on the selected fill.
     for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) requireRatio(text, 'selected', 4.5);
-    for (const indicator of ['accent', 'focus', 'border']) requireRatio(indicator, 'selected', 3);
+    for (const indicator of ['selectionIndicator', 'focus', 'border']) requireRatio(indicator, 'selected', 3);
   }
 });
