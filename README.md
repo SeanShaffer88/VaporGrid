@@ -48,6 +48,7 @@ interaction, and a keyboard path through each task.
 | Principle | Decision | Why it matters |
 | --- | --- | --- |
 | Density has rhythm | 6 CSS px minimum between distinct grouped controls, 8 px by default, 12–16 px between related groups, 24 px between sections | Makes groups scannable as layouts resize |
+| The current task fits | Minimize unused space, stretch related controls into available width, and keep each task page's text and controls fully visible without scrollbars. Page long content. [Compact fit](docs/design-guidelines.md#compact-fit) | Keeps the whole task page in view |
 | Compartments support a judgment | Give each view a dominant metric or action and give each region a clear task | Establishes a reading order in dense views |
 | Crimson carries meaning | Use it for a focus indicator, current state, or clearly labeled destructive action. Aim below 5% accent coverage as a design review budget | Preserves the accent as a signal |
 | Elevation follows luminance | Use three charcoal levels for the workspace base, compartments, and raised surfaces, plus a visible selected fill. Specify colors in OKLCH | Keeps physical structure legible at low luminance |

@@ -10,9 +10,17 @@ The direction starts with Windows workflows. Preserve task clarity when adapting
 
 ## Layout
 
-Map navigation, primary work, contextual detail, and status to explicit regions. Align compartment edges, balance visual weight, without forcing symmetry between regions with different jobs. Keep narrow gutters consistent; introduce more space where users must distinguish actions or groups.
+Map navigation, primary work, contextual detail, and status to explicit regions. Align compartment edges and balance visual weight across regions with different jobs. Keep narrow gutters consistent and give distinct actions or groups enough separation to scan.
 
-Start with the spacing values in the token file, then test real content, localization, and text scaling. Keep primary work usable at the smallest supported window size. Move secondary detail into a drawer or stacked view when columns no longer fit.
+### Compact fit
+
+Minimize unused space. Remove filler rows and oversized padding. Let fields, action rows, and related compartments expand into remaining width when it improves fit. Align related elements and let each row grow to fit its text. Preserve readable typography, logical grouping, and the existing control sizes and spacing.
+
+Keep all text, controls, and status for the current task page fully visible at once at supported window sizes and zoom levels. Ordinary task pages, forms, dialogs, and drawers must fit without horizontal or vertical scrollbars. Wrap labels and values. Reflow rows or use shorter, explicitly navigable pages when content exceeds the available height. Page unbounded lists, long reports, and large review sets. Keep navigation, required decisions, errors, and recovery actions visible on the relevant page.
+
+Genuinely two-dimensional content, such as a timeline or map that requires a fixed spatial relationship, may use a bounded viewport with visible, keyboard-accessible pan and zoom controls. Keep the viewport free of scrollbars and keep surrounding task controls and status visible.
+
+Check fit at the smallest supported width and height and across supported zoom and text scales. Test long localized text and populated, error, and progress states. Verify that controls, labels, and focus indicators remain visible and that ordinary surfaces have no overflow.
 
 ## Compartments
 
@@ -24,7 +32,7 @@ In an implementation, make resize and collapse controls keyboard operable, label
 
 Use a Segoe UI-like sans-serif hierarchy on Windows with native system fallbacks elsewhere. Reserve a monospace face for code, timecodes, and aligned technical values. The descriptive type sizes use CSS-pixel-equivalent values; map them to the native toolkit's units and scaling behavior.
 
-Keep labels readable at the user's text size. Allow wrapping or provide a way to inspect truncated values. Use weight, placement, and labels to establish hierarchy before adding color or glow.
+Keep labels readable at the user's text size. Wrap task text and values, or give exceptionally long technical values a labeled detail page where they can be read in full. Use weight, placement, and labels to establish hierarchy before adding color or glow.
 
 ## Color and contrast
 
@@ -68,7 +76,7 @@ Revision 2 replaces uniform density and decorative emphasis with purposeful info
 | Comfortable (default) | Mixed reading and manipulation | 16 | 40 |
 | Touch | Direct touch or greater motor spacing | 20 | 48 |
 
-Density changes spacing rather than shrinking typography. The demo uses a 16px root with relative text sizes, wraps labels, and raises narrow-window controls to at least 44px. Recheck 320, 768, 1024, and 1440 CSS pixels, 200% text/zoom, localization, and physical-device targets. Retain horizontal scrolling only for genuinely two-dimensional content when needed; do not hide essential controls.
+Density changes spacing rather than shrinking typography. The demo uses a 16px root with relative text sizes, wraps labels, and raises narrow-window controls to at least 44px. Recheck 320, 768, 1024, and 1440 CSS pixels, 200% text/zoom, localization, and physical-device targets. For genuinely two-dimensional content, follow the [compact fit](#compact-fit) viewport and control rules.
 
 ### Brand and semantic feedback
 
