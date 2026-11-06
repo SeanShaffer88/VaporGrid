@@ -46,7 +46,8 @@ function ratio(a, b) {
 }
 
 test('CSS and machine-readable palette agree across fallback, OKLCH, and System light', () => {
-  const [fallback, preferred] = css.split('@supports (color: oklch(0.5 0 0))');
+  const [regularColors] = css.split('@media (forced-colors: active)');
+  const [fallback, preferred] = regularColors.split('@supports (color: oklch(0.5 0 0))');
   assert.ok(preferred, 'Missing OKLCH support guard');
   for (const [source, dark, light] of [
     [fallback, tokens.color, tokens.lightColor],
@@ -83,6 +84,45 @@ test('dark charcoal levels step 5–10% in relative luminance in both encodings'
       assert.ok(step >= min && step <= max, `Relative luminance step: ${step}`);
     }
   }
+});
+
+test('appearance presets override only distinct selection and focus cues with usable contrast', () => {
+  const tread = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
+  const treadColors = [...tread.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1]);
+  const brightestTread = treadColors.sort((a, b) => luminance(a) - luminance(b)).at(-1);
+  const exported = JSON.parse(readFileSync(new URL('../dist/vaporgrid.tokens.json', import.meta.url), 'utf8'));
+  assert.equal(tokens.appearanceAccents.default, 'crimson');
+  assert.doesNotMatch(css, /\[data-accent=crimson\]/);
+  for (const id of ['blue', 'teal']) {
+    const preset = tokens.appearanceAccents.presets[id];
+    for (const [colors, dark, light] of [
+      [preset, tokens.color, tokens.lightColor],
+      [preset.oklch, tokens.colorOklch.dark, tokens.colorOklch.light],
+    ]) {
+      const selector = `:root[data-accent=${id}]`;
+      for (const [theme, palette, scope] of [
+        ['dark', dark, selector],
+        ['light', light, `${selector}[data-theme=light]`],
+        ['light', light, `${selector}[data-theme=system]`],
+      ]) {
+        const { selectionIndicator, focus } = colors[theme];
+        assert.ok(css.includes(`${scope} { --selection-indicator: ${selectionIndicator}; --focus: ${focus}; }`));
+        assert.ok(ratio(selectionIndicator, focus) >= tokens.contrast.focusSelectionMinimum);
+        const surfaces = [palette.background, palette.surface, palette.raised, palette.selected];
+        if (theme === 'dark') surfaces.push(brightestTread);
+        for (const surface of surfaces) {
+          assert.ok(ratio(selectionIndicator, surface) >= 3, `${id} ${theme} selection on ${surface}`);
+          assert.ok(ratio(focus, surface) >= 3, `${id} ${theme} focus on ${surface}`);
+        }
+      }
+    }
+    for (const theme of ['dark', 'light']) {
+      for (const role of ['selectionIndicator', 'focus']) {
+        assert.equal(exported.color.accentPresets[id][theme][role].$value.hex, preset[theme][role].toLowerCase());
+      }
+    }
+  }
+  assert.match(css, /@media \(forced-colors: active\)\s*\{\s*:root\s*\{ --selection-indicator: Highlight !important; --focus: Highlight !important; \}/);
 });
 
 test('the deep crimson accent matches the brand swatch and preserves label contrast', () => {

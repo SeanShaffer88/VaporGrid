@@ -1,5 +1,5 @@
 // Display preferences only. Importing this module has no side effects.
-export const defaults = Object.freeze({version:1, theme:'system', density:'comfortable', effects:false, width:300, collapsed:false, settingsSection:'appearance', settingsPinned:false});
+export const defaults = Object.freeze({version:1, theme:'system', accent:'crimson', density:'comfortable', effects:false, width:300, collapsed:false, settingsSection:'appearance', settingsPinned:false});
 export function constrainWidth(value) {
   return Number.isFinite(value) ? Math.min(420, Math.max(240, Math.round(value))) : defaults.width;
 }
@@ -10,6 +10,7 @@ export function readPreferences(raw) {
     if (!p || p.version !== 1 || Array.isArray(p)) return {...defaults};
     return {version:1,
       theme:['system','light','dark'].includes(p.theme) ? p.theme : defaults.theme,
+      accent:['crimson','blue','teal'].includes(p.accent) ? p.accent : defaults.accent,
       density:['compact','comfortable','touch'].includes(p.density) ? p.density : defaults.density,
       effects:typeof p.effects === 'boolean' ? p.effects : defaults.effects,
       width:Number.isFinite(p.width) && p.width >= 240 && p.width <= 420 ? Math.round(p.width) : defaults.width,

@@ -158,3 +158,8 @@ The Validate and publish workflow runs `node --test` and JavaScript syntax check
 - Rendered dark surfaces used OKLCH with 9.01% and 8.75% relative luminance increases. Token calculations set the minimum primary label contrast at 8.95:1 in Dark and 10.50:1 in Light. Focus pairs measured at least 4.94:1 and 6.35:1 respectively. [Measured pairs](materials.md)
 
 Browser observations supply no shell exit code. The browser engine version was not exposed. Screen readers, physical touch, 200% zoom, live System theme changes, forced-colors and reduced-motion emulation, and cross-browser testing remain separate verification work.
+
+### Appearance preferences
+
+- The in-app browser verified all nine combinations of System, Light, and Dark with Crimson, Blue, and Teal. Light with Teal persisted across reload and a confirmed layout reset. The live System checks used the browser's current preference. System-light switching and forced-colors behavior were checked in generated source, with no live emulation run. Browser observations supply no shell exit code.
+- Twelve focused preference and token tests passed. The tests cover legacy records, invalid accent IDs, role-specific contrast in both encodings, and generated CSS and DTCG mappings. The token generator's `--check` mode, JavaScript syntax checks, and `git diff --check` exited 0.

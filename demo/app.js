@@ -24,7 +24,7 @@ function save() {
   catch { $('storage-status').textContent = 'Storage unavailable; display changes last for this visit.'; }
 }
 function applyDisplay() {
-  for (const name of ['theme','density']) {
+  for (const name of ['theme','accent','density']) {
     document.documentElement.dataset[name] = prefs[name];
     $(name).value = prefs[name];
   }
@@ -192,7 +192,7 @@ $('pin-settings').addEventListener('click', () => {
   placeSettings(); save();
 });
 pinFits.addEventListener('change', placeSettings);
-for (const name of ['theme','density','effects']) $(name).addEventListener('change', event => {
+for (const name of ['theme','accent','density','effects']) $(name).addEventListener('change', event => {
   prefs[name] = name === 'effects' ? event.target.checked : event.target.value;
   applyDisplay(); save();
 });
