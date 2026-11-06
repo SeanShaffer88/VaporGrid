@@ -71,6 +71,11 @@ function chromeExecutable() {
   throw new Error('Chrome was not found. Set CHROME_PATH to the Chrome executable.');
 }
 
+function validPort(value) {
+  const port = Number(value);
+  return Number.isInteger(port) && port > 0 && port <= 65535 ? port : undefined;
+}
+
 async function connect(url, onEvent) {
   const socket = new WebSocket(url);
   await new Promise((resolveOpen, rejectOpen) => {
@@ -143,23 +148,44 @@ export async function withReferenceChrome(root, test) {
     server = await serve(root);
     const origin = `http://127.0.0.1:${server.address().port}`;
     chrome = spawn(chromeExecutable(), [
-      '--headless', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
+      '--headless', '--remote-debugging-address=127.0.0.1',
+      '--remote-debugging-port=0', `--user-data-dir=${profile}`,
       '--disable-background-networking', '--disable-component-update',
       '--disable-default-apps', '--disable-sync', '--no-first-run',
       '--no-default-browser-check', '--no-proxy-server',
       '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1', 'about:blank',
-    ], { stdio: ['ignore', 'ignore', 'pipe'], windowsHide: true });
+    ], { stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true });
     let processError;
-    let browserOutput = '';
-    chrome.stderr.on('data', (bytes) => { browserOutput = (browserOutput + bytes).slice(-4000); });
+    let announcedPort;
+    const browserOutput = { stdout: '', stderr: '' };
+    for (const stream of ['stdout', 'stderr']) {
+      chrome[stream].setEncoding('utf8');
+      chrome[stream].on('data', (text) => {
+        const buffer = browserOutput[stream] + text;
+        announcedPort ??= validPort(/DevTools listening on ws:\/\/127\.0\.0\.1:(\d{1,5})\/devtools\/browser\//.exec(buffer)?.[1]);
+        browserOutput[stream] = buffer.slice(-4000);
+      });
+    }
     chrome.once('error', (error) => { processError = error; });
     processDone = new Promise((resolveExit) => chrome.once('close', resolveExit));
-    const debugPort = await until(async () => {
-      if (processError) throw new Error('Chrome could not start. Check CHROME_PATH.', { cause: processError });
-      if (chrome.exitCode !== null) throw new Error(`Chrome exited during startup: ${browserOutput}`);
-      const contents = await readFile(join(profile, 'DevToolsActivePort'), 'utf8').catch(() => '');
-      return /^\d+(?=\r?\n)/.exec(contents)?.[0];
-    }, 'the isolated Chrome debugging port', 12000);
+    let debugPort;
+    try {
+      debugPort = await until(async () => {
+        if (processError) throw new Error(`Chrome could not start: ${processError.message}`);
+        if (chrome.exitCode !== null || chrome.signalCode !== null) {
+          throw new Error(`Chrome exited during startup (${chrome.exitCode ?? chrome.signalCode}).`);
+        }
+        const contents = await readFile(join(profile, 'DevToolsActivePort'), 'utf8').catch((error) => {
+          if (error.code !== 'ENOENT') throw error;
+          return '';
+        });
+        return validPort(/^\d{1,5}(?=\r?\n)/.exec(contents)?.[0]) ?? announcedPort;
+      }, 'the isolated Chrome debugging port', 20000);
+    } catch (error) {
+      const output = Object.entries(browserOutput)
+        .map(([stream, value]) => `${stream}: ${value.trim() || '(empty)'}`).join('\n');
+      throw new Error(`${error.message}\nChrome startup output:\n${output}`, { cause: error });
+    }
     const discovery = await fetch(`http://127.0.0.1:${debugPort}/json/list`, {
       signal: AbortSignal.timeout(5000),
     });
@@ -167,9 +193,14 @@ export async function withReferenceChrome(root, test) {
     const targets = await discovery.json();
     const target = targets.find(({ type }) => type === 'page');
     if (!target) throw new Error('Chrome did not expose a page target.');
+    const socketUrl = new URL(target.webSocketDebuggerUrl);
+    if (socketUrl.origin !== `ws://127.0.0.1:${debugPort}` ||
+        socketUrl.username || socketUrl.password || !socketUrl.pathname.startsWith('/devtools/page/')) {
+      throw new Error('Chrome did not advertise a loopback page debugger endpoint.');
+    }
     const errors = [];
     const requests = [];
-    session = await connect(target.webSocketDebuggerUrl, ({ method, params }) => {
+    session = await connect(socketUrl, ({ method, params }) => {
       if (method === 'Runtime.exceptionThrown') errors.push(params.exceptionDetails.exception?.description ?? params.exceptionDetails.text);
       if (method === 'Runtime.consoleAPICalled' && params.type === 'error') {
         errors.push(params.args.map((argument) => argument.value ?? argument.description).join(' '));
