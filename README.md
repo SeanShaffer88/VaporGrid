@@ -1,6 +1,6 @@
 # VaporGrid
 
-A dark, dense, tactile interface standard.
+A dense, tactile interface standard for dark and light workspaces.
 
 [![Validation status](https://github.com/SeanShaffer88/VaporGrid/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/SeanShaffer88/VaporGrid/actions/workflows/validate.yml) · [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Component examples](https://seanshaffer88.github.io/VaporGrid/#usage-heading) · [CC BY 4.0](LICENSE)
 
@@ -9,7 +9,17 @@ A dark, dense, tactile interface standard.
 > editors, monitoring surfaces, and workflow tools. It specifies the spacing,
 > hierarchy, and behavior needed for long sessions in high-density interfaces.
 
-**Contents** · [Why this exists](#why-this-exists) · [Visual proof](#visual-proof) · [Design decisions](#design-decisions) · [Adopt VaporGrid](#adopt-vaporgrid) · [Open questions](#open-questions)
+**Contents** · [Release](#vaporgrid-550) · [Why this exists](#why-this-exists) · [Visual proof](#visual-proof) · [Design decisions](#design-decisions) · [Adopt VaporGrid](#adopt-vaporgrid) · [Open questions](#open-questions)
+
+## VaporGrid 5.5.0
+
+The first tagged release includes dark and light token palettes, Crimson, Blue,
+and Teal presets, responsive Settings, a keyboard command palette, and compact
+workflow guidance with an interactive PortableForge reference. Download the
+Tokens ZIP for `demo/tokens.css`, canonical JSON, and the generated exports
+in `dist/`. Download the tagged source archive to run the complete demos
+locally.
+[Download v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0) · [Local demo setup](demo/README.md) · [Changelog](CHANGELOG.md)
 
 ## Why this exists
 
