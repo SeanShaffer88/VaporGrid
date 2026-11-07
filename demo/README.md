@@ -1,6 +1,6 @@
 # Workspace interaction reference
 
-A small fictional task workspace demonstrates VaporGrid revision 6 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files with the same CC BY 4.0 license as the documentation and images. [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [License](../LICENSE)
+A small fictional task workspace demonstrates VaporGrid revision 6 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files under the MIT license (documentation and images are CC BY 4.0). [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Licenses](../ATTRIBUTION.md)
 
 ## Run locally
 
