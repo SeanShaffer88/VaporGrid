@@ -4,6 +4,8 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ## Unreleased
 
+- Layout rules: "Fill, no dead space" and "Data lists are gridded" (row and column gridlines in `edge`, fixed header, selected-row bar). Guidance only; no new demo pages.
+
 Revision 6. Breaking token changes: see Changed.
 
 ### Added
@@ -18,7 +20,7 @@ Revision 6. Breaking token changes: see Changed.
 - Tests for primary action contrast, edge and grid ranges, per-preset action contrast and the new density default.
 
 - `surround` role and a Graphite preset (neutral action, selection, focus and accent) for color-critical work. The demo adds a Graphite accent option.
-- Workspace patterns: `docs/workspaces.md`, `docs/polish.md`, a `workspace` token section (modes, panels, value controls, tabular figures) and a live demo in `demo/workspaces/` with a keyboard-operable mode bar, value controls with typed entry, Shift fine steps and double-click reset, a hint bar and a color-critical toggle.
+- Workspace patterns: `docs/workspaces.md`, `docs/polish.md`, a `workspace` token section (modes, panels, value controls, tabular figures).
 - Compact density for panel headers, timelines and meters.
 - Tests for the neutral surround, the Graphite preset and workspace token sanity.
 

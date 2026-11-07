@@ -58,4 +58,3 @@ Preference migration and field validation have standard-library unit tests. Refe
 
 ## Workspace modes demo
 
-`demo/workspaces/` shows a multi-mode creative workspace: Home, Edit, Mix and Image. Open `#edit`, `#mix` or `#image` to deep link a mode. Use the arrow keys, Home and End on the mode bar, or Ctrl/⌘+1 to 4. Sliders accept Shift for fine steps and Backspace, Delete or double-click to reset. The Color-critical chrome option applies the Graphite preset. Preferences use the `vaporgrid.workspaces.*` localStorage keys, which hold only the theme, mode and the toggle.

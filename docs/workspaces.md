@@ -2,7 +2,6 @@
 
 Applies to products with several distinct jobs inside one window: video, audio and image tools, DAWs, disc and media utilities, CAD suites, dev environments. The patterns keep the same tokens and rules. [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/workspaces/).
 
-<img src="../assets/vaporgrid-workspace-edit.png" alt="Edit mode in dark: toolbar with a crimson Export action, media list, neutral preview surround, inspector with sliders and number fields, timeline with a playhead, hint bar and mode bar" width="720">
 
 *Screenshot of the running workspace demo. All names and data are fictional.*
 
@@ -66,7 +65,6 @@ Chrome tint changes color perception. For tools where color judgment matters:
 - Keep UI chrome out of the image. Do not tint overlays on the picture.
 - Provide a clean-feed or full-screen viewer mode with a visible exit and a palette command.
 
-<img src="../assets/vaporgrid-workspace-color-critical.png" alt="The same Edit mode with Graphite chrome: the Export action, selection markers, slider accents and playhead are neutral grey" width="720">
 
 ## Progress and long jobs
 
@@ -82,4 +80,3 @@ Name the job, the phase, units done and remaining, and the destination. Show rea
 
 ## Mix: a second layout
 
-<img src="../assets/vaporgrid-workspace-mix.png" alt="Mix mode in dark: step sequencer, browser list, and mixer strips with segmented meters, numeric levels and faders" width="720">

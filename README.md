@@ -50,11 +50,8 @@ is [v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0).
 
 ## Creative and multi-mode tools
 
-<p align="center">
-  <img src="assets/vaporgrid-workspace-mix.png" alt="Mix mode in dark: step sequencer, browser list, and mixer strips with segmented meters, numeric levels and faders" width="70%">
-</p>
+See [workspace patterns](docs/workspaces.md) for modes, panels, value controls, timelines and meters.
 
-*Screenshot of the [workspace demo](https://seanshaffer88.github.io/VaporGrid/demo/workspaces/).* Modes with saved layouts, panels with keyboard paths, an options bar, value controls with typed entry, timelines and step grids where the grid is functional, and a neutral Graphite preset for color-critical work. See [workspaces](docs/workspaces.md) and the [polish checklist](docs/polish.md).
 
 ## Design decisions
 
