@@ -75,7 +75,7 @@ The grid is a quiet motif that carries meaning in three places and nowhere else:
 2. **Determinate progress:** ten equal segments. Indeterminate progress uses a moving segment and stops under reduced motion.
 3. **Active-region rule:** the crimson header rule is the grid's one bright line.
 
-The grid is static and decorative. Fields, buttons, rows and state fills stay solid. The tread-plate treatment is an optional legacy dark background; see [materials](materials.md#dark-tread-plate).
+The grid is static and decorative. Fields, buttons, rows and state fills stay solid. The soft wood-grain treatment is an optional dark background; see [materials](materials.md#dark-wood-grain).
 
 ## Interaction and feedback
 
