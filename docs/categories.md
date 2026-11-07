@@ -41,6 +41,20 @@ Video, audio and image tools combine several archetypes inside one window throug
 
 A video editor is Media with an Editor-style timeline. An email client is Communication with Data-style rows. A package installer is a Wizard whose last step is Monitoring. Keep one dominant region per window, and let secondary windows pick their own archetype.
 
-## Beyond these eight
+## Adaptation matrix
 
-Games, kiosks, and touch-only appliances sit outside the standard's scope. Use the tokens and the accessibility rules, and choose density and input targets for the device.
+Choose by the product's conditions, then check each row against the archetype.
+
+| Condition | Choice |
+| --- | --- |
+| Pointer and keyboard, long sessions | Compact rows and controls, rich shortcuts, hint bar, more regions |
+| Occasional use, one task | Comfortable, a wizard or hub layout, fewer regions, larger primary action |
+| Touch first | Touch density (48 px), no hover-only controls, gestures have button equivalents |
+| Color-critical work (grading, imaging, print) | Graphite preset, neutral `surround`, no tinted chrome near the work |
+| Many windows or monitors | Panels detach and remember position. Each window keeps one active-region rule |
+| High data volume | Virtualized gridded tables, bounded viewports, saved column sets |
+| Safety or irreversible work | Preview before apply, named confirmations, undo where possible |
+
+## Beyond these
+
+Games and kiosks sit outside the standard's scope. Use the tokens and the accessibility rules, and choose density and input targets for the device.
