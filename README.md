@@ -69,6 +69,22 @@ is [v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0).
 
 Every mockup follows the same rules: regions fill their space, data lists are gridded, one crimson element per region, edges for structure, a single active-region rule per window.
 
+### Light theme
+
+<p align="center">
+  <img src="assets/mockups/vaporgrid-slideshow-light.gif" alt="Slideshow of the same eight programs in the light theme" width="90%">
+</p>
+
+*The same eight programs in the light theme, 3 seconds each. Full-size images are in [assets/mockups/light](assets/mockups/light/).*
+
+### Graphite preset for color-critical work
+
+Image and video tools use the Graphite preset so no tinted chrome sits next to the work. The primary action, selection marker and focus ring are neutral, and the viewport surround stays neutral gray.
+
+| Image editor | Video editor |
+| --- | --- |
+| [![Image editor with the Graphite preset](assets/mockups/graphite/vaporgrid-image-editor-graphite.png)](assets/mockups/graphite/vaporgrid-image-editor-graphite.png) | [![Video editor with the Graphite preset](assets/mockups/graphite/vaporgrid-video-editor-graphite.png)](assets/mockups/graphite/vaporgrid-video-editor-graphite.png) |
+
 ## Creative and multi-mode tools
 
 See [workspace patterns](docs/workspaces.md) for modes, panels, value controls, timelines and meters.
