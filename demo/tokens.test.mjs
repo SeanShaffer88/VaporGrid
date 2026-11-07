@@ -92,9 +92,9 @@ test('dark charcoal levels step 5–10% in relative luminance in both encodings'
 });
 
 test('appearance presets recolor the accent, primary action, selection and focus with usable contrast', () => {
-  const tread = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
-  const treadColors = [...tread.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1]);
-  const brightestTread = treadColors.sort((a, b) => luminance(a) - luminance(b)).at(-1);
+  const wood = readFileSync(new URL('../assets/vaporgrid-wood-grain.svg', import.meta.url), 'utf8');
+  const woodColors = [...wood.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1]);
+  const brightestWood = woodColors.sort((a, b) => luminance(a) - luminance(b)).at(-1);
   const exported = JSON.parse(readFileSync(new URL('../dist/vaporgrid.tokens.json', import.meta.url), 'utf8'));
   const roles = ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus'];
   assert.equal(tokens.appearanceAccents.default, 'crimson');
@@ -117,7 +117,7 @@ test('appearance presets recolor the accent, primary action, selection and focus
         const { selectionIndicator, focus } = declared;
         assert.ok(ratio(selectionIndicator, focus) >= tokens.contrast.focusSelectionMinimum);
         const surfaces = [palette.background, palette.surface, palette.raised, palette.selected];
-        if (theme === 'dark') surfaces.push(brightestTread);
+        if (theme === 'dark') surfaces.push(brightestWood);
         for (const surface of surfaces) {
           assert.ok(ratio(selectionIndicator, surface) >= 3, `${id} ${theme} selection on ${surface}`);
           assert.ok(ratio(focus, surface) >= 3, `${id} ${theme} focus on ${surface}`);
@@ -160,20 +160,20 @@ test('the deep crimson accent matches the brand swatch and preserves label contr
   }
 });
 
-test('dark tread plate stays faint and preserves contrast at its brightest ridge', () => {
-  const svg = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
+test('dark wood grain stays faint and preserves contrast at its brightest ridge', () => {
+  const svg = readFileSync(new URL('../assets/vaporgrid-wood-grain.svg', import.meta.url), 'utf8');
   const colors = [...svg.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1].toLowerCase());
   assert.ok(colors.includes(tokens.color.background.toLowerCase()));
-  assert.ok(new Set(colors).size >= 4, 'Expected a base, highlight, shadow and seams');
+  assert.ok(new Set(colors).size >= 4, 'Expected a base, highlight, shadow and mid tone');
   colors.sort((a, b) => luminance(a) - luminance(b));
   const brightest = colors.at(-1);
-  assert.ok(ratio(colors[0], brightest) <= 1.15, 'Tread relief is too strong');
+  assert.ok(ratio(colors[0], brightest) <= 1.15, 'Wood-grain relief is too strong');
   for (const palette of [tokens.color, tokens.colorOklch.dark]) {
     for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
-      assert.ok(ratio(palette[text], brightest) >= 4.5, `${text} on the tread ridge`);
+      assert.ok(ratio(palette[text], brightest) >= 4.5, `${text} on the brightest grain line`);
     }
     for (const indicator of ['selectionIndicator', 'focus', 'border', 'progress']) {
-      assert.ok(ratio(palette[indicator], brightest) >= 3, `${indicator} on the tread ridge`);
+      assert.ok(ratio(palette[indicator], brightest) >= 3, `${indicator} on the brightest grain line`);
     }
   }
 });

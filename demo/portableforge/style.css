@@ -9,8 +9,8 @@ body {
   font: 1rem / 1.3 var(--font-body);
   overflow-wrap: anywhere;
 }
-:root[data-theme="dark"][data-texture="tread"] body {
-  background-image: url("../../assets/vaporgrid-tread-plate.svg");
+:root[data-theme="dark"][data-texture="wood"] body {
+  background-image: url("../../assets/vaporgrid-wood-grain.svg");
 }
 [hidden] { display: none !important; }
 a { color: var(--fg); text-underline-offset: .15em; }
