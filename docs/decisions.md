@@ -35,7 +35,7 @@ Design ideas that came up while writing revision 6, and what the standard does w
 | Mosaic and overlapping layouts | Conflict with alignment, density and logical focus order |
 | Non-linear or maze navigation | Hurts predictability and learnability. Use flat navigation and the command palette |
 | Game mechanics | Not general. A product category may add them opt-in |
-| Location or social-media context | Privacy cost and no usability gain. VaporGrid is offline-friendly and tracking-free |
+| Location or social-media context | Privacy cost and no usability gain. Tessel is offline-friendly and tracking-free |
 | NLP priming or anchoring | Manipulative and unsupported. Design for clarity and consent instead |
 
 ## Lessons from professional creative tools

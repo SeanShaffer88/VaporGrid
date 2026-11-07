@@ -8,7 +8,7 @@ Body typography starts at 16 CSS pixels under default browser settings and follo
 
 ## Crimson roles
 
-<img src="../assets/vaporgrid-accent.svg" alt="Deep crimson #76172A" width="96" height="32">
+<img src="../assets/tessel-accent.svg" alt="Deep crimson #76172A" width="96" height="32">
 
 Crimson plays four separate roles. Do not use one value for all of them.
 
@@ -44,7 +44,7 @@ Keep theme and accent color as independent choices. A preset recolors the deep a
 | Teal | `#027B74` | `#37B7AF` | `#8FE4D9` | `#08645E` | `#00665F` | `#13877F` |
 | Graphite | `#6D6D74` | `#94949C` | `#DCDCE3` | `#585860` | `#585860` | `#75757D` |
 
-Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark and System and uses `Highlight` for both cues in forced colors. Native consumers keep the base dark and light palette API and apply the preset overrides for the effective theme. Store a validated preset ID and fall back to Crimson when it is missing or unknown. Alternate sRGB values are in `color.accentPresets` in the [generated DTCG JSON](../dist/vaporgrid.tokens.json) and as sRGB and OKLCH in the [source tokens](tokens.json).
+Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark and System and uses `Highlight` for both cues in forced colors. Native consumers keep the base dark and light palette API and apply the preset overrides for the effective theme. Store a validated preset ID and fall back to Crimson when it is missing or unknown. Alternate sRGB values are in `color.accentPresets` in the [generated DTCG JSON](../dist/tessel.tokens.json) and as sRGB and OKLCH in the [source tokens](tokens.json).
 
 ## Grid signature
 
@@ -62,7 +62,7 @@ The grid is a static, quiet motif that appears in three places:
 
 This is an optional texture for exposed dark workspace backgrounds. The default signature is the [grid](#grid-signature). Use a soft, low-contrast wood grain: long, gently wavy horizontal lines of uneven spacing and weight, with a few nested rings for a cathedral figure. Keep the base charcoal, and draw the grain with near-neutral values slightly warmer than the base. The pattern is static and tiles seamlessly.
 
-<img src="../assets/vaporgrid-wood-grain.svg" alt="Charcoal surface with faint, gently wavy horizontal wood-grain lines and a few nested rings" width="160" height="96">
+<img src="../assets/tessel-wood-grain.svg" alt="Charcoal surface with faint, gently wavy horizontal wood-grain lines and a few nested rings" width="160" height="96">
 
 Use the flat background in Light and forced-color modes, including when System resolves to Light. Check label, boundary, selection, and focus contrast against the brightest grain line. Apply the existing 4.5:1 normal-text and 3:1 required non-text contrast targets.
 

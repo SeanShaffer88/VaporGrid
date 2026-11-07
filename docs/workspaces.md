@@ -1,6 +1,6 @@
 # Workspaces for multi-mode and creative tools
 
-Applies to products with several distinct jobs inside one window: video, audio and image tools, DAWs, disc and media utilities, CAD suites, dev environments. The patterns keep the same tokens and rules. [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/workspaces/).
+Applies to products with several distinct jobs inside one window: video, audio and image tools, DAWs, disc and media utilities, CAD suites, dev environments. The patterns keep the same tokens and rules. [Live demo](https://seanshaffer88.github.io/Tessel/demo/workspaces/).
 
 
 *Screenshot of the running workspace demo. All names and data are fictional.*

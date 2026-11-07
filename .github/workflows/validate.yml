@@ -31,7 +31,7 @@ jobs:
       - name: Check generated token outputs are current
         run: node tools/build-tokens.mjs --check
       - name: Compile Rust token export
-        run: rustc --edition 2021 --crate-type lib dist/vaporgrid.rs -o "$RUNNER_TEMP/libvaporgrid.rlib"
+        run: rustc --edition 2021 --crate-type lib dist/tessel.rs -o "$RUNNER_TEMP/libtessel.rlib"
       - name: Check XAML exports are well-formed
         run: for f in dist/*.xaml; do python3 -c 'import sys, xml.dom.minidom as m; m.parse(sys.argv[1])' "$f"; done
       - name: Test interaction state and token contrast
@@ -43,7 +43,7 @@ jobs:
           cp -- demo/index.html demo/app.js demo/state.mjs demo/palette.mjs demo/style.css demo/tokens.css demo/palette.css demo/icons.svg _site/demo/
           cp -- demo/categories/index.html demo/categories/style.css _site/demo/categories/
           cp -- demo/portableforge/index.html demo/portableforge/app.mjs demo/portableforge/state.mjs demo/portableforge/style.css _site/demo/portableforge/
-          cp -- assets/vaporgrid-wood-grain.svg _site/assets/
+          cp -- assets/tessel-wood-grain.svg _site/assets/
           cp -- docs/tokens.json _site/docs/
           mkdir -p _site/dist && cp -- dist/* _site/dist/
       - name: Check the staged PortableForge reference in Chrome

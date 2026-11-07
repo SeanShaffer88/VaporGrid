@@ -138,7 +138,7 @@ async function connect(url, onEvent) {
 
 export async function withReferenceChrome(root, test) {
   const tempRoot = await realpath(tmpdir());
-  const prefix = 'vaporgrid-reference-';
+  const prefix = 'tessel-reference-';
   const profile = await mkdtemp(join(tempRoot, prefix));
   let server;
   let chrome;

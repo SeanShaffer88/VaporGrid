@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<title>Category layouts · VaporGrid</title>
+<title>Category layouts · Tessel</title>
 <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top"><div><strong>VaporGrid</strong> <span class="muted">/ Category layouts</span></div>
+<header class="top"><div><strong>Tessel</strong> <span class="muted">/ Category layouts</span></div>
 <label class="theme">Theme <select id="theme"><option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option></select></label></header>
 <main>
 <h1>One system, eight layouts</h1>
@@ -84,8 +84,8 @@ Finished in 0.62s · 0 warnings</pre></div></div>
 </main>
 <script>
 const sel=document.getElementById('theme');
-const set=v=>{document.documentElement.dataset.theme=v;try{localStorage.setItem('vaporgrid.categories.theme',v)}catch{}};
-try{const s=localStorage.getItem('vaporgrid.categories.theme');if(['system','dark','light'].includes(s)){sel.value=s;set(s)}}catch{}
+const set=v=>{document.documentElement.dataset.theme=v;try{localStorage.setItem('tessel.categories.theme',v)}catch{}};
+try{const s=localStorage.getItem('tessel.categories.theme');if(['system','dark','light'].includes(s)){sel.value=s;set(s)}}catch{}
 sel.addEventListener('change',()=>set(sel.value));
 </script>
 </body>

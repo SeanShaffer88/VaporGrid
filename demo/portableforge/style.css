@@ -10,7 +10,7 @@ body {
   overflow-wrap: anywhere;
 }
 :root[data-theme="dark"][data-texture="wood"] body {
-  background-image: url("../../assets/vaporgrid-wood-grain.svg");
+  background-image: url("../../assets/tessel-wood-grain.svg");
 }
 [hidden] { display: none !important; }
 a { color: var(--fg); text-underline-offset: .15em; }

@@ -7,13 +7,13 @@ How to bring the standard into a project. Take the generated token export for yo
 | Stack | File | Use |
 | --- | --- | --- |
 | Web, Tauri, Electron-free webviews | [demo/tokens.css](../demo/tokens.css) | Link it. Set `data-theme` (system, light, dark) and `data-accent` (crimson, blue, teal, graphite) on the root element. |
-| Rust (Win32, windows-sys) | [dist/vaporgrid.rs](../dist/vaporgrid.rs) | Include as a module. Palettes are `[u8; 3]`. Sizes are CSS-pixel equivalents: scale by DPI. |
-| Slint | [dist/VaporGrid.slint](../dist/VaporGrid.slint) | Import the `VaporGrid` global. Bind `dark` to the OS theme from Rust. |
-| WPF | [dist/VaporGrid.Dark.xaml](../dist/VaporGrid.Dark.xaml), [dist/VaporGrid.Light.xaml](../dist/VaporGrid.Light.xaml) | Merge one dictionary and swap it to change theme. Use `SystemColors` when `SystemParameters.HighContrast` is true. |
-| WinUI 3 | [dist/VaporGrid.xaml](../dist/VaporGrid.xaml) | Merge into `Application.Resources`. Theme dictionaries handle Light and High Contrast. |
-| WinForms | [dist/vaporgrid.tokens.json](../dist/vaporgrid.tokens.json) | Read the colors at startup and assign them to controls. Draw lists with owner-draw or a custom grid. |
-| Godot 4 | [dist/vaporgrid_tokens.gd](../dist/vaporgrid_tokens.gd) | Use the `VaporGridTokens` class to build a `Theme` resource. |
-| Anything else | [dist/vaporgrid.tokens.json](../dist/vaporgrid.tokens.json) | Design Tokens Community Group format. Convert with your tool of choice. |
+| Rust (Win32, windows-sys) | [dist/tessel.rs](../dist/tessel.rs) | Include as a module. Palettes are `[u8; 3]`. Sizes are CSS-pixel equivalents: scale by DPI. |
+| Slint | [dist/Tessel.slint](../dist/Tessel.slint) | Import the `Tessel` global. Bind `dark` to the OS theme from Rust. |
+| WPF | [dist/Tessel.Dark.xaml](../dist/Tessel.Dark.xaml), [dist/Tessel.Light.xaml](../dist/Tessel.Light.xaml) | Merge one dictionary and swap it to change theme. Use `SystemColors` when `SystemParameters.HighContrast` is true. |
+| WinUI 3 | [dist/Tessel.xaml](../dist/Tessel.xaml) | Merge into `Application.Resources`. Theme dictionaries handle Light and High Contrast. |
+| WinForms | [dist/tessel.tokens.json](../dist/tessel.tokens.json) | Read the colors at startup and assign them to controls. Draw lists with owner-draw or a custom grid. |
+| Godot 4 | [dist/tessel_tokens.gd](../dist/tessel_tokens.gd) | Use the `TesselTokens` class to build a `Theme` resource. |
+| Anything else | [dist/tessel.tokens.json](../dist/tessel.tokens.json) | Design Tokens Community Group format. Convert with your tool of choice. |
 
 ## 2. Apply in this order
 

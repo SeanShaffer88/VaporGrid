@@ -1,8 +1,8 @@
 # Category layouts
 
-VaporGrid applies to any desktop product by changing which region dominates, not by changing the system. Each archetype below keeps the same tokens, edges, one crimson element per region, and the same keyboard contract. See them live in the [category demo](https://seanshaffer88.github.io/VaporGrid/demo/categories/).
+Tessel applies to any desktop product by changing which region dominates, not by changing the system. Each archetype below keeps the same tokens, edges, one crimson element per region, and the same keyboard contract. See them live in the [category demo](https://seanshaffer88.github.io/Tessel/demo/categories/).
 
-<img src="../assets/vaporgrid-categories.png" alt="Eight VaporGrid layouts in the dark theme: data and records, editor, media, monitoring, wizard, communication, CAD, and settings" width="640">
+<img src="../assets/tessel-categories.png" alt="Eight Tessel layouts in the dark theme: data and records, editor, media, monitoring, wizard, communication, CAD, and settings" width="640">
 
 *Screenshot of the running category demo. All names and data are fictional.*
 
@@ -35,7 +35,7 @@ VaporGrid applies to any desktop product by changing which region dominates, not
 
 ## Multi-mode creative products
 
-Video, audio and image tools combine several archetypes inside one window through modes. Use the [workspace patterns](workspaces.md) for the mode bar, panels, value controls, timelines and color-critical chrome, and the [polish checklist](polish.md) as a review gate. [Live workspace demo](https://seanshaffer88.github.io/VaporGrid/demo/workspaces/).
+Video, audio and image tools combine several archetypes inside one window through modes. Use the [workspace patterns](workspaces.md) for the mode bar, panels, value controls, timelines and color-critical chrome, and the [polish checklist](polish.md) as a review gate. [Live workspace demo](https://seanshaffer88.github.io/Tessel/demo/workspaces/).
 
 ## Compound products
 

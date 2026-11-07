@@ -1,6 +1,6 @@
 # Compact workflow recipes
 
-Use these patterns for a task that starts with inputs, requires review, and ends with a result. Keep the heading, current decision, and next action together. Give each page one primary action. [Interactive PortableForge reference](https://seanshaffer88.github.io/VaporGrid/demo/portableforge/) · [Compact fit rules](design-guidelines.md#compact-fit)
+Use these patterns for a task that starts with inputs, requires review, and ends with a result. Keep the heading, current decision, and next action together. Give each page one primary action. [Interactive PortableForge reference](https://seanshaffer88.github.io/Tessel/demo/portableforge/) · [Compact fit rules](design-guidelines.md#compact-fit)
 
 ## Page layouts
 
@@ -76,4 +76,4 @@ Reserve a stable place for progress, completion, and errors. Use a polite live s
 
 The Windows wizard captures an application in a dedicated Sandboxie-Plus box, opens review after cleanup, saves an approved profile, and rebuilds a PortableApps.com installer using setup bytes that match the recorded SHA-256. The Windows Home x64 verification for the linked change used Sandboxie-Plus 1.18.8 and an owned test application. It checked box cleanup, rejection of changed setup bytes, unattended replay from byte-identical renamed setup, the generated installer hash and icons, and populated-form readability across all three text sizes. [PortableForge verification and change](https://github.com/SeanShaffer88/PortableForge/pull/4) · [Pinned Windows wizard source](https://github.com/SeanShaffer88/PortableForge/tree/8b3f91efda6e1167a62c6fbb6c3b83d81313c8bc/apps/portableforge/src/wizard)
 
-The VaporGrid browser reference is a deterministic simulation with sample paths, findings, and results. Use it to try text-size changes, long paths, review paging, and recovery from a mismatched sample setup. Real capture and installer generation run in the Windows application. [Try the browser reference](https://seanshaffer88.github.io/VaporGrid/demo/portableforge/)
+The Tessel browser reference is a deterministic simulation with sample paths, findings, and results. Use it to try text-size changes, long paths, review paging, and recovery from a mismatched sample setup. Real capture and installer generation run in the Windows application. [Try the browser reference](https://seanshaffer88.github.io/Tessel/demo/portableforge/)

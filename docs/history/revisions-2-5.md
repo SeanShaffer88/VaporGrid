@@ -68,7 +68,7 @@ Appearance applies Theme, Accent color, Density, and Decorative edge immediately
 
 For extensive settings, use a same-window full settings view with section navigation, searchable section names where warranted, headings, scoped validation, and an explicit return to work. Keep immediate preferences clearly separate from staged transactional sections. State what Apply commits, validate before committing, and retain or explicitly resolve drafts on close. For multi-field transactions, apply a validated snapshot atomically and report failures without losing the draft. Show shortcuts only for implemented bindings and describe their focus context. The reference lists native keyboard navigation, dialog Escape, and focused divider keys.
 
-Use the [mockup](../../assets/history/vaporgrid-responsive-settings.png) as direction and the [runtime checklist](../verification.md#revision-4-verification) as the verification gate. Geometry, focus, zoom, and assistive technology require actual browser evidence.
+Use the [mockup](../../assets/history/tessel-responsive-settings.png) as direction and the [runtime checklist](../verification.md#revision-4-verification) as the verification gate. Geometry, focus, zoom, and assistive technology require actual browser evidence.
 
 ## Revision 5 token and keyboard contract
 

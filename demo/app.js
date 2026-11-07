@@ -1,7 +1,7 @@
 import { defaults, readPreferences, constrainWidth, transition } from './state.mjs';
 import { installCommandPalette } from './palette.mjs';
 const $ = id => document.getElementById(id);
-const storageKey = 'vaporgrid.display.v1';
+const storageKey = 'tessel.display.v1';
 let prefs;
 try { prefs = readPreferences(localStorage.getItem(storageKey)); }
 catch { prefs = {...defaults}; $('storage-status').textContent = 'Storage unavailable; display changes last for this visit.'; }

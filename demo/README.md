@@ -1,6 +1,6 @@
 # Workspace interaction reference
 
-A small fictional task workspace demonstrates VaporGrid revision 6 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files under the MIT license (documentation and images are CC BY 4.0). [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Licenses](../ATTRIBUTION.md)
+A small fictional task workspace demonstrates Tessel revision 6 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files under the MIT license (documentation and images are CC BY 4.0). [Live demo](https://seanshaffer88.github.io/Tessel/demo/) · [Licenses](../ATTRIBUTION.md)
 
 ## Run locally
 
@@ -28,7 +28,7 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 
 ## Persistence and boundaries
 
-The `vaporgrid.display.v1` localStorage entry contains versioned theme, accent ID, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain Crimson, Appearance, and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
+The `tessel.display.v1` localStorage entry contains versioned theme, accent ID, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain Crimson, Appearance, and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
 
 The same inspector DOM moves into a native modal dialog below 901 CSS pixels. Native modal behavior provides focus containment and Escape; the script restores focus to the opening control. No service worker, PWA registration, automatic synchronization, or startup job exists.
 

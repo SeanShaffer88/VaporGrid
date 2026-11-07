@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
-  <title>Dark VaporGrid soft wood-grain swatch</title>
+  <title>Dark Tessel soft wood-grain swatch</title>
   <defs>
     <pattern id="wood" width="160" height="96" patternUnits="userSpaceOnUse">
       <path d="M0 5 C20 3.8 48 6.2 80 5 S128 3.8 160 5" fill="none" stroke="#1c1c1b" stroke-width="1.5" stroke-linecap="round"/>

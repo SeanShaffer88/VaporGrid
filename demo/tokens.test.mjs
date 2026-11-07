@@ -92,10 +92,10 @@ test('dark charcoal levels step 5–10% in relative luminance in both encodings'
 });
 
 test('appearance presets recolor the accent, primary action, selection and focus with usable contrast', () => {
-  const wood = readFileSync(new URL('../assets/vaporgrid-wood-grain.svg', import.meta.url), 'utf8');
+  const wood = readFileSync(new URL('../assets/tessel-wood-grain.svg', import.meta.url), 'utf8');
   const woodColors = [...wood.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1]);
   const brightestWood = woodColors.sort((a, b) => luminance(a) - luminance(b)).at(-1);
-  const exported = JSON.parse(readFileSync(new URL('../dist/vaporgrid.tokens.json', import.meta.url), 'utf8'));
+  const exported = JSON.parse(readFileSync(new URL('../dist/tessel.tokens.json', import.meta.url), 'utf8'));
   const roles = ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus'];
   assert.equal(tokens.appearanceAccents.default, 'crimson');
   assert.doesNotMatch(css, /\[data-accent=crimson\]/);
@@ -147,7 +147,7 @@ test('appearance presets recolor the accent, primary action, selection and focus
 });
 
 test('the deep crimson accent matches the brand swatch and preserves label contrast', () => {
-  const swatch = readFileSync(new URL('../assets/vaporgrid-accent.svg', import.meta.url), 'utf8');
+  const swatch = readFileSync(new URL('../assets/tessel-accent.svg', import.meta.url), 'utf8');
   for (const palette of [tokens.color, tokens.lightColor]) {
     assert.equal(palette.accent, '#76172A');
     assert.ok(swatch.includes(`fill="${palette.accent}"`));
@@ -161,7 +161,7 @@ test('the deep crimson accent matches the brand swatch and preserves label contr
 });
 
 test('dark wood grain stays faint and preserves contrast at its brightest ridge', () => {
-  const svg = readFileSync(new URL('../assets/vaporgrid-wood-grain.svg', import.meta.url), 'utf8');
+  const svg = readFileSync(new URL('../assets/tessel-wood-grain.svg', import.meta.url), 'utf8');
   const colors = [...svg.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1].toLowerCase());
   assert.ok(colors.includes(tokens.color.background.toLowerCase()));
   assert.ok(new Set(colors).size >= 4, 'Expected a base, highlight, shadow and mid tone');

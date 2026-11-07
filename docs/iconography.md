@@ -1,12 +1,12 @@
-# Original VaporGrid iconography
+# Original Tessel iconography
 
-Eleven original 24 × 24 action symbols use rounded geometric outlines and selective dot accents. The compositions were authored for VaporGrid by Sean Shaffer with AI assistance. No third-party glyph paths, icon packages, fonts, logos, or brand marks were copied or downloaded.
+Eleven original 24 × 24 action symbols use rounded geometric outlines and selective dot accents. The compositions were authored for Tessel by Sean Shaffer with AI assistance. No third-party glyph paths, icon packages, fonts, logos, or brand marks were copied or downloaded.
 
 The broad inspiration is the hardware minimalism and secondary dot language associated with [Nothing OS](https://nothing.tech/nothing-os). This is an aesthetic reference, not an affiliation, endorsement, compatibility claim, or use of that company's iconography. The dots never carry the only meaning.
 
 ## Source and reuse
 
-[demo/icons.svg](../demo/icons.svg) is the canonical sprite. Each `symbol` has a 24 × 24 viewBox, 1.6-unit outline, round joins, `currentColor`, and a meaningful ID: project, tasks, settings, details, play, pause, cancel, reset, check, warning, info. The [standalone sheet](../assets/vaporgrid-icon-sheet.svg) is a presentation export derived from these symbols; it embeds their definitions so GitHub can render it without external files, fonts, scripts, or foreignObject. Change the sprite first and regenerate the sheet definitions when revising a path.
+[demo/icons.svg](../demo/icons.svg) is the canonical sprite. Each `symbol` has a 24 × 24 viewBox, 1.6-unit outline, round joins, `currentColor`, and a meaningful ID: project, tasks, settings, details, play, pause, cancel, reset, check, warning, info. The [standalone sheet](../assets/tessel-icon-sheet.svg) is a presentation export derived from these symbols; it embeds their definitions so GitHub can render it without external files, fonts, scripts, or foreignObject. Change the sprite first and regenerate the sheet definitions when revising a path.
 
 ```html
 <button>

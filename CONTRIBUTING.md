@@ -1,4 +1,4 @@
-# Contributing to VaporGrid
+# Contributing to Tessel
 
 Propose focused improvements to the standard or interactive workspace. Describe the primary judgment or action the change supports and show how it fits the view. [Design guidelines](docs/design-guidelines.md) · [Component usage](docs/components.md)
 
@@ -28,4 +28,4 @@ Run `node --test` from the repository root and use `node --check` on changed scr
 
 The Validate and publish workflow runs Node checks on pull requests. A validated commit on `main` can deploy the static reference through GitHub Pages. Keep deployment paths relative to the project site and review the curated artifact when adding runtime files. [Workflow](.github/workflows/validate.yml)
 
-Edit the canonical [icon sprite](demo/icons.svg) first; update the standalone [sheet](assets/vaporgrid-icon-sheet.svg) from its definitions. Use original paths, retain visible labels/currentColor, and document inspiration without copying proprietary marks. New design changes still require a photo/image mockup shown before implementation. Vectors are CC BY 4.0. Code is MIT. New screenshots should come from the running demos, not generated images.
+Edit the canonical [icon sprite](demo/icons.svg) first; update the standalone [sheet](assets/tessel-icon-sheet.svg) from its definitions. Use original paths, retain visible labels/currentColor, and document inspiration without copying proprietary marks. New design changes still require a photo/image mockup shown before implementation. Vectors are CC BY 4.0. Code is MIT. New screenshots should come from the running demos, not generated images.

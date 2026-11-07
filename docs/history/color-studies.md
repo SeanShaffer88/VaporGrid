@@ -1,6 +1,6 @@
 # Historical color studies
 
-These measurements describe superseded palettes. They are kept as a record of how VaporGrid's color contract evolved and are **not normative**. Use the current [tokens](../tokens.json), [CSS properties](../../demo/tokens.css) and [measured palette contract](../materials.md#measured-palette-contract) instead.
+These measurements describe superseded palettes. They are kept as a record of how Tessel's color contract evolved and are **not normative**. Use the current [tokens](../tokens.json), [CSS properties](../../demo/tokens.css) and [measured palette contract](../materials.md#measured-palette-contract) instead.
 
 ## Revision 2 palette
 

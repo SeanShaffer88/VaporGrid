@@ -2,6 +2,10 @@
 
 Changes are grouped by release status. Future releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
+## Unreleased
+
+- Renamed from VaporGrid to Tessel. Token export filenames changed (`Tessel.xaml`, `tessel.rs`, `tessel.tokens.json`, `tessel_tokens.gd`, `Tessel.slint`); the CSS custom properties, token values and rules are unchanged. Earlier entries below keep the VaporGrid-era history under the new name.
+
 ## 6.0.0 · 2026-11-06
 
 - `docs/adoption.md`: which export to use per stack (web, Rust, Slint, WPF, WinUI 3, WinForms, Godot), the order to apply the rules, native Windows notes, a verification checklist and a rollout note.
@@ -11,7 +15,7 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 - Light `edge` darkened from `#BFBFC3` to `#B8B8BD` so gridlines on a selected row reach the 1.4:1 minimum.
 
 - Eight application mockups and an animated slideshow in the README, one for each program type: spreadsheet, file compare, music production, image editor, video editor, code editor, program manager and monitoring console.
-- The optional dark workspace background texture is now a soft wood grain (`assets/vaporgrid-wood-grain.svg`, texture option `wood`). It replaces the tread plate.
+- The optional dark workspace background texture is now a soft wood grain (`assets/tessel-wood-grain.svg`, texture option `wood`). It replaces the tread plate.
 
 - Layout rules: "Fill, no dead space" and "Data lists are gridded" (row and column gridlines in `edge`, fixed header, selected-row bar). Guidance only; no new demo pages.
 
@@ -55,7 +59,7 @@ Revision 6. Breaking token changes: see Changed.
 
 ## 5.5.0 · 2026-11-05
 
-First tagged VaporGrid release. It brings together the Revision 5 tokens, interaction reference, and earlier design foundations. [Release](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0)
+First tagged Tessel release. It brings together the Revision 5 tokens, interaction reference, and earlier design foundations. [Release](https://github.com/SeanShaffer88/Tessel/releases/tag/v5.5.0)
 
 ### Added
 

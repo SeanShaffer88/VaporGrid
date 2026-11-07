@@ -1,6 +1,6 @@
-# VaporGrid design guidelines · revision 6
+# Tessel design guidelines · revision 6
 
-A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Workspaces](workspaces.md) · [Polish checklist](polish.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Category demo](https://seanshaffer88.github.io/VaporGrid/demo/categories/) · [Tokens](tokens.json)
+A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Workspaces](workspaces.md) · [Polish checklist](polish.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/Tessel/demo/) · [Category demo](https://seanshaffer88.github.io/Tessel/demo/categories/) · [Tokens](tokens.json)
 
 Revisions 2–5 are kept in [history](history/revisions-2-5.md). Where they conflict with this page, this page wins.
 
@@ -81,7 +81,7 @@ The grid is static and decorative. Fields, buttons, rows and state fills stay so
 
 Provide a visible focus indicator, logical Tab order and discoverable shortcuts that follow platform conventions. Hover, focus, selection and disabled states stay distinguishable. Write the next action in plain language. Keep status and retry controls in a predictable place. Name the current operation, units and percentage when known, with Pause and Cancel where real. Report completion and failure explicitly with a recovery action. Do not fabricate progress.
 
-Context awareness means OS signals only: theme, contrast, reduced motion, text scale, pointer type. VaporGrid does not use location, activity tracking or behavioral profiling.
+Context awareness means OS signals only: theme, contrast, reduced motion, text scale, pointer type. Tessel does not use location, activity tracking or behavioral profiling.
 
 ## Accessibility
 
@@ -89,7 +89,7 @@ Target WCAG 2.2 AA: 4.5:1 normal text, 3:1 large text and required non-text indi
 
 ## Adaptation
 
-On desktop, test resizing, keyboard-only operation, text scaling, long labels and restored layouts. On touch devices, stack regions around the primary task and test on a device. Reuse the host framework's components; VaporGrid supplies tokens and rules, not a framework. [Category layouts](categories.md) show the same system in eight product types.
+On desktop, test resizing, keyboard-only operation, text scaling, long labels and restored layouts. On touch devices, stack regions around the primary task and test on a device. Reuse the host framework's components; Tessel supplies tokens and rules, not a framework. [Category layouts](categories.md) show the same system in eight product types.
 
 ## Rollout policy
 

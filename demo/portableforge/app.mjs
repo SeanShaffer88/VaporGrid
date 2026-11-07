@@ -9,7 +9,7 @@ const settings = {
   theme: ['dark', 'light'],
   texture: ['wood', 'flat'],
 };
-const settingsKey = 'vaporgrid.portableforge.display.v1';
+const settingsKey = 'tessel.portableforge.display.v1';
 let state = createState(new URLSearchParams(location.search).get('fixture'));
 let opener;
 let timer;

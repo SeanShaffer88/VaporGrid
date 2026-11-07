@@ -148,7 +148,7 @@ await withReferenceChrome(root, async ({ call, origin, errors, requests, version
   await fit('standard capture');
   await select('#theme', 'dark');
   await select('#texture', 'wood');
-  assert.match(await backgroundImage(), /vaporgrid-wood-grain\.svg/, 'dark wood-grain preset draws the texture');
+  assert.match(await backgroundImage(), /tessel-wood-grain\.svg/, 'dark wood-grain preset draws the texture');
   await select('#texture', 'flat');
   assert.equal(await backgroundImage(), 'none', 'flat preset clears the texture');
   await select('#texture', 'wood');
@@ -205,7 +205,7 @@ await withReferenceChrome(root, async ({ call, origin, errors, requests, version
   await headingAfter('#capture', '#review-count');
   await fit('standard review');
   assert.equal(await text('#review-count'), 'Finding 1 of 4');
-  await screenshot('vaporgrid-reference-review.png');
+  await screenshot('tessel-reference-review.png');
   assert.ok(await read(`${query('#review-choice')}.checked`), 'sample preference begins selected');
   await click('#review-choice');
   await click('#review-next');
@@ -249,7 +249,7 @@ await withReferenceChrome(root, async ({ call, origin, errors, requests, version
   assert.equal(await text('#result-name'), PROFILE, 'replay uses the saved profile');
   assert.ok(await focused('#step-heading'), 'result heading receives focus');
   await fit('standard result');
-  await screenshot('vaporgrid-reference-result.png');
+  await screenshot('tessel-reference-result.png');
 
   await navigate('?fixture=long');
   await click('#use-sample');
@@ -276,7 +276,7 @@ await withReferenceChrome(root, async ({ call, origin, errors, requests, version
   await click('#rebuild');
   await until(async () => /versuchen Sie es erneut/i.test(await text('#status-message') ?? ''), 'localized recovery text');
   await fit('German recovery at 150%', false);
-  await screenshot('vaporgrid-reference-long-recovery.png');
+  await screenshot('tessel-reference-long-recovery.png');
 
   assert.deepEqual(errors, [], 'browser runtime and asset errors');
   assert.deepEqual(requests.filter(({ local }) => !local), [], 'all app requests stay on loopback');
