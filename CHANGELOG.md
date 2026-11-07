@@ -4,6 +4,8 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ## Unreleased
 
+- `docs/adoption.md`: which export to use per stack (web, Rust, Slint, WPF, WinUI 3, WinForms, Godot), the order to apply the rules, native Windows notes, a verification checklist and a rollout note.
+
 - Light-theme mockup set and slideshow for all eight programs, and a Graphite-preset set for the image and video editors.
 - `fill` and `dataList` token sections, `docs/data-lists.md`, and a test that keeps them consistent with density, edge and selection tokens.
 - Light `edge` darkened from `#BFBFC3` to `#B8B8BD` so gridlines on a selected row reach the 1.4:1 minimum.
