@@ -69,6 +69,22 @@ is [v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0).
 
 Every mockup follows the same rules: regions fill their space, data lists are gridded, one crimson element per region, edges for structure, a single active-region rule per window.
 
+### Light theme
+
+<p align="center">
+  <img src="assets/mockups/vaporgrid-slideshow-light.gif" alt="Slideshow of the same eight programs in the light theme" width="90%">
+</p>
+
+*The same eight programs in the light theme, 3 seconds each. Full-size images are in [assets/mockups/light](assets/mockups/light/).*
+
+### Graphite preset for color-critical work
+
+Image and video tools use the Graphite preset so no tinted chrome sits next to the work. The primary action, selection marker and focus ring are neutral, and the viewport surround stays neutral gray.
+
+| Image editor | Video editor |
+| --- | --- |
+| [![Image editor with the Graphite preset](assets/mockups/graphite/vaporgrid-image-editor-graphite.png)](assets/mockups/graphite/vaporgrid-image-editor-graphite.png) | [![Video editor with the Graphite preset](assets/mockups/graphite/vaporgrid-video-editor-graphite.png)](assets/mockups/graphite/vaporgrid-video-editor-graphite.png) |
+
 ## Creative and multi-mode tools
 
 See [workspace patterns](docs/workspaces.md) for modes, panels, value controls, timelines and meters.
@@ -98,6 +114,7 @@ keyboard, screen-reader and reduced-motion testing in your application.
 - Start with the [quick reference](docs/quick-reference.md), then the [design guidelines](docs/design-guidelines.md) and [component usage](docs/components.md).
 - Pick a layout in [category layouts](docs/categories.md). For multi-mode creative tools, add [workspaces](docs/workspaces.md) and review against the [polish checklist](docs/polish.md).
 - Use the [CSS custom properties](demo/tokens.css) or [JSON tokens](docs/tokens.json). Choose states with the [materials guide](docs/materials.md).
+- Adopting the standard in a project: [adoption guide](docs/adoption.md).
 - Native apps: take a generated export from [`dist/`](dist/): [DTCG JSON](dist/vaporgrid.tokens.json), [WinUI 3](dist/VaporGrid.xaml), WPF [dark](dist/VaporGrid.Dark.xaml)/[light](dist/VaporGrid.Light.xaml), [Rust](dist/vaporgrid.rs), [Slint](dist/VaporGrid.slint) and [Godot](dist/vaporgrid_tokens.gd). All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`.
 - Use the [compact workflow recipes](docs/workflow-recipes.md) for forms, review paging, progress and recovery, or try the [PortableForge reference](https://seanshaffer88.github.io/VaporGrid/demo/portableforge/).
 - Run the demos with the [local setup](demo/README.md).

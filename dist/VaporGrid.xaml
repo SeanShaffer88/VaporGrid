@@ -55,7 +55,7 @@
         <Color x:Key="VgDangerColor">#9D2B1F</Color>
         <Color x:Key="VgMaterialRimColor">#FFFFFF</Color>
         <Color x:Key="VgMaterialShadeColor">#C2C2CA</Color>
-        <Color x:Key="VgEdgeColor">#BFBFC3</Color>
+        <Color x:Key="VgEdgeColor">#B8B8BD</Color>
         <Color x:Key="VgGridColor">#F2F2F5</Color>
         <Color x:Key="VgSurroundColor">#D6D6D6</Color>
       </ResourceDictionary>
