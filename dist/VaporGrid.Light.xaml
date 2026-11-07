@@ -48,8 +48,8 @@
   <SolidColorBrush x:Key="VgMaterialRimBrush" Color="#FFFFFF" />
   <Color x:Key="VgMaterialShadeColor">#C2C2CA</Color>
   <SolidColorBrush x:Key="VgMaterialShadeBrush" Color="#C2C2CA" />
-  <Color x:Key="VgEdgeColor">#BFBFC3</Color>
-  <SolidColorBrush x:Key="VgEdgeBrush" Color="#BFBFC3" />
+  <Color x:Key="VgEdgeColor">#B8B8BD</Color>
+  <SolidColorBrush x:Key="VgEdgeBrush" Color="#B8B8BD" />
   <Color x:Key="VgGridColor">#F2F2F5</Color>
   <SolidColorBrush x:Key="VgGridBrush" Color="#F2F2F5" />
   <Color x:Key="VgSurroundColor">#D6D6D6</Color>

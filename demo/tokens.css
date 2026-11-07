@@ -62,7 +62,7 @@
   --danger: #9D2B1F;
   --material-rim: #FFFFFF;
   --material-shade: #C2C2CA;
-  --edge: #BFBFC3;
+  --edge: #B8B8BD;
   --grid: #F2F2F5;
   --surround: #D6D6D6;
   color-scheme: light;
@@ -92,7 +92,7 @@
     --danger: #9D2B1F;
     --material-rim: #FFFFFF;
     --material-shade: #C2C2CA;
-    --edge: #BFBFC3;
+    --edge: #B8B8BD;
     --grid: #F2F2F5;
     --surround: #D6D6D6;
     color-scheme: light;
@@ -166,7 +166,7 @@
     --danger: oklch(0.46583353 0.15205847 29.8657);
     --material-rim: oklch(0.99999999 4e-8 89.8756);
     --material-shade: oklch(0.81646189 0.01110062 286.1513);
-    --edge: oklch(0.80584665 0.00555951 286.2743);
+    --edge: oklch(0.78410521 0.00700060 286.2372);
     --grid: oklch(0.96199996 0.00398619 286.3246);
     --surround: oklch(0.87609632 0.00000003 89.8756);
   }
@@ -194,7 +194,7 @@
       --danger: oklch(0.46583353 0.15205847 29.8657);
       --material-rim: oklch(0.99999999 4e-8 89.8756);
       --material-shade: oklch(0.81646189 0.01110062 286.1513);
-      --edge: oklch(0.80584665 0.00555951 286.2743);
+      --edge: oklch(0.78410521 0.00700060 286.2372);
       --grid: oklch(0.96199996 0.00398619 286.3246);
       --surround: oklch(0.87609632 0.00000003 89.8756);
     }

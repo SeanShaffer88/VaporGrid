@@ -277,3 +277,22 @@ test('workspace values keep targets usable and every drag has a keyboard path', 
   assert.match(panels.rule, /keyboard command/);
   assert.match(valueControls.rule, /typed-entry/);
 });
+
+test('fill and data-list rules are consistent with density, edge and selection tokens', () => {
+  const { fill, dataList, density, contrast } = tokens;
+  assert.ok(fill.maxEmptySpace >= density.compact.rowMinHeight, 'Allowed empty space is smaller than one compact row');
+  assert.ok(fill.maxEmptySpace <= density.compact.rowMinHeight + density.compact.panelPadding, 'Allowed empty space exceeds one compact row plus padding');
+  for (const need of ['primaryAction', 'recentItems', 'shortcuts']) assert.ok(fill.emptyState.includes(need), `Empty state needs ${need}`);
+  assert.equal(dataList.gridlines.rows, true);
+  assert.equal(dataList.gridlines.columns, true);
+  assert.equal(dataList.gridlines.role, 'edge');
+  assert.equal(dataList.header, 'fixed');
+  assert.equal(density.perClass[dataList.densityClass], 'compact', 'Data rows use Compact density');
+  for (const [name, palette] of [['dark', tokens.color], ['light', tokens.lightColor]]) {
+    for (const surface of ['background', 'surface', 'raised', 'selected']) {
+      assert.ok(ratio(palette.edge, palette[surface]) >= contrast.edgeMinimum, `${name} gridlines on ${surface}`);
+    }
+    assert.ok(ratio(palette[dataList.selected.bar], palette[dataList.selected.fill]) >= 3, `${name} selected bar on selected row`);
+    assert.ok(ratio(palette[dataList.selected.fill], palette.surface) > 1, `${name} selected row differs from the surface`);
+  }
+});

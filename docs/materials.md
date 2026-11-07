@@ -25,7 +25,7 @@ Use at most one crimson element per region. Do not use brand crimson for data se
 
 | Role | CSS token | Dark | Light | Application |
 | --- | --- | --- | --- | --- |
-| Edge | `--edge` | `#414144` | `#BFBFC3` | 1px compartment and table borders |
+| Edge | `--edge` | `#414144` | `#B8B8BD` | 1px compartment and table borders |
 | Control boundary | `--border` | `#92929C` | `#676772` | Fields and secondary buttons |
 | Viewport surround | `--surround` | `#262626` | `#D6D6D6` | Neutral, chroma-free surround for color-critical viewports. Text and indicators stay legible on it |
 | Grid | `--grid` | `#28282B` | `#F2F2F5` | Grid lines in empty states, canvases and progress segments |

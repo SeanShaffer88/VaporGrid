@@ -620,12 +620,12 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.74902,
-            0.74902,
-            0.764706
+            0.721569,
+            0.721569,
+            0.741176
           ],
           "alpha": 1,
-          "hex": "#bfbfc3"
+          "hex": "#b8b8bd"
         }
       },
       "grid": {
