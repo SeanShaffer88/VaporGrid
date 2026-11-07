@@ -214,6 +214,6 @@ Run `node tools/verify-reference.mjs` with an installed Chrome browser. Set `CHR
 | Text and paths | In-place text-size changes preserve inputs. A long German fixture checks wrapping, the error message, and action reachability at 150%. A 320 px viewport uses document reflow with zero horizontal overflow. |
 | Keyboard | Tab order follows the form. Task headings receive focus after navigation. The path dialog contains Tab and Shift+Tab and restores its opener after Close or Escape. |
 | Review and recovery | Choices survive paging. The attention filter exposes unresolved findings, and the save gate checks the entire review. A changed sample setup preserves the profile and selected input. The original setup succeeds on retry. |
-| Appearance and requests | Square tread is present on the dark surface, with a flat surface in Light and forced colors. The browser checks for runtime errors and requests outside the local test origin. |
+| Appearance and requests | Wood grain is present on the dark surface, with a flat surface in Light and forced colors. The browser checks for runtime errors and requests outside the local test origin. |
 
 The browser gate uses a fresh Chrome profile and sample data. Its geometry and keyboard checks cover the exercised states. Native Windows containment, cleanup, and installer compilation were verified separately in [PortableForge PR #4](https://github.com/SeanShaffer88/PortableForge/pull/4).

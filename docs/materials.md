@@ -58,22 +58,22 @@ The grid is a static, quiet motif that appears in three places:
 
 `--grid` stays within 1.04–1.3:1 of every surface. Text, selection markers, focus outlines and control boundaries drawn over it keep their normal contrast. Forced colors and reduced-motion modes remove the pattern and keep the status text.
 
-## Dark tread plate
+## Dark wood grain
 
-This is an optional legacy texture for exposed dark workspace backgrounds. The default signature is the [grid](#grid-signature). Use a subtle tread-plate finish if you choose it. Arrange equal square tiles in an aligned grid with faint seams. Set four small raised diamonds in each tile, alternating their diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.
+This is an optional texture for exposed dark workspace backgrounds. The default signature is the [grid](#grid-signature). Use a soft, low-contrast wood grain: long, gently wavy horizontal lines of uneven spacing and weight, with a few nested rings for a cathedral figure. Keep the base charcoal, and draw the grain with near-neutral values slightly warmer than the base. The pattern is static and tiles seamlessly.
 
-<img src="../assets/vaporgrid-tread-plate.svg" alt="Charcoal square grid with four alternating diagonal treads in each tile" width="160" height="96">
+<img src="../assets/vaporgrid-wood-grain.svg" alt="Charcoal surface with faint, gently wavy horizontal wood-grain lines and a few nested rings" width="160" height="96">
 
-Use the flat background in Light and forced-color modes, including when System resolves to Light. Check label, boundary, selection, and focus contrast against the brightest rendered ridge. Apply the existing 4.5:1 normal-text and 3:1 required non-text contrast targets.
+Use the flat background in Light and forced-color modes, including when System resolves to Light. Check label, boundary, selection, and focus contrast against the brightest grain line. Apply the existing 4.5:1 normal-text and 3:1 required non-text contrast targets.
 
 ### Presets
 
 | Preset | Tile geometry | Relief budget | Use |
 | --- | --- | --- | --- |
-| Square tread | 32 × 32 CSS px, 1 CSS px seam, four alternating diagonal treads | At most 1.15:1 between the brightest and darkest pixels | Exposed dark workspace backgrounds. Repeat at the same size along both axes. |
+| Wood grain | 160 × 96 CSS px seamless tile, 1 to 1.5 CSS px grain lines | At most 1.15:1 between the brightest and darkest pixels | Exposed dark workspace backgrounds. Repeat at the same size along both axes. |
 | Flat | Solid surface | 1:1 within the fill | Light and forced-color modes, dense reading surfaces, fields, and controls. Also offer it as a dark workspace preference. |
 
-The reference swatch uses `#1F1F21` for the base, `#27272A` for the lightest ridge, and `#1C1C1E` for its shadow. Keep the lightest-to-darkest contrast at or below 1.15:1. The swatch measures 1.14:1. Against the brightest ridge, the sRGB token minima are 7.49:1 for body and muted text, 8.59:1 for semantic text, 4.83:1 for the control boundary, 4.65:1 for focus, and 3.14:1 for the selection marker. Recheck rendered colors if the pattern or palette changes.
+The reference swatch uses `#1F1F21` for the base, `#262523` for the lightest grain, `#222220` for the mid tone and `#1C1C1B` for the darkest grain. The tests keep the lightest-to-darkest contrast at or below 1.15:1 and check text, boundary, focus and selection contrast against the lightest grain.
 
 ## Measured palette contract
 

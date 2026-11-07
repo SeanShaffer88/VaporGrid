@@ -147,11 +147,11 @@ await withReferenceChrome(root, async ({ call, origin, errors, requests, version
   }
   await fit('standard capture');
   await select('#theme', 'dark');
-  await select('#texture', 'tread');
-  assert.match(await backgroundImage(), /vaporgrid-tread-plate\.svg/, 'dark tread preset draws the texture');
+  await select('#texture', 'wood');
+  assert.match(await backgroundImage(), /vaporgrid-wood-grain\.svg/, 'dark wood-grain preset draws the texture');
   await select('#texture', 'flat');
   assert.equal(await backgroundImage(), 'none', 'flat preset clears the texture');
-  await select('#texture', 'tread');
+  await select('#texture', 'wood');
   await select('#theme', 'light');
   assert.equal(await backgroundImage(), 'none', 'light theme clears the texture');
   await select('#theme', 'dark');

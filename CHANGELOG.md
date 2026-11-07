@@ -4,6 +4,8 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ## Unreleased
 
+- The optional dark workspace background texture is now a soft wood grain (`assets/vaporgrid-wood-grain.svg`, texture option `wood`). It replaces the tread plate.
+
 - Layout rules: "Fill, no dead space" and "Data lists are gridded" (row and column gridlines in `edge`, fixed header, selected-row bar). Guidance only; no new demo pages.
 
 Revision 6. Breaking token changes: see Changed.

@@ -6,7 +6,7 @@ Independent review of revision 5.5.0, with what changed and the evidence. Method
 | --- | --- | --- | --- | --- |
 | 1 | Accent fill `#76172A` measured 1.51:1 on `#1F1F21`, below the 3:1 non-text target | High | New crimson `action` tokens at 3.09–3.43:1 on dark surfaces. Deep accent restricted to large tinted regions with a marker | `demo/tokens.test.mjs` |
 | 2 | Spec said neutral primary, mockups and PortableForge used crimson | High | Primary is crimson in the spec, both demos and the tokens | Demo CSS, README |
-| 3 | Vaporwave identity removed, name and look disagreed | Medium | Grid signature in empty states, progress and the active-region rule. Tread plate demoted to optional | [Materials](docs/materials.md#grid-signature) |
+| 3 | Vaporwave identity removed, name and look disagreed | Medium | Grid signature in empty states, progress and the active-region rule. Texture is optional (soft wood grain) | [Materials](docs/materials.md#grid-signature) |
 | 4 | Accent budget by coverage percentage did not measure what matters | Medium | One crimson element per region | [Guidelines](docs/design-guidelines.md) |
 | 5 | Global Comfortable density clashed with the dense pitch | Medium | Per-component density, new Per component default and row heights | Tokens, tests |
 | 6 | Elevation relied on 5–10% luminance steps | Medium | `edge` token and 1px borders at ≥1.4:1 | Tests |
