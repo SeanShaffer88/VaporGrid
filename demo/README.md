@@ -1,6 +1,6 @@
 # Workspace interaction reference
 
-A small fictional task workspace demonstrates VaporGrid revision 5 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files with the same CC BY 4.0 license as the documentation and images. [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [License](../LICENSE)
+A small fictional task workspace demonstrates VaporGrid revision 6 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files under the MIT license (documentation and images are CC BY 4.0). [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Licenses](../ATTRIBUTION.md)
 
 ## Run locally
 
@@ -16,8 +16,9 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 
 - Theme: System, Light, Dark. System follows OS color preference through CSS.
 - Accent color: Crimson, Blue, or Teal for selection markers and focus. Changes apply immediately. The preset follows the effective theme and system highlights take precedence in forced colors.
-- Density: Compact, Comfortable, Touch. Narrow windows keep controls at least 44 CSS pixels high.
 - Decorative edge: optional neutral masthead edge, off by default.
+- Density: Per component (default), Compact, Comfortable or Touch. Data rows default to Compact.
+- Grid signature: empty-state grid, ten-segment progress and the active-region rule. The [category layouts](categories/index.html) show eight product types.
 - Commands: open with the visible button or Ctrl/⌘+K from the workspace. Filter implemented actions in Search commands. Use the palette's keyboard hints, Tab, or click to select an available action. Escape closes the dialog and returns focus to the invoker.
 - Details: restore the desktop inspector or open the narrow modal drawer. Select a task to update details; on narrow screens selection opens the drawer.
 - Desktop divider: drag with pointer capture; Left expands the right inspector, Right shrinks it, Home sets 240 pixels, End sets 420. Steps are 10 pixels. Collapse and restore are always reachable.
@@ -43,7 +44,7 @@ Node's standard test runner covers hostile preference data and lifecycle invaria
 
 ## Revision 3 materials
 
-Revision 3 explored opaque matte compartments, tactile rims, and inset fields. Revision 5 refines those ideas with three OKLCH elevation levels and a neutral primary action. The task table stays flat, and crimson marks focus, selection, or a labeled destructive cue. [Current materials](../docs/materials.md) · [CSS tokens](tokens.css) · [JSON tokens](../docs/tokens.json)
+Revision 3 explored opaque matte compartments, tactile rims, and inset fields. Revision 5 refines those ideas with three OKLCH elevation levels a crimson primary action, and 1px structural edges. The task table stays flat, and crimson marks focus, selection, or a labeled destructive cue. [Current materials](../docs/materials.md) · [CSS tokens](tokens.css) · [JSON tokens](../docs/tokens.json)
 
 ## Revision 4 Settings and action layout
 
@@ -54,3 +55,6 @@ Appearance changes immediately. In Layout, edit Details width and choose Apply t
 Start simulation, Pause/Resume, and Cancel use an auto-fit Grid, stretching to fill every occupied row in source order. No filler actions are added. Distinct grouped controls retain 8px spacing with a 6px minimum. Related groups use 16px and sections use 24px. Checkbox labels and button icons are parts of composite controls. Target heights remain 32/40/48px, with at least 44px on narrow or coarse-pointer layouts. The [revision 4 rules](../docs/design-guidelines.md#responsive-controls-and-settings--revision-4) explain the same-window extensive-settings pattern and staged transactions.
 
 Preference migration and field validation have standard-library unit tests. Refer to the verification record for actual runtime coverage and outstanding checks. [Revision 4 verification](../docs/verification.md#revision-4-verification) · [Revision 5 verification](../docs/verification.md#revision-5-verification)
+
+## Workspace modes demo
+

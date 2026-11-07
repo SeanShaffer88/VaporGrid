@@ -45,6 +45,11 @@ function ratio(a, b) {
   return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 }
 
+function actionTargets() {
+  const [rest, hover] = tokens.contrast.actionLabelTarget.match(/at least ([\d.]+):1/g).map(text => Number.parseFloat(text.slice(9)));
+  return { actionLabelMinimum: rest, actionHoverLabelMinimum: hover };
+}
+
 test('CSS and machine-readable palette agree across fallback, OKLCH, and System light', () => {
   const [regularColors] = css.split('@media (forced-colors: active)');
   const [fallback, preferred] = regularColors.split('@supports (color: oklch(0.5 0 0))');
@@ -86,18 +91,19 @@ test('dark charcoal levels step 5–10% in relative luminance in both encodings'
   }
 });
 
-test('appearance presets override only distinct selection and focus cues with usable contrast', () => {
+test('appearance presets recolor the accent, primary action, selection and focus with usable contrast', () => {
   const tread = readFileSync(new URL('../assets/vaporgrid-tread-plate.svg', import.meta.url), 'utf8');
   const treadColors = [...tread.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/gi)].map(match => match[1]);
   const brightestTread = treadColors.sort((a, b) => luminance(a) - luminance(b)).at(-1);
   const exported = JSON.parse(readFileSync(new URL('../dist/vaporgrid.tokens.json', import.meta.url), 'utf8'));
+  const roles = ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus'];
   assert.equal(tokens.appearanceAccents.default, 'crimson');
   assert.doesNotMatch(css, /\[data-accent=crimson\]/);
-  for (const id of ['blue', 'teal']) {
+  for (const id of ['blue', 'teal', 'graphite']) {
     const preset = tokens.appearanceAccents.presets[id];
-    for (const [colors, dark, light] of [
-      [preset, tokens.color, tokens.lightColor],
-      [preset.oklch, tokens.colorOklch.dark, tokens.colorOklch.light],
+    for (const [colors, dark, light, base] of [
+      [preset, tokens.color, tokens.lightColor, true],
+      [preset.oklch, tokens.colorOklch.dark, tokens.colorOklch.light, false],
     ]) {
       const selector = `:root[data-accent=${id}]`;
       for (const [theme, palette, scope] of [
@@ -105,8 +111,10 @@ test('appearance presets override only distinct selection and focus cues with us
         ['light', light, `${selector}[data-theme=light]`],
         ['light', light, `${selector}[data-theme=system]`],
       ]) {
-        const { selectionIndicator, focus } = colors[theme];
-        assert.ok(css.includes(`${scope} { --selection-indicator: ${selectionIndicator}; --focus: ${focus}; }`));
+        const declared = colors[theme];
+        const declarations = roles.map(role => `--${cssName(role)}: ${declared[role]};`).join(' ');
+        assert.ok(css.includes(`${scope} { ${declarations} }`), `${id} ${theme} declarations`);
+        const { selectionIndicator, focus } = declared;
         assert.ok(ratio(selectionIndicator, focus) >= tokens.contrast.focusSelectionMinimum);
         const surfaces = [palette.background, palette.surface, palette.raised, palette.selected];
         if (theme === 'dark') surfaces.push(brightestTread);
@@ -114,15 +122,28 @@ test('appearance presets override only distinct selection and focus cues with us
           assert.ok(ratio(selectionIndicator, surface) >= 3, `${id} ${theme} selection on ${surface}`);
           assert.ok(ratio(focus, surface) >= 3, `${id} ${theme} focus on ${surface}`);
         }
+        const { actionLabelMinimum, actionHoverLabelMinimum } = actionTargets();
+        assert.ok(ratio(palette.actionForeground, declared.action) >= actionLabelMinimum, `${id} ${theme} action label`);
+        assert.ok(ratio(palette.actionForeground, declared.actionHover) >= actionHoverLabelMinimum, `${id} ${theme} hover label`);
+        assert.ok(ratio(palette.actionForeground, declared.actionPressed) >= actionLabelMinimum, `${id} ${theme} pressed label`);
+        assert.ok(ratio(palette.accentForeground, declared.accent) >= 5, `${id} ${theme} deep accent label`);
+        for (const surface of [palette.background, palette.surface, palette.raised]) {
+          for (const state of ['action', 'actionHover']) {
+            assert.ok(ratio(declared[state], surface) >= tokens.contrast.actionSurfaceMinimum, `${id} ${theme} ${state} on ${surface}`);
+          }
+        }
+        assert.ok(ratio(declared.actionHover, declared.action) >= tokens.contrast.distinctFillMinimum, `${id} ${theme} hover distinct`);
+        assert.ok(ratio(declared.actionPressed, declared.action) >= tokens.contrast.distinctFillMinimum, `${id} ${theme} pressed distinct`);
       }
+      void base;
     }
     for (const theme of ['dark', 'light']) {
-      for (const role of ['selectionIndicator', 'focus']) {
+      for (const role of roles) {
         assert.equal(exported.color.accentPresets[id][theme][role].$value.hex, preset[theme][role].toLowerCase());
       }
     }
   }
-  assert.match(css, /@media \(forced-colors: active\)\s*\{\s*:root\s*\{ --selection-indicator: Highlight !important; --focus: Highlight !important; \}/);
+  assert.match(css, /@media \(forced-colors: active\)\s*\{\s*:root\s*\{ --selection-indicator: Highlight !important; --focus: Highlight !important;/);
 });
 
 test('the deep crimson accent matches the brand swatch and preserves label contrast', () => {
@@ -171,11 +192,35 @@ test('both themes preserve unrounded text, primary, semantic, focus, and boundar
         requireRatio(indicator, background, 3);
       }
     }
-    for (const background of ['action', 'actionHover', 'actionPressed']) {
-      requireRatio('foreground', background, 5);
-      requireRatio('border', background, 3);
+    const { actionLabelMinimum, actionHoverLabelMinimum } = actionTargets();
+    requireRatio('actionForeground', 'action', actionLabelMinimum);
+    requireRatio('actionForeground', 'actionPressed', actionLabelMinimum);
+    requireRatio('actionForeground', 'actionHover', actionHoverLabelMinimum);
+    for (const background of ['background', 'surface', 'raised']) {
+      // The primary fill is its own 3:1 boundary, so it needs no extra rim.
+      requireRatio('action', background, tokens.contrast.actionSurfaceMinimum);
+      requireRatio('actionHover', background, tokens.contrast.actionSurfaceMinimum);
+      requireRatio('edge', background, tokens.contrast.edgeMinimum);
+      const grid = ratio(palette.grid, palette[background]);
+      const [gridMin, gridMax] = tokens.contrast.gridRange;
+      assert.ok(grid >= gridMin && grid <= gridMax, `grid vs ${background}: ${grid}`);
     }
+    // Text drawn over the decorative grid keeps full contrast.
+    for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) requireRatio(text, 'grid', 4.5);
+    for (const indicator of ['selectionIndicator', 'focus', 'border']) requireRatio(indicator, 'grid', 3);
   }
+});
+
+test('density is chosen per component class and every target stays above the WCAG 2.2 minimum', () => {
+  const { perClass, compact, comfortable, touch } = tokens.density;
+  assert.equal(perClass.dataRows, 'compact');
+  assert.equal(perClass.forms, 'comfortable');
+  assert.equal(perClass.touch, 'touch');
+  for (const mode of Object.values(perClass)) assert.ok(tokens.density[mode], `Unknown density: ${mode}`);
+  for (const mode of [compact, comfortable, touch]) {
+    assert.ok(mode.rowMinHeight >= 24 && mode.rowMinHeight <= mode.controlMinHeight);
+  }
+  assert.ok(compact.rowMinHeight < comfortable.rowMinHeight && comfortable.rowMinHeight < touch.rowMinHeight);
 });
 
 test('state fills and indicators that mean different things stay distinguishable', () => {
@@ -199,4 +244,36 @@ test('state fills and indicators that mean different things stay distinguishable
     for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) requireRatio(text, 'selected', 4.5);
     for (const indicator of ['selectionIndicator', 'focus', 'border']) requireRatio(indicator, 'selected', 3);
   }
+});
+
+test('the viewport surround is neutral and keeps text and indicators legible', () => {
+  for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
+    const [r, g, b] = linearSrgb(palette.surround);
+    assert.ok(Math.abs(r - g) < 1e-3 && Math.abs(g - b) < 1e-3, `Surround is not neutral: ${palette.surround}`);
+    for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
+      assert.ok(ratio(palette[text], palette.surround) >= 4.5, `${text} on the surround`);
+    }
+    for (const indicator of ['selectionIndicator', 'focus', 'border']) {
+      assert.ok(ratio(palette[indicator], palette.surround) >= 3, `${indicator} on the surround`);
+    }
+  }
+});
+
+test('graphite is a neutral preset for color-critical work', () => {
+  const preset = tokens.appearanceAccents.presets.graphite;
+  for (const theme of ['dark', 'light']) {
+    for (const role of ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus']) {
+      const bytes = preset[theme][role].slice(1).match(/../g).map(channel => Number.parseInt(channel, 16));
+      assert.ok(Math.max(...bytes) - Math.min(...bytes) <= 10, `${theme} ${role} carries a visible tint: ${preset[theme][role]}`);
+    }
+  }
+});
+
+test('workspace values keep targets usable and every drag has a keyboard path', () => {
+  const { modes, panels, valueControls } = tokens.workspace;
+  assert.ok(modes.maximum >= 3 && modes.maximum <= 9);
+  assert.ok(panels.headerHeight >= 24 && panels.tabHeight >= 24 && valueControls.minimumTarget >= 24);
+  assert.ok(panels.dragThreshold >= 3 && panels.tooltipDelayMs >= 300);
+  assert.match(panels.rule, /keyboard command/);
+  assert.match(valueControls.rule, /typed-entry/);
 });

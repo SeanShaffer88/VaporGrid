@@ -1,49 +1,66 @@
-# Revision 5 materials
+# Revision 6 materials
 
-Opaque matte compartments use three charcoal levels. The workspace background uses `--surface-1`, structural panels use `--surface-2`, and raised surfaces and row hover use `--surface-3`. Selected rows, the current navigation item and secondary control hover use `--surface-4` (`selected`), a fill that stays visible against the panel. Flat table content keeps its existing boundaries. Fine rims and shallow field insets retain the tactile treatment. [Reusable CSS tokens](../demo/tokens.css) · [Machine-readable values](tokens.json)
+Opaque matte compartments use three charcoal levels. The workspace background uses `--surface-1`, structural panels use `--surface-2`, and raised surfaces and row hover use `--surface-3`. Selected rows, the current navigation item and secondary control hover use `--surface-4` (`selected`). These levels differ by only 5–10% in luminance, so they do not carry structure. A 1px `--edge` border separates compartments and table rows. Fine rims and shallow field insets keep the tactile treatment. [Reusable CSS tokens](../demo/tokens.css) · [Machine-readable values](tokens.json)
 
-Primary actions default to a neutral solid fill and a semibold label. A lighter hover fill and a deeper pressed fill show feedback while keeping the control in place. Disabled controls use Surface, a muted label, and a dashed boundary. Focus and selection use dedicated indicators. Progress and the optional decorative edge use neutral tones. Error, warning, success, and information keep their own semantic colors and labels.
+The primary action is a crimson fill (`--action`) with a white label (`--action-foreground`). A lighter hover fill and a deeper pressed fill show feedback while keeping the control in place. The fill reaches 3:1 against every surface, so it needs no extra boundary. Secondary controls use `--raised` with a `--border`. Disabled controls use Surface, a muted label and a dashed boundary. Focus and selection use dedicated indicators. Error, warning, success and information keep their own semantic colors and labels.
 
-Body typography starts at 16 CSS pixels under default browser settings and follows user font sizing. Smaller labels and metadata retain their contrast. Grouped controls default to 8px gaps with a 6px minimum. Narrow layouts and coarse pointers use a 44 by 44px minimum for standalone interactive controls and their clickable labels. The reference keeps the 180ms drawer entrance and limits nonessential transitions to 200ms. Reduced-motion and forced-color preferences use the browser’s corresponding modes.
+Body typography starts at 16 CSS pixels under default browser settings and follows user font sizing. Smaller labels and metadata retain their contrast. Grouped controls default to 8px gaps with a 6px minimum. Narrow layouts and coarse pointers use a 44 by 44px minimum for standalone interactive controls and their clickable labels. The reference keeps the 180ms drawer entrance and limits nonessential transitions to 200ms. Reduced-motion and forced-color preferences use the browser's corresponding modes.
 
-## Deep crimson accent
+## Crimson roles
 
 <img src="../assets/vaporgrid-accent.svg" alt="Deep crimson #76172A" width="96" height="32">
 
-VaporGrid's brand and action accent fill defaults to `#76172A` in both themes and stays constant across appearance presets. Pair `accent` with `accentForeground` (`#F1F1F3`) for labels. The pairing measures 9.66:1. Provide a visible control boundary where the fill alone has insufficient contrast with its surroundings. Use `selectionIndicator` and `focus` for thin state cues, and system colors in forced-color mode.
+Crimson plays four separate roles. Do not use one value for all of them.
+
+| Role | CSS token | Dark | Light | Application |
+| --- | --- | --- | --- | --- |
+| Primary action | `--action` · `--action-hover` · `--action-pressed` | `#D02946` · `#D6304B` · `#CA2141` | `#B40234` · `#A3052F` · `#920629` | The one primary action in a view. Label in `--action-foreground` (`#FFFFFF`) |
+| Deep accent | `--accent` | `#76172A` | `#76172A` | Large tinted regions, such as a selected row band. Always with a marker and a label. Label in `--accent-foreground` measures 9.66:1 |
+| Selection | `--selection-indicator` | `#DC2749` | `#9E1534` | Marker beside the selected item and the active-region rule |
+| Focus | `--focus` | `#FF4D73` | `#D61F45` | Independent outline with a visible offset |
+
+Use at most one crimson element per region. Do not use brand crimson for data series, syntax colors or decoration.
+
+### Other roles
+
+| Role | CSS token | Dark | Light | Application |
+| --- | --- | --- | --- | --- |
+| Edge | `--edge` | `#414144` | `#BFBFC3` | 1px compartment and table borders |
+| Control boundary | `--border` | `#92929C` | `#676772` | Fields and secondary buttons |
+| Viewport surround | `--surround` | `#262626` | `#D6D6D6` | Neutral, chroma-free surround for color-critical viewports. Text and indicators stay legible on it |
+| Grid | `--grid` | `#28282B` | `#F2F2F5` | Grid lines in empty states, canvases and progress segments |
+| Error | `--danger` | `#FFB1A8` | `#9D2B1F` | A labeled error with the affected input and next action |
+| Warning | `--warning` | `#F2CD82` | `#735100` | A named warning with the required action |
+| Success | `--success` | `#8FD4AD` | `#236340` | A labeled completion or recovery result |
+| Information | `--info` | `#9FC9FF` | `#174E85` | An explanatory label or message |
 
 ### Appearance presets
 
-Keep theme and accent color as independent choices. The demo offers Crimson, Blue, and Teal. Crimson uses the base theme values. Blue and Teal update the selection marker and focus outline immediately, with distinct cues in each effective theme. Retain the selected fill, semantic colors, deep-crimson action fill, and textual or programmatic cues.
+Keep theme and accent color as independent choices. A preset recolors the deep accent, the primary action, the selection marker and the focus outline together, so a Blue or Teal product has no crimson buttons. Crimson uses the base theme values. Graphite is a neutral preset for color-critical work: its action, selection, focus and accent carry no visible tint. Semantic colors, edges and surfaces do not change.
+| Preset | Dark action | Dark selection | Dark focus | Light action | Light selection | Light focus |
+| --- | --- | --- | --- | --- | --- | --- |
+| Crimson | `#D02946` | `#DC2749` | `#FF4D73` | `#B40234` | `#9E1534` | `#D61F45` |
+| Blue | `#036DCD` | `#5FA8FF` | `#ACD1FF` | `#0059AA` | `#1558A6` | `#327AD1` |
+| Teal | `#027B74` | `#37B7AF` | `#8FE4D9` | `#08645E` | `#00665F` | `#13877F` |
+| Graphite | `#6D6D74` | `#94949C` | `#DCDCE3` | `#585860` | `#585860` | `#75757D` |
 
-| Preset | Dark selection | Dark focus | Light selection | Light focus |
-| --- | --- | --- | --- | --- |
-| Crimson | `#DC2749` | `#FF4D73` | `#9E1534` | `#D61F45` |
-| Blue | `#5FA8FF` | `#ACD1FF` | `#1558A6` | `#327AD1` |
-| Teal | `#37B7AF` | `#8FE4D9` | `#00665F` | `#13877F` |
+Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark and System and uses `Highlight` for both cues in forced colors. Native consumers keep the base dark and light palette API and apply the preset overrides for the effective theme. Store a validated preset ID and fall back to Crimson when it is missing or unknown. Alternate sRGB values are in `color.accentPresets` in the [generated DTCG JSON](../dist/vaporgrid.tokens.json) and as sRGB and OKLCH in the [source tokens](tokens.json).
 
-Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark, and System and uses `Highlight` for both cues in forced colors. Preserve an independent outline and selection marker so both remain identifiable when the system supplies the same color.
+## Grid signature
 
-Native consumers keep the base dark/light palette API and apply the two overrides from the preset map for the effective theme. Store a validated preset ID and fall back to Crimson when it is missing or unknown. Reapply the preset when the effective theme changes and defer to native highlight colors in high contrast. The base XAML, Rust, Slint, and Godot exports continue to supply the default theme palettes. Alternate sRGB values are available under `color.accentPresets` in [generated DTCG JSON](../dist/vaporgrid.tokens.json) and as sRGB and OKLCH in [source tokens](tokens.json).
+The grid is a static, quiet motif that appears in three places:
 
-### Color roles
+| Where | Spec |
+| --- | --- |
+| Empty states and canvases | 24 px square cells, 1px lines in `--grid`. Never behind text-dense content |
+| Determinate progress | Ten equal segments with a gap between them. Indeterminate progress uses a moving segment and becomes static under reduced motion |
+| Active-region rule | A 2px `--selection-indicator` line under the focused compartment's header. One per window |
 
-| Role | CSS token | Dark default sRGB | Light default sRGB | Application |
-| --- | --- | --- | --- | --- |
-| Accent fill | `--accent` | `#76172A` | `#76172A` | A deliberate brand or action fill with a visible boundary. |
-| Accent label | `--accent-foreground` | `#F1F1F3` | `#F1F1F3` | Text or a labeled icon on the accent fill. |
-| Keyboard focus | `--focus` | `#FF4D73` | `#D61F45` | An independent outline with a visible offset. Check contrast against adjacent surfaces and fills. |
-| Selection | `--selection-indicator` | `#DC2749` | `#9E1534` | A marker beside the selected item. Pair with `--selected` and expose the selected state through the control. |
-| Error | `--danger` | `#FFB1A8` | `#9D2B1F` | A labeled error with the affected input and next action. |
-| Warning | `--warning` | `#F2CD82` | `#735100` | A named warning with the required action. |
-| Success | `--success` | `#8FD4AD` | `#236340` | A labeled completion or recovery result. |
-| Information | `--info` | `#9FC9FF` | `#174E85` | An explanatory label or message. |
-
-The table shows the default Crimson cues. Use the [appearance preset](#appearance-presets) values for Blue and Teal. Check the rendered token pairing against its actual surroundings, including a selected item with keyboard focus. In forced colors, use system colors with visible text, outlines, and native state. [Generated CSS tokens](../demo/tokens.css) · [OKLCH and fallback values](tokens.json)
+`--grid` stays within 1.04–1.3:1 of every surface. Text, selection markers, focus outlines and control boundaries drawn over it keep their normal contrast. Forced colors and reduced-motion modes remove the pattern and keep the status text.
 
 ## Dark tread plate
 
-Use a subtle tread-plate finish on dark workspace backgrounds. Arrange equal square tiles in an aligned grid with faint seams. Set four small raised diamonds in each tile, alternating their diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.
+This is an optional legacy texture for exposed dark workspace backgrounds. The default signature is the [grid](#grid-signature). Use a subtle tread-plate finish if you choose it. Arrange equal square tiles in an aligned grid with faint seams. Set four small raised diamonds in each tile, alternating their diagonals. Use a faint neutral highlight and a shallow shadow against the charcoal base. Keep the pattern static and decorative, with no input or state meaning. Keep fields, buttons, table rows, and focused or selected fills solid.
 
 <img src="../assets/vaporgrid-tread-plate.svg" alt="Charcoal square grid with four alternating diagonal treads in each tile" width="160" height="96">
 
@@ -66,9 +83,11 @@ The dark Background, Surface, and Raised OKLCH lightness values are 0.240, 0.247
 | --- | ---: | ---: |
 | Body and muted labels on four surfaces | 7.32:1 | 5.89:1 |
 | Semantic labels on four surfaces | 8.39:1 | 5.30:1 |
-| Primary label in default, hover, and pressed states | 8.95:1 | 9.27:1 |
+| Primary label at rest and pressed (hover) | 5.14:1 (4.79:1) | 7.00:1 (8.02:1) |
 | Focus outline on four surrounding surfaces | 4.55:1 | 3.75:1 |
-| Control boundary across surfaces and primary states | 3.28:1 | 3.19:1 |
+| Primary fill against background, surface and raised | 3.09:1 | 5.53:1 |
+| Control boundary on surfaces | 3.28:1 | 3.19:1 |
+| Edge against background, surface and raised | 1.56:1 | 1.45:1 |
 | Selection indicator on four surfaces, including the selected fill | 3.07:1 | 5.95:1 |
 
 Fills that mean different states must also differ from each other. These are fill-to-fill ratios, so they support recognition rather than replace boundaries, markers and labels.
@@ -76,7 +95,9 @@ Fills that mean different states must also differ from each other. These are fil
 | Distinctness check | Dark | Light | Minimum |
 | --- | ---: | ---: | ---: |
 | Selected fill against Surface | 1.11:1 | 1.35:1 | 1.10:1 |
-| Primary action against Raised | 1.36:1 | 1.21:1 | 1.05:1 |
+| Primary action hover against rest | 1.07:1 | 1.15:1 | 1.05:1 |
+| Primary action pressed against rest | 1.07:1 | 1.32:1 | 1.05:1 |
+| Grid against surfaces (range) | 1.08–1.12:1 | 1.05–1.13:1 | 1.04–1.30:1 |
 | Focus against selection indicator (a focused selected item shows two cues) | 1.48:1 | 1.59:1 | 1.30:1 |
 
 Figures are rounded for display. `node --test demo/tokens.test.mjs` compares unrounded ratios in both encodings, checks CSS and JSON agreement, validates the dark surface steps, and enforces the distinctness minimums. `node tools/build-tokens.mjs --check` confirms that generated outputs match `tokens.json`. [W3C non-text contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast)

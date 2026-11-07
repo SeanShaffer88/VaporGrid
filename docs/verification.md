@@ -164,6 +164,46 @@ Browser observations supply no shell exit code. The browser engine version was n
 - The in-app browser verified all nine combinations of System, Light, and Dark with Crimson, Blue, and Teal. Light with Teal persisted across reload and a confirmed layout reset. The live System checks used the browser's current preference. System-light switching and forced-colors behavior were checked in generated source, with no live emulation run. Browser observations supply no shell exit code.
 - Twelve focused preference and token tests passed. The tests cover legacy records, invalid accent IDs, role-specific contrast in both encodings, and generated CSS and DTCG mappings. The token generator's `--check` mode, JavaScript syntax checks, and `git diff --check` exited 0.
 
+## Revision 6 verification
+
+Revision 6 keeps the WCAG 2.2 AA target. This section records what ran and what did not. Evidence labels: Verified, Partially verified, Unverified.
+
+### Local results
+
+- **Verified.** `node --test` ran 18 tests with 0 failures, including new checks for primary label contrast, 3:1 primary fill against every surface, edge and grid ranges, per-preset action and accent contrast, and the Per component density default. `node tools/build-tokens.mjs --check` reported outputs current. The Rust export compiled with `rustc --edition 2021 --crate-type lib`. All XAML exports parsed as well-formed XML. JavaScript syntax checks and a relative-link check of the Markdown files passed.
+- **Verified.** `node tools/verify-reference.mjs` against a staged site in Chrome 153 passed its compact layout, resize, keyboard, review, recovery, texture and offline checks for the PortableForge reference after its primary buttons moved to the crimson action tokens.
+- **Partially verified.** Screenshots of the reference workspace and the eight category layouts were captured in headless Chrome in the dark and light themes and inspected by eye. This shows rendering, not keyboard or assistive-technology behavior.
+
+### Measured contrast (WCAG relative luminance, unrounded in tests)
+
+| Pairing | Dark | Light |
+| --- | ---: | ---: |
+| `actionForeground` on action, hover, pressed | 5.14, 4.79, 5.52 | 7.00, 8.02, 9.21 |
+| Action and hover against background, surface, raised (minimum) | 3.09 | 5.53 |
+| Edge against background, surface, raised (minimum) | 1.56 | 1.45 |
+| Grid against surfaces | 1.08–1.12 | 1.05–1.13 |
+| Foreground and muted text on grid | 13.03, 7.39 | 14.54, 7.12 |
+| Selection indicator on grid | 3.10 | 7.20 |
+| Focus on grid | 4.59 | 4.54 |
+| Deep accent label (`accentForeground` on `accent`) | 9.66 | 9.66 |
+| Deep accent against surface | 1.48 | 10.90 |
+
+The deep accent fails 3:1 against dark surfaces on purpose. It is limited to large tinted regions and is always paired with a marker and a label.
+
+Blue and Teal preset action fills were solved to the same luminance targets as Crimson and are tested in both themes.
+
+- **Verified.** 21 Node tests passed after adding the neutral surround, the Graphite preset, per-preset contrast for Graphite and workspace token checks. The workspace demo's script passes `node --check`.
+- **Partially verified.** The workspace demo rendered in headless Chrome in all four modes and in the Graphite color-critical state. Mode switching, value-control keys and the hint bar were implemented but not exercised by an automated keyboard pass.
+
+### Unverified
+
+- Keyboard-only passes through the workspace demo's mode bar, value controls and hint bar, including Ctrl/⌘+1 to 4 and Shift fine steps.
+- Screen readers, keyboard-only passes and 200% zoom on the category demo and the revised reference workspace.
+- Protanopia, deuteranopia and tritanopia simulation of the crimson primary, selection and status cues.
+- Windows high-contrast themes against the `HighContrast` XAML mapping, and forced-colors emulation of the new grid and edge rules.
+- Reduced-motion behavior of the segmented progress and indeterminate segment.
+- Live System theme switching in the category demo.
+
 ## PortableForge workflow reference verification
 
 Run `node tools/verify-reference.mjs` with an installed Chrome browser. Set `CHROME_PATH` if Chrome is outside the default location. Pass `--root` with the staged site directory to test the files that Pages will serve. The CI job runs this check before uploading the site artifact.
