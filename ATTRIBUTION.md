@@ -71,3 +71,7 @@ The [dark wood-grain swatch](assets/vaporgrid-wood-grain.svg) and [deep crimson 
 ## PortableForge workflow reference
 
 The [browser reference](demo/portableforge/) uses original educational HTML, CSS, JavaScript, and synthetic sample data authored for VaporGrid by Sean Shaffer with AI assistance under CC BY 4.0. It reuses the VaporGrid tokens and tread-plate swatch and illustrates the [PortableForge Windows workflow](docs/workflow-recipes.md#portableforge-case-study).
+
+## Application mockups
+
+The images in [assets/mockups](assets/mockups/) are original screen mockups of fictional programs authored for VaporGrid by Sean Shaffer with AI assistance. They were built as static HTML from the VaporGrid tokens and rendered to PNG with a headless browser; the source pages are not kept in this repository. The animated slideshow is assembled from the same PNGs. All program names, files, people and data are fictional. They use the repository's CC BY 4.0 license for images.
