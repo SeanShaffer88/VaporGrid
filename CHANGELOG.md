@@ -4,7 +4,38 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ## Unreleased
 
-No changes yet.
+Revision 6. Breaking token changes: see Changed.
+
+### Added
+
+- `actionForeground`, `edge` and `grid` color roles in every encoding and export.
+- Category layouts: `docs/categories.md`, eight archetype wireframes in `demo/categories/`, and dark-theme screenshots.
+- `docs/quick-reference.md` (one page), `docs/decisions.md` (adopted, adapted and declined ideas), `AUDIT.md`, `CREDITS.md`, `DESCRIPTION.md`.
+- Signature grid motif: 24 px empty-state grid, ten-segment determinate progress and a 2px active-region rule.
+- Per-component density (`density.perClass`), row heights, and a Per component default in Settings.
+- Fit rule that exempts data containers, and guidance for modal versus inline use and hidden controls.
+- `LICENSE-CODE` (MIT) for code and generated exports.
+- Tests for primary action contrast, edge and grid ranges, per-preset action contrast and the new density default.
+
+### Changed
+
+- **Breaking:** `action`, `actionHover` and `actionPressed` are now the crimson primary fill (dark `#D02946`, `#D6304B`, `#CA2141`; light `#B40234`, `#A3052F`, `#920629`) with a white `actionForeground` label. They were neutral greys. Secondary controls use `raised` and `border`.
+- **Breaking:** appearance presets now override `accent`, `action`, `actionHover`, `actionPressed`, `selectionIndicator` and `focus`. DTCG `accentPresets` gained these roles.
+- `accent` (`#76172A`) is limited to large tinted regions with a marker.
+- Primary label contrast targets: at least 5:1 at rest and pressed, 4.5:1 on hover. The primary fill reaches 3:1 on every surface.
+- Replaced the below-5% accent coverage review with one crimson element per region.
+- Structure comes from `edge` borders. Luminance steps mark state.
+- Panels, dialogs and tables use `edge`. Controls keep `border`.
+- Density default is `auto` (per component). Stored `compact`, `comfortable` and `touch` choices still load.
+- Guidelines rewritten for revision 6. Revisions 2–5 moved to `docs/history/revisions-2-5.md`.
+- README rewritten around six rules and category coverage.
+- AI-generated mockups moved to `assets/history`. Revision 6 images are screenshots of the running demos.
+- Documentation and images stay CC BY 4.0. Code and generated exports are MIT.
+- The tread plate is an optional legacy texture. The grid is the signature.
+
+### Removed
+
+- The neutral-primary rule and the border-on-primary contrast check.
 
 ## 5.5.0 · 2026-11-05
 

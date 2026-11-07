@@ -62,3 +62,10 @@ test('settings navigation fields accept only known sections and boolean pinning'
     assert.equal(prefs.settingsPinned, false);
   }
 });
+
+test('density accepts the per-component default and keeps older stored choices', () => {
+  assert.equal(defaults.density, 'auto');
+  assert.equal(readPreferences('{"version":1,"density":"auto"}').density, 'auto');
+  assert.equal(readPreferences('{"version":1,"density":"comfortable"}').density, 'comfortable');
+  assert.equal(readPreferences('{"version":1,"density":"huge"}').density, 'auto');
+});

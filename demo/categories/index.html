@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="system" data-accent="crimson">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Category layouts · VaporGrid</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div><strong>VaporGrid</strong> <span class="muted">/ Category layouts</span></div>
+<label class="theme">Theme <select id="theme"><option value="system">System</option><option value="dark">Dark</option><option value="light">Light</option></select></label></header>
+<main>
+<h1>One system, eight layouts</h1>
+<p class="muted lead">Static wireframes built from the same tokens. Each shows one dominant region, one crimson element per region, a single active-region rule, edges between compartments, and the grid motif only where it carries meaning. All names and data are fictional.</p>
+<ol class="index"><li><a href="#data">Data &amp; records</a></li><li><a href="#editor">Editor &amp; IDE</a></li><li><a href="#media">Media &amp; creative</a></li><li><a href="#monitor">Monitoring &amp; analytics</a></li><li><a href="#utility">Utility &amp; wizard</a></li><li><a href="#comms">Communication</a></li><li><a href="#cad">CAD &amp; 3D</a></li><li><a href="#system">Settings &amp; system tools</a></li></ol>
+
+<section id="data"><h2>Data &amp; records</h2><p class="meta">Dominant: table (≈65%). Rows Compact, forms Comfortable. Crimson: Run export.</p>
+<div class="win" role="img" aria-label="Data and records layout: filter bar, dense table, details inspector, status bar">
+<div class="bar"><b>Orders</b><span class="sp"></span><span class="chip">248 records</span><span class="btn primary">Export…</span></div>
+<div class="body cols-65"><div class="reg active"><h3>Records</h3><div class="tbl"><div class="row head"><span>ID</span><span>Customer</span><span>Status</span><span>Total</span></div><div class="row sel"><span>A-1042</span><span>Northwind</span><span class="st ok">Shipped</span><span>$1,280</span></div><div class="row"><span>A-1041</span><span>Contoso</span><span class="st warn">Pending</span><span>$640</span></div><div class="row"><span>A-1040</span><span>Fabrikam</span><span class="st ok">Shipped</span><span>$2,115</span></div><div class="row"><span>A-1039</span><span>Adatum</span><span class="st bad">Failed</span><span>$90</span></div><div class="row"><span>A-1038</span><span>Litware</span><span class="st ok">Shipped</span><span>$415</span></div></div></div>
+<div class="reg"><h3>Details</h3><dl><dt>Order</dt><dd>A-1042</dd><dt>Customer</dt><dd>Northwind</dd><dt>Placed</dt><dd>2026-11-02</dd></dl><span class="btn">Open record</span></div></div>
+<div class="status">Filter: all statuses · Sorted by ID · 5 of 248 shown</div></div></section>
+
+<section id="editor"><h2>Editor &amp; IDE</h2><p class="meta">Dominant: editor (≈55%). Everything Compact. Crimson: Run. Code colors are not brand crimson.</p>
+<div class="win" role="img" aria-label="Editor layout: explorer, code editor, symbols panel, terminal, status bar">
+<div class="bar"><b>Code Editor</b><span class="sp"></span><span class="btn primary">Run F5</span><span class="btn">Build</span></div>
+<div class="body ide"><div class="reg"><h3>Explorer</h3><ul><li>src</li><li class="sel">main.rs</li><li>lib.rs</li><li>Cargo.toml</li></ul></div>
+<div class="reg active mono"><h3>main.rs</h3><pre>fn main() -&gt; Result&lt;()&gt; {
+    let name = read_line()?;
+    println!("Hello, {name}");
+    Ok(())
+}</pre></div>
+<div class="reg"><h3>Symbols</h3><ul><li>main()</li><li>read_line()</li></ul></div>
+<div class="reg term mono"><h3>Terminal</h3><pre>&gt; cargo build
+Finished in 0.62s · 0 warnings</pre></div></div>
+<div class="status">main · Ln 3, Col 14 · UTF-8 · Build succeeded</div></div></section>
+
+<section id="media"><h2>Media &amp; creative</h2><p class="meta">Dominant: canvas (≈70%). Chrome recedes. Toolbars Compact, properties Comfortable. Grid shows as the empty canvas.</p>
+<div class="win" role="img" aria-label="Media layout: tool rail, canvas with grid, properties, timeline">
+<div class="bar"><b>Studio</b><span class="sp"></span><span class="btn">Undo</span><span class="btn primary">Render</span></div>
+<div class="body media"><div class="reg rail"><h3 class="sr">Tools</h3><ul><li class="sel">Move</li><li>Crop</li><li>Text</li><li>Mask</li></ul></div>
+<div class="reg active gridfield canvas"><h3>Canvas</h3><div class="empty"><b>Drop media here</b><span class="muted">Or use Import. Supported formats are listed in Help.</span></div></div>
+<div class="reg"><h3>Properties</h3><dl><dt>Opacity</dt><dd>100%</dd><dt>Blend</dt><dd>Normal</dd></dl></div>
+<div class="reg tl"><h3>Timeline</h3><div class="track"><i style="--w:40%"></i></div><div class="track"><i style="--w:65%;--o:20%"></i></div></div></div>
+<div class="status">1920×1080 · 24 fps · Zoom 100%</div></div></section>
+
+<section id="monitor"><h2>Monitoring &amp; analytics</h2><p class="meta">Dominant: one metric or chart per view. A table alternative is required for every chart. Crimson: the single alert action.</p>
+<div class="win" role="img" aria-label="Monitoring layout: dominant metric, chart, event table">
+<div class="bar"><b>Fleet health</b><span class="sp"></span><span class="chip">Last 24 h</span><span class="btn primary">Acknowledge alert</span></div>
+<div class="body mon"><div class="reg active"><h3>Error rate</h3><p class="big">0.42%</p><p class="muted">Down from 0.61% yesterday</p><div class="spark" aria-hidden="true"></div></div>
+<div class="reg"><h3>Nodes</h3><ul><li>eu-1 <span class="st ok">Healthy</span></li><li>us-2 <span class="st warn">Degraded</span></li><li>ap-1 <span class="st ok">Healthy</span></li></ul></div>
+<div class="reg wide"><h3>Events</h3><div class="tbl"><div class="row head"><span>Time</span><span>Node</span><span>Event</span></div><div class="row"><span>14:21</span><span>us-2</span><span>Latency above limit</span></div><div class="row"><span>14:02</span><span>eu-1</span><span>Deploy completed</span></div></div></div></div>
+<div class="status">Refreshed 14:26 · Data table view available</div></div></section>
+
+<section id="utility"><h2>Utility &amp; wizard</h2><p class="meta">Dominant: the current step. Everything Comfortable. No scrollbars. Crimson: the step's one action.</p>
+<div class="win narrow" role="img" aria-label="Wizard layout: step list, single task page, progress, actions">
+<div class="bar"><b>Disk Tool</b></div>
+<div class="body wiz"><ol class="steps"><li class="done">Choose source</li><li class="cur">Review</li><li>Write</li></ol>
+<div class="reg active"><h3>Review changes</h3><p>12 files will be copied to Drive E:. Nothing is changed until you continue.</p><div class="prog" aria-hidden="true"><i style="--w:0%"></i></div><p class="muted">Ready · 0 of 12 files</p><div class="actions"><span class="btn">Back</span><span class="btn primary">Start copy</span></div></div></div>
+<div class="status">Estimated 2 min · You can cancel at any time</div></div></section>
+
+<section id="comms"><h2>Communication</h2><p class="meta">Deliberately asymmetric: narrow list, wide conversation, optional detail. Rows Compact. Crimson: Send.</p>
+<div class="win" role="img" aria-label="Communication layout: conversation list, message thread, contact details">
+<div class="bar"><b>Messages</b><span class="sp"></span><span class="btn">New</span></div>
+<div class="body comm"><div class="reg"><h3>Conversations</h3><ul><li class="sel">Avery</li><li>Morgan</li><li>Jules</li></ul></div>
+<div class="reg active"><h3>Avery</h3><p class="msg">Handoff files are ready for review.</p><p class="msg me">Thanks. Checking now.</p><div class="compose"><span class="field">Write a message</span><span class="btn primary">Send</span></div></div>
+<div class="reg"><h3>Details</h3><dl><dt>Role</dt><dd>Design</dd></dl></div></div>
+<div class="status">Connected · 3 unread</div></div></section>
+
+<section id="cad"><h2>CAD &amp; 3D</h2><p class="meta">Dominant: viewport (≈70%). The viewport may use depth cues and perspective. Chrome stays flat. Crimson: Commit.</p>
+<div class="win" role="img" aria-label="CAD layout: feature tree, 3D viewport with grid, properties, command line">
+<div class="bar"><b>Model</b><span class="sp"></span><span class="btn">Sketch</span><span class="btn primary">Commit</span></div>
+<div class="body cad"><div class="reg"><h3>Features</h3><ul><li>Base plate</li><li class="sel">Extrude 1</li><li>Fillet 1</li></ul></div>
+<div class="reg active gridfield viewport"><h3>Viewport</h3><div class="box" aria-hidden="true"></div></div>
+<div class="reg"><h3>Properties</h3><dl><dt>Depth</dt><dd>12 mm</dd><dt>Direction</dt><dd>Normal</dd></dl></div></div>
+<div class="status mono">&gt; extrude 12 · Units mm · Snap on</div></div></section>
+
+<section id="system"><h2>Settings &amp; system tools</h2><p class="meta">Dominant: the form. Section navigation at left, staged Apply/Cancel at the foot. Forms Comfortable. Crimson: Apply.</p>
+<div class="win" role="img" aria-label="Settings layout: section list, form, staged apply and cancel">
+<div class="bar"><b>Settings</b></div>
+<div class="body sys"><div class="reg"><h3>Sections</h3><ul><li class="sel">Appearance</li><li>Layout</li><li>Shortcuts</li><li>Privacy</li></ul></div>
+<div class="reg active"><h3>Appearance</h3><div class="form"><label>Theme<span class="field">System</span></label><label>Accent<span class="field">Crimson</span></label><label>Density<span class="field">Per component</span></label></div><div class="actions"><span class="btn">Cancel</span><span class="btn primary">Apply</span></div></div></div>
+<div class="status">Changes stay staged until Apply</div></div></section>
+</main>
+<script>
+const sel=document.getElementById('theme');
+const set=v=>{document.documentElement.dataset.theme=v;try{localStorage.setItem('vaporgrid.categories.theme',v)}catch{}};
+try{const s=localStorage.getItem('vaporgrid.categories.theme');if(['system','dark','light'].includes(s)){sel.value=s;set(s)}}catch{}
+sel.addEventListener('change',()=>set(sel.value));
+</script>
+</body>
+</html>

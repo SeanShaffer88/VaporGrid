@@ -32,18 +32,20 @@ button, select, input:not([type="checkbox"]), textarea {
 }
 button, select {
   min-block-size: 32px;
-  background: var(--action);
+  background: var(--raised);
 }
 button { cursor: pointer; }
-button:hover:enabled { background: var(--action-hover); }
+button:hover:enabled { background: var(--selected); }
 button:disabled { cursor: default; opacity: .65; }
 input:not([type="checkbox"]), textarea { background: var(--bg); }
 button.primary {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--action-foreground);
   font-weight: 600;
 }
-button.primary:hover:enabled { box-shadow: inset 0 0 0 1px var(--accent-foreground); }
+button.primary:hover:enabled { background: var(--action-hover); border-color: var(--action-hover); }
+button.primary:active:enabled { background: var(--action-pressed); border-color: var(--action-pressed); }
 
 .shell-header, .workspace {
   max-inline-size: 54rem;

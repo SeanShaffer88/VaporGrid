@@ -23,7 +23,7 @@ const screaming = name => name.replace(/[A-Z]/g, c => `_${c}`).toUpperCase();
 const snake = name => name.replace(/[A-Z]/g, c => `_${c.toLowerCase()}`);
 const channels = hex => hex.slice(1).match(/../g).map(c => Number.parseInt(c, 16));
 const fontStack = list => list.map(f => (/\s/.test(f) ? `'${f}'` : f)).join(', ');
-const accentRoles = ['selectionIndicator', 'focus'];
+const accentRoles = ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus'];
 const accentPresets = Object.entries(tokens.appearanceAccents.presets)
   .filter(([id]) => id !== tokens.appearanceAccents.default);
 for (const [id, preset] of accentPresets) {
@@ -94,7 +94,7 @@ function css() {
     '}',
     '',
     '@media (forced-colors: active) {',
-    '  :root { --selection-indicator: Highlight !important; --focus: Highlight !important; }',
+    '  :root { --selection-indicator: Highlight !important; --focus: Highlight !important; --grid: Canvas !important; --edge: CanvasText !important; }',
     '}',
     '',
   ].join('\n');
@@ -120,7 +120,7 @@ function dtcg() {
       compartmentGutter: dim(tokens.space.compartmentGutter),
     },
     density: Object.fromEntries(['compact', 'comfortable', 'touch'].map(mode => [mode, {
-      panelPadding: dim(d[mode].panelPadding), controlMinHeight: dim(d[mode].controlMinHeight),
+      panelPadding: dim(d[mode].panelPadding), controlMinHeight: dim(d[mode].controlMinHeight), rowMinHeight: dim(d[mode].rowMinHeight),
     }])),
     touchTarget: dim(d.touchControlMinWidth),
     font: {
@@ -144,6 +144,7 @@ const highContrast = {
   accentForeground: 'SystemColorHighlightTextColor', selectionIndicator: 'SystemColorHighlightColor',
   focus: 'SystemColorHighlightColor',
   action: 'SystemColorButtonFaceColor', actionHover: 'SystemColorButtonFaceColor', actionPressed: 'SystemColorButtonFaceColor',
+  actionForeground: 'SystemColorButtonTextColor', edge: 'SystemColorWindowTextColor', grid: 'SystemColorWindowColor',
   progress: 'SystemColorHighlightColor', info: 'SystemColorWindowTextColor', warning: 'SystemColorWindowTextColor',
   success: 'SystemColorWindowTextColor', danger: 'SystemColorWindowTextColor',
   materialRim: 'SystemColorWindowTextColor', materialShade: 'SystemColorWindowColor',
@@ -220,8 +221,8 @@ pub const SECTION_GAP: f32 = ${s.sectionGap}.0;
 pub const TOUCH_TARGET: f32 = ${d.touchControlMinWidth}.0;
 
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Density { pub panel_padding: f32, pub control_min_height: f32 }
-${['compact', 'comfortable', 'touch'].map(m => `pub const ${m.toUpperCase()}: Density = Density { panel_padding: ${d[m].panelPadding}.0, control_min_height: ${d[m].controlMinHeight}.0 };`).join('\n')}
+pub struct Density { pub panel_padding: f32, pub control_min_height: f32, pub row_min_height: f32 }
+${['compact', 'comfortable', 'touch'].map(m => `pub const ${m.toUpperCase()}: Density = Density { panel_padding: ${d[m].panelPadding}.0, control_min_height: ${d[m].controlMinHeight}.0, row_min_height: ${d[m].rowMinHeight}.0 };`).join('\n')}
 
 pub const FONT_SANS: &[&str] = &[${tokens.type.sans.map(f => JSON.stringify(f)).join(', ')}];
 pub const FONT_MONO: &[&str] = &[${tokens.type.mono.map(f => JSON.stringify(f)).join(', ')}];

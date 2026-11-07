@@ -12,7 +12,7 @@ For the maintainer's projects, plan adoption for the next planned release and sh
 
 ## Supply provenance
 
-Use material you have permission to contribute under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Record the source, creator, license, and modifications in [ATTRIBUTION.md](ATTRIBUTION.md). Identify AI-generated images and update the [generation notes](docs/image-generation-notes.md) when you add or revise them.
+Use material you have permission to contribute. Documentation and images are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code and generated exports are [MIT](LICENSE-CODE). Record the source, creator, license, and modifications in [ATTRIBUTION.md](ATTRIBUTION.md). Identify AI-generated images and update the [generation notes](docs/image-generation-notes.md) when you add or revise them.
 
 Keep local machine paths, private email addresses, credentials, temporary files, raw phone screenshots, and work logs out of the public tree.
 
@@ -28,4 +28,4 @@ Run `node --test` from the repository root and use `node --check` on changed scr
 
 The Validate and publish workflow runs Node checks on pull requests. A validated commit on `main` can deploy the static reference through GitHub Pages. Keep deployment paths relative to the project site and review the curated artifact when adding runtime files. [Workflow](.github/workflows/validate.yml)
 
-Edit the canonical [icon sprite](demo/icons.svg) first; update the standalone [sheet](assets/vaporgrid-icon-sheet.svg) from its definitions. Use original paths, retain visible labels/currentColor, and document inspiration without copying proprietary marks. New design changes still require a photo/image mockup shown before implementation. Educational code and vectors are included in the same CC BY 4.0 scope.
+Edit the canonical [icon sprite](demo/icons.svg) first; update the standalone [sheet](assets/vaporgrid-icon-sheet.svg) from its definitions. Use original paths, retain visible labels/currentColor, and document inspiration without copying proprietary marks. New design changes still require a photo/image mockup shown before implementation. Vectors are CC BY 4.0. Code is MIT. New screenshots should come from the running demos, not generated images.

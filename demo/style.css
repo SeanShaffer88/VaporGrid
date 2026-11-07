@@ -104,3 +104,25 @@ footer { column-gap:16px; row-gap:8px; }
     min-block-size:var(--touch-target);
   }
 }
+
+/* Revision 6. Crimson primary, structural edges, per-class density, and the grid signature. */
+:root { --row:1.75rem; }
+:root[data-density=compact] { --row:1.75rem; }
+:root[data-density=comfortable] { --row:2.25rem; }
+:root[data-density=touch] { --row:3rem; }
+.panel,dialog,.masthead,.navigation,#recovery-example,dl,th,td,.navigation section { border-color:var(--edge); }
+.navigation { border-right-color:var(--edge); } .masthead { border-bottom-color:var(--edge); }
+.primary { background:var(--action); color:var(--action-foreground); border-color:var(--action); box-shadow:none; }
+.primary:hover:not(:disabled) { background:var(--action-hover); border-color:var(--action-hover); }
+.primary:active:not(:disabled) { background:var(--action-pressed); border-color:var(--action-pressed); }
+.primary:disabled { background:var(--surface); color:var(--muted); border-color:var(--border); }
+/* Data rows follow their own density class. */
+td,th { padding-block:.25rem; } .task-select { min-height:var(--row); }
+/* Active region rule: one per window, on the focused compartment header. */
+.section-heading { padding-bottom:.5rem; border-bottom:2px solid transparent; }
+.panel:focus-within>.section-heading { border-bottom-color:var(--selection-indicator); }
+/* Grid motif: empty states and determinate progress only. */
+#recovery-example[data-state=empty] { background-color:var(--surface); background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px); background-size:24px 24px; background-position:-1px -1px; }
+progress { -webkit-mask-image:repeating-linear-gradient(90deg,#000 0 calc(10% - 3px),transparent calc(10% - 3px) 10%); mask-image:repeating-linear-gradient(90deg,#000 0 calc(10% - 3px),transparent calc(10% - 3px) 10%); }
+progress::-webkit-progress-bar { border-radius:0; } progress::-webkit-progress-value { border-radius:0; }
+@media(forced-colors:active) { .primary { background:ButtonFace; color:ButtonText; border:2px solid ButtonText; } .panel:focus-within>.section-heading { border-bottom-color:Highlight; } #recovery-example[data-state=empty] { background-image:none; } progress { mask-image:none; -webkit-mask-image:none; } }
