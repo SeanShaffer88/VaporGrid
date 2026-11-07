@@ -30,6 +30,7 @@ pub struct Palette {
     pub material_shade: [u8; 3],
     pub edge: [u8; 3],
     pub grid: [u8; 3],
+    pub surround: [u8; 3],
 }
 
 pub const DARK: Palette = Palette {
@@ -57,6 +58,7 @@ pub const DARK: Palette = Palette {
     material_shade: [0x11, 0x11, 0x13],
     edge: [0x41, 0x41, 0x44],
     grid: [0x28, 0x28, 0x2B],
+    surround: [0x26, 0x26, 0x26],
 };
 
 pub const LIGHT: Palette = Palette {
@@ -84,6 +86,7 @@ pub const LIGHT: Palette = Palette {
     material_shade: [0xC2, 0xC2, 0xCA],
     edge: [0xBF, 0xBF, 0xC3],
     grid: [0xF2, 0xF2, 0xF5],
+    surround: [0xD6, 0xD6, 0xD6],
 };
 
 pub const SPACE_SCALE: [f32; 6] = [4.0, 8.0, 12.0, 16.0, 24.0, 32.0];

@@ -27,6 +27,10 @@ VaporGrid applies to any desktop product by changing which region dominates, not
 | CAD & 3D | Viewport (≈70%) | Feature tree, properties, command line | Compact | Commit | The viewport may use depth, perspective and its own palette. Chrome stays flat. Provide keyboard orbit, pan and zoom |
 | Settings & system tools | The form | Section list, staged Apply/Cancel | Comfortable | Apply | Immediate and staged settings are clearly separated. Draft survives section changes. Search sections when there are many |
 
+## Multi-mode creative products
+
+Video, audio and image tools combine several archetypes inside one window through modes. Use the [workspace patterns](workspaces.md) for the mode bar, panels, value controls, timelines and color-critical chrome, and the [polish checklist](polish.md) as a review gate. [Live workspace demo](https://seanshaffer88.github.io/VaporGrid/demo/workspaces/).
+
 ## Compound products
 
 A video editor is Media with an Editor-style timeline. An email client is Communication with Data-style rows. A package installer is a Wizard whose last step is Monitoring. Keep one dominant region per window, and let secondary windows pick their own archetype.

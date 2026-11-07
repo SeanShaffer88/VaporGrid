@@ -52,6 +52,8 @@
   <SolidColorBrush x:Key="VgEdgeBrush" Color="#414144" />
   <Color x:Key="VgGridColor">#28282B</Color>
   <SolidColorBrush x:Key="VgGridBrush" Color="#28282B" />
+  <Color x:Key="VgSurroundColor">#262626</Color>
+  <SolidColorBrush x:Key="VgSurroundBrush" Color="#262626" />
   <FontFamily x:Key="VgFontSans">Segoe UI</FontFamily>
   <FontFamily x:Key="VgFontMono">Cascadia Mono</FontFamily>
   <sys:Double x:Key="VgFontSizeLabel">13</sys:Double>

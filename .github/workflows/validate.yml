@@ -38,10 +38,11 @@ jobs:
         run: node --test
       - name: Stage site files
         run: |
-          mkdir -p _site/demo/portableforge _site/demo/categories _site/docs _site/assets
+          mkdir -p _site/demo/portableforge _site/demo/categories _site/demo/workspaces _site/docs _site/assets
           cp -- index.html LICENSE _site/
           cp -- demo/index.html demo/app.js demo/state.mjs demo/palette.mjs demo/style.css demo/tokens.css demo/palette.css demo/icons.svg _site/demo/
           cp -- demo/categories/index.html demo/categories/style.css _site/demo/categories/
+          cp -- demo/workspaces/index.html demo/workspaces/style.css demo/workspaces/app.js _site/demo/workspaces/
           cp -- demo/portableforge/index.html demo/portableforge/app.mjs demo/portableforge/state.mjs demo/portableforge/style.css _site/demo/portableforge/
           cp -- assets/vaporgrid-tread-plate.svg _site/assets/
           cp -- docs/tokens.json _site/docs/

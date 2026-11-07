@@ -1,6 +1,6 @@
 # VaporGrid design guidelines · revision 6
 
-A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Category demo](https://seanshaffer88.github.io/VaporGrid/demo/categories/) · [Tokens](tokens.json)
+A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Workspaces](workspaces.md) · [Polish checklist](polish.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/VaporGrid/demo/) · [Category demo](https://seanshaffer88.github.io/VaporGrid/demo/categories/) · [Tokens](tokens.json)
 
 Revisions 2–5 are kept in [history](history/revisions-2-5.md). Where they conflict with this page, this page wins.
 
@@ -45,13 +45,17 @@ Map navigation, primary work, contextual detail, and status to explicit regions.
 - **Hidden controls.** Progressive disclosure is fine. Primary actions and commands are never hidden. A collapsed or auto-hidden region needs a visible restore control and a command-palette entry.
 - **Resizing.** Test the smallest supported size, 200% text, long localized strings, and populated, error and progress states. Reflow instead of clipping.
 
+## Modes and panels
+
+Products with several jobs use saved-layout [modes](workspaces.md#modes) (3 to 9, Ctrl/⌘+1 to 9) and [panels](workspaces.md#panels) with a keyboard path for every drag. Value controls show a number and unit, accept typed entry, and reset on double-click. Color-critical tools offer the Graphite preset and the neutral `surround` for the viewport.
+
 ## Density
 
 Density is per component class. [Tokens](tokens.json) hold the numbers.
 
 | Class | Default | Control height | Row height |
 | --- | --- | --- | --- |
-| Data rows, trees, toolbars | Compact | 32 | 28 |
+| Data rows, trees, toolbars, panel headers, timelines, meters | Compact | 32 | 28 |
 | Navigation, forms, dialogs | Comfortable | 40 | 36 |
 | Touch input | Touch | 48 | 48 |
 

@@ -10,7 +10,7 @@ export function readPreferences(raw) {
     if (!p || p.version !== 1 || Array.isArray(p)) return {...defaults};
     return {version:1,
       theme:['system','light','dark'].includes(p.theme) ? p.theme : defaults.theme,
-      accent:['crimson','blue','teal'].includes(p.accent) ? p.accent : defaults.accent,
+      accent:['crimson','blue','teal','graphite'].includes(p.accent) ? p.accent : defaults.accent,
       density:['auto','compact','comfortable','touch'].includes(p.density) ? p.density : defaults.density,
       effects:typeof p.effects === 'boolean' ? p.effects : defaults.effects,
       width:Number.isFinite(p.width) && p.width >= 240 && p.width <= 420 ? Math.round(p.width) : defaults.width,

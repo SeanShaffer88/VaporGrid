@@ -38,6 +38,28 @@ Design ideas that came up while writing revision 6, and what the standard does w
 | Location or social-media context | Privacy cost and no usability gain. VaporGrid is offline-friendly and tracking-free |
 | NLP priming or anchoring | Manipulative and unsupported. Design for clarity and consent instead |
 
+## Lessons from professional creative tools
+
+Patterns from multi-mode video, audio, image and media tools, kept only where they help long sessions and stay accessible. See [workspaces](workspaces.md).
+
+| Pattern | Decision |
+| --- | --- |
+| Mode bar with saved layouts per job | Adopted. 3 to 9 modes, Ctrl/⌘+1 to 9, structural marker, layout saved per mode |
+| Dockable, floating and tabbed panels | Adopted with a keyboard path and menu command for every drag |
+| Contextual options bar | Adopted. One place, content follows the tool |
+| Sliders, knobs and faders with typed entry | Adopted with units, fine and coarse keys, double-click reset |
+| Meters and step or timeline grids | Adopted. The grid motif is functional there. Meters carry text and `role="meter"` |
+| Hint bar describing controls | Adopted. Mirrors tooltips, never the only carrier of essential information |
+| Start page with task tiles | Adopted for real tasks only. No promotions, news or unrelated offers |
+| Neutral chrome for color work | Adopted as the Graphite preset and the neutral `surround` token |
+| Progressive complexity | Adopted. Essentials first, advanced tools behind disclosure and the palette |
+| Skeuomorphic hardware knobs and faders as chrome | Declined. Allowed as content styling in audio tools |
+| Very small controls for density | Declined. Compact keeps 28 px rows and 24 px minimum targets |
+| Drag-only docking and gestures | Declined. A keyboard path is required |
+| Loud brand colors and gradients in chrome | Declined. Content is colorful, chrome is not |
+| Modal dialogs for ordinary settings | Declined in favor of panels and drawers |
+| Unlimited modes or nested pages | Declined. Past nine modes, use groups and the command palette |
+
 ## Revision 6 changes in response to review
 
 | Finding | Change |

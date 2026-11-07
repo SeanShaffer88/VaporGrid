@@ -28,6 +28,7 @@ const DARK := {
 	"material_shade": Color(0.066667, 0.066667, 0.07451),
 	"edge": Color(0.254902, 0.254902, 0.266667),
 	"grid": Color(0.156863, 0.156863, 0.168627),
+	"surround": Color(0.14902, 0.14902, 0.14902),
 }
 const LIGHT := {
 	"background": Color(0.929412, 0.929412, 0.941176),
@@ -54,6 +55,7 @@ const LIGHT := {
 	"material_shade": Color(0.760784, 0.760784, 0.792157),
 	"edge": Color(0.74902, 0.74902, 0.764706),
 	"grid": Color(0.94902, 0.94902, 0.960784),
+	"surround": Color(0.839216, 0.839216, 0.839216),
 }
 const CONTROL_GAP := 8
 const SECTION_GAP := 24

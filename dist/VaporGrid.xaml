@@ -30,6 +30,7 @@
         <Color x:Key="VgMaterialShadeColor">#111113</Color>
         <Color x:Key="VgEdgeColor">#414144</Color>
         <Color x:Key="VgGridColor">#28282B</Color>
+        <Color x:Key="VgSurroundColor">#262626</Color>
       </ResourceDictionary>
       <ResourceDictionary x:Key="Light">
         <Color x:Key="VgBackgroundColor">#EDEDF0</Color>
@@ -56,6 +57,7 @@
         <Color x:Key="VgMaterialShadeColor">#C2C2CA</Color>
         <Color x:Key="VgEdgeColor">#BFBFC3</Color>
         <Color x:Key="VgGridColor">#F2F2F5</Color>
+        <Color x:Key="VgSurroundColor">#D6D6D6</Color>
       </ResourceDictionary>
       <ResourceDictionary x:Key="HighContrast">
         <StaticResource x:Key="VgBackgroundColor" ResourceKey="SystemColorWindowColor" />
@@ -82,6 +84,7 @@
         <StaticResource x:Key="VgMaterialShadeColor" ResourceKey="SystemColorWindowColor" />
         <StaticResource x:Key="VgEdgeColor" ResourceKey="SystemColorWindowTextColor" />
         <StaticResource x:Key="VgGridColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgSurroundColor" ResourceKey="SystemColorWindowColor" />
       </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
   <SolidColorBrush x:Key="VgBackgroundBrush" Color="{ThemeResource VgBackgroundColor}" />
@@ -108,6 +111,7 @@
   <SolidColorBrush x:Key="VgMaterialShadeBrush" Color="{ThemeResource VgMaterialShadeColor}" />
   <SolidColorBrush x:Key="VgEdgeBrush" Color="{ThemeResource VgEdgeColor}" />
   <SolidColorBrush x:Key="VgGridBrush" Color="{ThemeResource VgGridColor}" />
+  <SolidColorBrush x:Key="VgSurroundBrush" Color="{ThemeResource VgSurroundColor}" />
   <FontFamily x:Key="VgFontSans">Segoe UI</FontFamily>
   <FontFamily x:Key="VgFontMono">Cascadia Mono</FontFamily>
   <x:Double x:Key="VgFontSizeLabel">13</x:Double>

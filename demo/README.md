@@ -55,3 +55,7 @@ Appearance changes immediately. In Layout, edit Details width and choose Apply t
 Start simulation, Pause/Resume, and Cancel use an auto-fit Grid, stretching to fill every occupied row in source order. No filler actions are added. Distinct grouped controls retain 8px spacing with a 6px minimum. Related groups use 16px and sections use 24px. Checkbox labels and button icons are parts of composite controls. Target heights remain 32/40/48px, with at least 44px on narrow or coarse-pointer layouts. The [revision 4 rules](../docs/design-guidelines.md#responsive-controls-and-settings--revision-4) explain the same-window extensive-settings pattern and staged transactions.
 
 Preference migration and field validation have standard-library unit tests. Refer to the verification record for actual runtime coverage and outstanding checks. [Revision 4 verification](../docs/verification.md#revision-4-verification) · [Revision 5 verification](../docs/verification.md#revision-5-verification)
+
+## Workspace modes demo
+
+`demo/workspaces/` shows a multi-mode creative workspace: Home, Edit, Mix and Image. Open `#edit`, `#mix` or `#image` to deep link a mode. Use the arrow keys, Home and End on the mode bar, or Ctrl/⌘+1 to 4. Sliders accept Shift for fine steps and Backspace, Delete or double-click to reset. The Color-critical chrome option applies the Graphite preset. Preferences use the `vaporgrid.workspaces.*` localStorage keys, which hold only the theme, mode and the toggle.

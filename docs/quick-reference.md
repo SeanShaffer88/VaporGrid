@@ -58,6 +58,10 @@ Gaps: 6 min, 8 default, 12–16 between groups, 24 between sections.
 | Follow OS theme, contrast, motion, text size | Track location or behavior |
 | Brand crimson for chrome | Brand crimson in charts or syntax |
 
+## Multi-mode and creative tools
+
+[Workspaces](workspaces.md): modes (Ctrl/⌘+1 to 9), dockable panels with keyboard paths, an options bar, value controls with typed entry and double-click reset, a neutral viewport surround, and the Graphite preset for color work. [Polish checklist](polish.md).
+
 ## Pick a layout
 
 Data & records, Editor & IDE, Media & creative, Monitoring & analytics, Utility & wizard, Communication, CAD & 3D, Settings & system tools. [Category layouts](categories.md).

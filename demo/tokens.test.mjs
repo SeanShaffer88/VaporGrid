@@ -99,7 +99,7 @@ test('appearance presets recolor the accent, primary action, selection and focus
   const roles = ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus'];
   assert.equal(tokens.appearanceAccents.default, 'crimson');
   assert.doesNotMatch(css, /\[data-accent=crimson\]/);
-  for (const id of ['blue', 'teal']) {
+  for (const id of ['blue', 'teal', 'graphite']) {
     const preset = tokens.appearanceAccents.presets[id];
     for (const [colors, dark, light, base] of [
       [preset, tokens.color, tokens.lightColor, true],
@@ -244,4 +244,36 @@ test('state fills and indicators that mean different things stay distinguishable
     for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) requireRatio(text, 'selected', 4.5);
     for (const indicator of ['selectionIndicator', 'focus', 'border']) requireRatio(indicator, 'selected', 3);
   }
+});
+
+test('the viewport surround is neutral and keeps text and indicators legible', () => {
+  for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
+    const [r, g, b] = linearSrgb(palette.surround);
+    assert.ok(Math.abs(r - g) < 1e-3 && Math.abs(g - b) < 1e-3, `Surround is not neutral: ${palette.surround}`);
+    for (const text of ['foreground', 'muted', 'info', 'warning', 'success', 'danger']) {
+      assert.ok(ratio(palette[text], palette.surround) >= 4.5, `${text} on the surround`);
+    }
+    for (const indicator of ['selectionIndicator', 'focus', 'border']) {
+      assert.ok(ratio(palette[indicator], palette.surround) >= 3, `${indicator} on the surround`);
+    }
+  }
+});
+
+test('graphite is a neutral preset for color-critical work', () => {
+  const preset = tokens.appearanceAccents.presets.graphite;
+  for (const theme of ['dark', 'light']) {
+    for (const role of ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus']) {
+      const bytes = preset[theme][role].slice(1).match(/../g).map(channel => Number.parseInt(channel, 16));
+      assert.ok(Math.max(...bytes) - Math.min(...bytes) <= 10, `${theme} ${role} carries a visible tint: ${preset[theme][role]}`);
+    }
+  }
+});
+
+test('workspace values keep targets usable and every drag has a keyboard path', () => {
+  const { modes, panels, valueControls } = tokens.workspace;
+  assert.ok(modes.maximum >= 3 && modes.maximum <= 9);
+  assert.ok(panels.headerHeight >= 24 && panels.tabHeight >= 24 && valueControls.minimumTarget >= 24);
+  assert.ok(panels.dragThreshold >= 3 && panels.tooltipDelayMs >= 300);
+  assert.match(panels.rule, /keyboard command/);
+  assert.match(valueControls.rule, /typed-entry/);
 });

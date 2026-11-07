@@ -144,7 +144,7 @@ const highContrast = {
   accentForeground: 'SystemColorHighlightTextColor', selectionIndicator: 'SystemColorHighlightColor',
   focus: 'SystemColorHighlightColor',
   action: 'SystemColorButtonFaceColor', actionHover: 'SystemColorButtonFaceColor', actionPressed: 'SystemColorButtonFaceColor',
-  actionForeground: 'SystemColorButtonTextColor', edge: 'SystemColorWindowTextColor', grid: 'SystemColorWindowColor',
+  actionForeground: 'SystemColorButtonTextColor', surround: 'SystemColorWindowColor', edge: 'SystemColorWindowTextColor', grid: 'SystemColorWindowColor',
   progress: 'SystemColorHighlightColor', info: 'SystemColorWindowTextColor', warning: 'SystemColorWindowTextColor',
   success: 'SystemColorWindowTextColor', danger: 'SystemColorWindowTextColor',
   materialRim: 'SystemColorWindowTextColor', materialShade: 'SystemColorWindowColor',

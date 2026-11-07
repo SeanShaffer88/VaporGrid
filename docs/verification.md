@@ -192,8 +192,12 @@ The deep accent fails 3:1 against dark surfaces on purpose. It is limited to lar
 
 Blue and Teal preset action fills were solved to the same luminance targets as Crimson and are tested in both themes.
 
+- **Verified.** 21 Node tests passed after adding the neutral surround, the Graphite preset, per-preset contrast for Graphite and workspace token checks. The workspace demo's script passes `node --check`.
+- **Partially verified.** The workspace demo rendered in headless Chrome in all four modes and in the Graphite color-critical state. Mode switching, value-control keys and the hint bar were implemented but not exercised by an automated keyboard pass.
+
 ### Unverified
 
+- Keyboard-only passes through the workspace demo's mode bar, value controls and hint bar, including Ctrl/⌘+1 to 4 and Shift fine steps.
 - Screen readers, keyboard-only passes and 200% zoom on the category demo and the revised reference workspace.
 - Protanopia, deuteranopia and tritanopia simulation of the crimson primary, selection and status cues.
 - Windows high-contrast themes against the `HighContrast` XAML mapping, and forced-colors emulation of the new grid and edge rules.

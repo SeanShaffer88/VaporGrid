@@ -16,6 +16,8 @@ Independent review of revision 5.5.0, with what changed and the evidence. Method
 | 10 | CC BY applied to code and tokens | Low | MIT for code and generated exports | `LICENSE-CODE` |
 | 11 | Standard tied to one product type | Medium | Category layouts for eight archetypes and a decisions record | `docs/categories.md` |
 
+| 12 | Standard lacked patterns for multi-mode creative tools | Medium | Modes, panels, value controls, timelines, Graphite preset, polish checklist, live demo | `docs/workspaces.md`, `demo/workspaces/` |
+
 ## Not done
 
 - Protanopia and other color-vision simulation.

@@ -17,6 +17,11 @@ Revision 6. Breaking token changes: see Changed.
 - `LICENSE-CODE` (MIT) for code and generated exports.
 - Tests for primary action contrast, edge and grid ranges, per-preset action contrast and the new density default.
 
+- `surround` role and a Graphite preset (neutral action, selection, focus and accent) for color-critical work. The demo adds a Graphite accent option.
+- Workspace patterns: `docs/workspaces.md`, `docs/polish.md`, a `workspace` token section (modes, panels, value controls, tabular figures) and a live demo in `demo/workspaces/` with a keyboard-operable mode bar, value controls with typed entry, Shift fine steps and double-click reset, a hint bar and a color-critical toggle.
+- Compact density for panel headers, timelines and meters.
+- Tests for the neutral surround, the Graphite preset and workspace token sanity.
+
 ### Changed
 
 - **Breaking:** `action`, `actionHover` and `actionPressed` are now the crimson primary fill (dark `#D02946`, `#D6304B`, `#CA2141`; light `#B40234`, `#A3052F`, `#920629`) with a white `actionForeground` label. They were neutral greys. Secondary controls use `raised` and `border`.

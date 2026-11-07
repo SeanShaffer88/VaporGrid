@@ -27,6 +27,7 @@ Use at most one crimson element per region. Do not use brand crimson for data se
 | --- | --- | --- | --- | --- |
 | Edge | `--edge` | `#414144` | `#BFBFC3` | 1px compartment and table borders |
 | Control boundary | `--border` | `#92929C` | `#676772` | Fields and secondary buttons |
+| Viewport surround | `--surround` | `#262626` | `#D6D6D6` | Neutral, chroma-free surround for color-critical viewports. Text and indicators stay legible on it |
 | Grid | `--grid` | `#28282B` | `#F2F2F5` | Grid lines in empty states, canvases and progress segments |
 | Error | `--danger` | `#FFB1A8` | `#9D2B1F` | A labeled error with the affected input and next action |
 | Warning | `--warning` | `#F2CD82` | `#735100` | A named warning with the required action |
@@ -35,12 +36,13 @@ Use at most one crimson element per region. Do not use brand crimson for data se
 
 ### Appearance presets
 
-Keep theme and accent color as independent choices. A preset recolors the deep accent, the primary action, the selection marker and the focus outline together, so a Blue or Teal product has no crimson buttons. Crimson uses the base theme values. Semantic colors, edges and surfaces do not change.
+Keep theme and accent color as independent choices. A preset recolors the deep accent, the primary action, the selection marker and the focus outline together, so a Blue or Teal product has no crimson buttons. Crimson uses the base theme values. Graphite is a neutral preset for color-critical work: its action, selection, focus and accent carry no visible tint. Semantic colors, edges and surfaces do not change.
 | Preset | Dark action | Dark selection | Dark focus | Light action | Light selection | Light focus |
 | --- | --- | --- | --- | --- | --- | --- |
 | Crimson | `#D02946` | `#DC2749` | `#FF4D73` | `#B40234` | `#9E1534` | `#D61F45` |
 | Blue | `#036DCD` | `#5FA8FF` | `#ACD1FF` | `#0059AA` | `#1558A6` | `#327AD1` |
 | Teal | `#027B74` | `#37B7AF` | `#8FE4D9` | `#08645E` | `#00665F` | `#13877F` |
+| Graphite | `#6D6D74` | `#94949C` | `#DCDCE3` | `#585860` | `#585860` | `#75757D` |
 
 Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark and System and uses `Highlight` for both cues in forced colors. Native consumers keep the base dark and light palette API and apply the preset overrides for the effective theme. Store a validated preset ID and fall back to Crimson when it is missing or unknown. Alternate sRGB values are in `color.accentPresets` in the [generated DTCG JSON](../dist/vaporgrid.tokens.json) and as sRGB and OKLCH in the [source tokens](tokens.json).
 

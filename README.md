@@ -48,6 +48,14 @@ is [v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0).
 
 *Screenshot of the [category demo](https://seanshaffer88.github.io/VaporGrid/demo/categories/).* The same tokens and rules cover data and records, editors, media, monitoring, wizards, communication, CAD and system tools. Only the dominant region changes. See [category layouts](docs/categories.md).
 
+## Creative and multi-mode tools
+
+<p align="center">
+  <img src="assets/vaporgrid-workspace-mix.png" alt="Mix mode in dark: step sequencer, browser list, and mixer strips with segmented meters, numeric levels and faders" width="70%">
+</p>
+
+*Screenshot of the [workspace demo](https://seanshaffer88.github.io/VaporGrid/demo/workspaces/).* Modes with saved layouts, panels with keyboard paths, an options bar, value controls with typed entry, timelines and step grids where the grid is functional, and a neutral Graphite preset for color-critical work. See [workspaces](docs/workspaces.md) and the [polish checklist](docs/polish.md).
+
 ## Design decisions
 
 | Principle | Decision |
@@ -58,7 +66,7 @@ is [v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0).
 | Crimson is scarce | Primary action `#D02946` (dark) with a white label, 3:1 on every surface. Deep `#76172A` only for large tinted regions with a marker. [Crimson roles](docs/materials.md#crimson-roles) |
 | Edges carry structure | Three charcoal levels differ by 5–10% luminance and mark state. A 1px `edge` separates compartments |
 | The grid has a job | A 24 px grid in empty states and canvases, ten-segment progress, and a 2px active-region rule. [Grid signature](docs/materials.md#grid-signature) |
-| Presets recolor the whole accent | Crimson, Blue and Teal change the primary action, selection, focus and deep accent together |
+| Presets recolor the whole accent | Crimson, Blue, Teal and the neutral Graphite change the primary action, selection, focus and deep accent together |
 | Keyboard access starts at the surface | Logical Tab order, visible focus, Commands on Ctrl/⌘+K |
 
 VaporGrid targets [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including 4.5:1
@@ -70,7 +78,7 @@ keyboard, screen-reader and reduced-motion testing in your application.
 ## Adopt VaporGrid
 
 - Start with the [quick reference](docs/quick-reference.md), then the [design guidelines](docs/design-guidelines.md) and [component usage](docs/components.md).
-- Pick a layout in [category layouts](docs/categories.md).
+- Pick a layout in [category layouts](docs/categories.md). For multi-mode creative tools, add [workspaces](docs/workspaces.md) and review against the [polish checklist](docs/polish.md).
 - Use the [CSS custom properties](demo/tokens.css) or [JSON tokens](docs/tokens.json). Choose states with the [materials guide](docs/materials.md).
 - Native apps: take a generated export from [`dist/`](dist/): [DTCG JSON](dist/vaporgrid.tokens.json), [WinUI 3](dist/VaporGrid.xaml), WPF [dark](dist/VaporGrid.Dark.xaml)/[light](dist/VaporGrid.Light.xaml), [Rust](dist/vaporgrid.rs), [Slint](dist/VaporGrid.slint) and [Godot](dist/vaporgrid_tokens.gd). All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`.
 - Use the [compact workflow recipes](docs/workflow-recipes.md) for forms, review paging, progress and recovery, or try the [PortableForge reference](https://seanshaffer88.github.io/VaporGrid/demo/portableforge/).
