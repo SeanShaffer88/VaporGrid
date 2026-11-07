@@ -2,7 +2,7 @@
 
 Changes are grouped by release status. Future releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
-## Unreleased
+## 6.0.0 · 2026-11-06
 
 - `docs/adoption.md`: which export to use per stack (web, Rust, Slint, WPF, WinUI 3, WinForms, Godot), the order to apply the rules, native Windows notes, a verification checklist and a rollout note.
 
