@@ -4,6 +4,8 @@ Changes are grouped by release status. Future releases use [Semantic Versioning]
 
 ## Unreleased
 
+- Eight application mockups and an animated slideshow in the README, one for each program type: spreadsheet, file compare, music production, image editor, video editor, code editor, program manager and monitoring console.
+
 - Layout rules: "Fill, no dead space" and "Data lists are gridded" (row and column gridlines in `edge`, fixed header, selected-row bar). Guidance only; no new demo pages.
 
 Revision 6. Breaking token changes: see Changed.

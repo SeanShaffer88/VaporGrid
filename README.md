@@ -48,6 +48,27 @@ is [v5.5.0](https://github.com/SeanShaffer88/VaporGrid/releases/tag/v5.5.0).
 
 *Screenshot of the [category demo](https://seanshaffer88.github.io/VaporGrid/demo/categories/).* The same tokens and rules cover data and records, editors, media, monitoring, wizards, communication, CAD and system tools. Only the dominant region changes. See [category layouts](docs/categories.md).
 
+## Applied to different programs
+
+<p align="center">
+  <img src="assets/mockups/vaporgrid-slideshow.gif" alt="Slideshow of eight dark-theme VaporGrid mockups: a spreadsheet, a file and folder compare tool, a music production suite, an image editor, a video editor, a code editor, an installed-programs manager and a monitoring console" width="90%">
+</p>
+
+*Slideshow of the mockups below, 3 seconds each. Click any entry to open its full-size image. All programs, names and data are fictional.*
+
+| Program type | What the design does | Mockup |
+| --- | --- | --- |
+| Spreadsheet | Dominant grid with row and column gridlines, frozen headers, tabular figures, formula bar, one crimson Save | [View](assets/mockups/vaporgrid-spreadsheet.png) |
+| File and folder compare | Two synchronized panes, a state list, a differences table, markers that do not rely on color alone, one crimson Merge | [View](assets/mockups/vaporgrid-file-compare.png) |
+| Music production | Browser, arrangement with clips, mixer with segmented meters, value controls, one crimson Record | [View](assets/mockups/vaporgrid-music-production.png) |
+| Image editor | Neutral viewport around the canvas, tool rail, layers, adjustments, history, one crimson Export | [View](assets/mockups/vaporgrid-image-editor.png) |
+| Video editor | Media bin, preview, inspector, multi-track timeline with a playhead, one crimson Export | [View](assets/mockups/vaporgrid-video-editor.png) |
+| Code editor | Explorer, editor, symbols, problems table and terminal, status with icon and text, one crimson Run | [View](assets/mockups/vaporgrid-code-editor.png) |
+| Program manager | Gridded list of installed programs, filters, details, one crimson Uninstall | [View](assets/mockups/vaporgrid-program-manager.png) |
+| Monitoring console | Metric tiles, a chart with a table alternative, events, a node table, one crimson Acknowledge | [View](assets/mockups/vaporgrid-monitoring.png) |
+
+Every mockup follows the same rules: regions fill their space, data lists are gridded, one crimson element per region, edges for structure, a single active-region rule per window.
+
 ## Creative and multi-mode tools
 
 See [workspace patterns](docs/workspaces.md) for modes, panels, value controls, timelines and meters.
